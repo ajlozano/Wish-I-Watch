@@ -58,16 +58,40 @@
 		AD95BD7E299A542C0042C63E /* Wish-I-Watch */ = {
 			isa = PBXGroup;
 			children = (
+				AD95BD98299A549E0042C63E /* Views */,
+				AD95BD97299A54940042C63E /* Models */,
+				AD95BD96299A547D0042C63E /* Controllers */,
 				AD95BD7F299A542C0042C63E /* AppDelegate.swift */,
 				AD95BD81299A542C0042C63E /* SceneDelegate.swift */,
-				AD95BD83299A542C0042C63E /* ViewController.swift */,
-				AD95BD85299A542C0042C63E /* Main.storyboard */,
 				AD95BD8B299A542C0042C63E /* Assets.xcassets */,
 				AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */,
 				AD95BD90299A542C0042C63E /* Info.plist */,
-				AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */,
 			);
 			path = "Wish-I-Watch";
+			sourceTree = "<group>";
+		};
+		AD95BD96299A547D0042C63E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD95BD83299A542C0042C63E /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AD95BD97299A54940042C63E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AD95BD98299A549E0042C63E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD95BD85299A542C0042C63E /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,11 +318,13 @@
 				DEVELOPMENT_TEAM = UJ8245Z3MQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wish-I-Watch/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,11 +348,13 @@
 				DEVELOPMENT_TEAM = UJ8245Z3MQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wish-I-Watch/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
