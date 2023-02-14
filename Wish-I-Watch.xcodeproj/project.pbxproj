@@ -19,6 +19,9 @@
 		AD95BD8F299A542C0042C63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */; };
 		ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */; };
 		ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F3299BDBA800D27742 /* HomeViewController.swift */; };
+		ADAE45F6299C089B00D27742 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F5299C089B00D27742 /* Title.swift */; };
+		ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F7299C12EE00D27742 /* TitleManager.swift */; };
+		ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45FB299C2B8A00D27742 /* ApiKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		AD95BD90299A542C0042C63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewController.swift; sourceTree = "<group>"; };
 		ADAE45F3299BDBA800D27742 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ADAE45F5299C089B00D27742 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		ADAE45F7299C12EE00D27742 /* TitleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleManager.swift; sourceTree = "<group>"; };
+		ADAE45FB299C2B8A00D27742 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		C99700FAF668032B79866035 /* Pods-Wish-I-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.debug.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.debug.xcconfig"; sourceTree = "<group>"; };
 		E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wish_I_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,7 +104,6 @@
 				AD95BD98299A549E0042C63E /* Views */,
 				AD95BD8B299A542C0042C63E /* Assets.xcassets */,
 				AD95BD90299A542C0042C63E /* Info.plist */,
-				AD0757E4299A8C6C00D2F6CD /* K.swift */,
 			);
 			path = "Wish-I-Watch";
 			sourceTree = "<group>";
@@ -116,7 +121,11 @@
 		AD95BD97299A54940042C63E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ADAE45F7299C12EE00D27742 /* TitleManager.swift */,
+				ADAE45F5299C089B00D27742 /* Title.swift */,
 				AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */,
+				ADAE45FB299C2B8A00D27742 /* ApiKey.swift */,
+				AD0757E4299A8C6C00D2F6CD /* K.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,10 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */,
+				ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */,
 				AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */,
 				AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */,
 				AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */,
 				AD95BD8A299A542C0042C63E /* Wish_I_Watch.xcdatamodeld in Sources */,
+				ADAE45F6299C089B00D27742 /* Title.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
 				ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */,
 				AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */,

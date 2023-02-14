@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="txV-AW-cH8">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -133,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="-2344" y="-27"/>
         </scene>
-        <!--HomeMainViewController-->
+        <!--HomeViewController-->
         <scene sceneID="6ZP-EA-LGZ">
             <objects>
-                <viewController title="HomeController" id="rVC-1f-kud" userLabel="HomeMainViewController" customClass="HomeViewController" customModule="Wish_I_Watch" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="rVC-1f-kud" customClass="HomeViewController" customModule="Wish_I_Watch" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e8a-m9-geQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,17 +157,25 @@
             </objects>
             <point key="canvasLocation" x="-2344" y="711"/>
         </scene>
-        <!--Wish I Watch-->
+        <!--SearchTableViewController-->
         <scene sceneID="qP8-a5-H9V">
             <objects>
-                <tableViewController id="4V6-mn-Fzg" sceneMemberID="viewController">
+                <tableViewController title="SearchTableViewController" id="4V6-mn-Fzg" customClass="SearchTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dXN-WT-U6e">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Write a title..." id="Nyl-7D-6ai">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="4V6-mn-Fzg" id="NPN-zu-5et"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="tRz-lM-kbl">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tRz-lM-kbl" id="i0H-3q-e4u">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -185,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="-1972" y="1449"/>
         </scene>
-        <!--Wish I Watch-->
+        <!--WishlistTableViewController-->
         <scene sceneID="TOt-iU-Qor">
             <objects>
-                <tableViewController id="9xp-eQ-L1U" customClass="WishlistTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="WishlistTableViewController" id="9xp-eQ-L1U" customClass="WishlistTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L8N-BD-ECf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

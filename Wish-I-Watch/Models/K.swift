@@ -9,4 +9,5 @@ import Foundation
 
 struct K {
     static let titleName = "Wish I Watch"
+    static let attribution = "Streaming data powered by Watchmode.com"
 }
