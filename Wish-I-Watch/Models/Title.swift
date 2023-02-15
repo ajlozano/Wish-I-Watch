@@ -1,20 +1,17 @@
 //
-//  Item.swift
+//  Title.swift
 //  Wish-I-Watch
 //
-//  Created by Toni Lozano Fernández on 14/2/23.
+//  Created by Toni Lozano Fernández on 15/2/23.
 //
 
 import Foundation
 
-struct Title: Codable {
-    var results: [Results]
-}
-
-struct Results: Codable {
+struct Title {
     let id: Int
     let name: String
-    let year: Int
+    let year: String
     let image_url: String?
     let tmdb_type: String
+    var imageData: Data?
 }

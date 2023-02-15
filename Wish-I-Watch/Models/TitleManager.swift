@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TitleManagerDelegate {
-    func didUpdateTitle(_ titleManager: TitleManager, _ titles: Title)
+    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleData)
     func didFailWithError(error: Error)
 }
 
@@ -43,12 +44,12 @@ struct TitleManager {
         }
     }
     
-    func parseJSON(_ titleData: Data) -> Title? {
+    func parseJSON(_ titleData: Data) -> TitleData? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(Title.self, from: titleData)
+            let decodedData = try decoder.decode(TitleData.self, from: titleData)
             
-            let titles = Title(results: decodedData.results)
+            let titles = TitleData(results: decodedData.results)
             
             return titles
             
