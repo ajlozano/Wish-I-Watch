@@ -12,6 +12,9 @@ struct Title: Codable {
 }
 
 struct Results: Codable {
+    let id: Int
     let name: String
+    let year: Int
     let image_url: String?
+    let tmdb_type: String
 }

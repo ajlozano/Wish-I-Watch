@@ -17,6 +17,11 @@ class SearchTableViewController: UITableViewController {
         super.viewDidLoad()
         
         titleManager.delegate = self
+        
+        //tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+
     }
 
     // MARK: - Table view data source
@@ -26,9 +31,12 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
-
-        cell.textLabel?.text = titleResults.results[indexPath.row].name
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
+//        cell.textLabel?.text = titleResults.results[indexPath.row].name
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TitleCell
+        cell.titleLabel.text = titleResults.results[indexPath.row].name
+        cell.titleImage.image = UIImage(named: "WishIWatchLogo")
 
         return cell
     }
@@ -47,7 +55,7 @@ extension SearchTableViewController: TitleManagerDelegate {
     func didUpdateTitle(_ titleManager: TitleManager, _ titles: Title) {
         //titleResults = titles
         //tableView.reloadData()
-        print(titles)
+        //print(titles)
         titleResults.results = []
 
         for result in titles.results {

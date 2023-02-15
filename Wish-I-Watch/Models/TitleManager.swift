@@ -13,12 +13,13 @@ protocol TitleManagerDelegate {
 }
 
 struct TitleManager {
-    let titleURL = "https://api.watchmode.com/v1/autocomplete-search/?apiKey="
+    let titleSearchURL = "https://api.watchmode.com/v1/autocomplete-search/?apiKey="
+    let titleIdURL = "https://api.watchmode.com/v1/title/345534/details/?apiKey=YOUR_API_KEY&append_to_response=sources"
     
     var delegate: TitleManagerDelegate?
     
     func fetchTitle(titleName: String) {
-        let urlString = "\(titleURL)\(apiKey)&search_value=\(titleName)&search_type=2"
+        let urlString = "\(titleSearchURL)\(apiKey)&search_value=\(titleName)&search_type=2"
         print(urlString)
         performRequest(with: urlString)
     }

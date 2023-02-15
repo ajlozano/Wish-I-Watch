@@ -17,6 +17,8 @@
 		AD95BD8A299A542C0042C63E /* Wish_I_Watch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */; };
 		AD95BD8C299A542C0042C63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8B299A542C0042C63E /* Assets.xcassets */; };
 		AD95BD8F299A542C0042C63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */; };
+		ADA96CF8299CD9890048F5C3 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA96CF6299CD9890048F5C3 /* TitleCell.swift */; };
+		ADA96CF9299CD9890048F5C3 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA96CF7299CD9890048F5C3 /* TitleCell.xib */; };
 		ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */; };
 		ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F3299BDBA800D27742 /* HomeViewController.swift */; };
 		ADAE45F6299C089B00D27742 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F5299C089B00D27742 /* Title.swift */; };
@@ -37,6 +39,8 @@
 		AD95BD8B299A542C0042C63E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD95BD8E299A542C0042C63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD95BD90299A542C0042C63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADA96CF6299CD9890048F5C3 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		ADA96CF7299CD9890048F5C3 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewController.swift; sourceTree = "<group>"; };
 		ADAE45F3299BDBA800D27742 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ADAE45F5299C089B00D27742 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				ADAE45F3299BDBA800D27742 /* HomeViewController.swift */,
 				ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */,
 				AD886479299B978B00E1940E /* SearchTableViewController.swift */,
+				ADA96CF6299CD9890048F5C3 /* TitleCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			children = (
 				AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */,
 				AD95BD85299A542C0042C63E /* Main.storyboard */,
+				ADA96CF7299CD9890048F5C3 /* TitleCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 				AD95BD8F299A542C0042C63E /* LaunchScreen.storyboard in Resources */,
 				AD95BD8C299A542C0042C63E /* Assets.xcassets in Resources */,
 				AD95BD87299A542C0042C63E /* Main.storyboard in Resources */,
+				ADA96CF9299CD9890048F5C3 /* TitleCell.xib in Resources */,
 				AD0757E9299A8EA700D2F6CD /* MoonTime-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +270,7 @@
 				AD95BD8A299A542C0042C63E /* Wish_I_Watch.xcdatamodeld in Sources */,
 				ADAE45F6299C089B00D27742 /* Title.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
+				ADA96CF8299CD9890048F5C3 /* TitleCell.swift in Sources */,
 				ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */,
 				AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */,
 			);
