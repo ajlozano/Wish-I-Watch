@@ -25,6 +25,7 @@
 		ADAE45F6299C089B00D27742 /* TitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F5299C089B00D27742 /* TitleData.swift */; };
 		ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F7299C12EE00D27742 /* TitleManager.swift */; };
 		ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45FB299C2B8A00D27742 /* ApiKey.swift */; };
+		ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		ADAE45F5299C089B00D27742 /* TitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
 		ADAE45F7299C12EE00D27742 /* TitleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleManager.swift; sourceTree = "<group>"; };
 		ADAE45FB299C2B8A00D27742 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
+		ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C99700FAF668032B79866035 /* Pods-Wish-I-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.debug.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.debug.xcconfig"; sourceTree = "<group>"; };
 		E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wish_I_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				ADAE45F3299BDBA800D27742 /* HomeViewController.swift */,
 				ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */,
 				AD886479299B978B00E1940E /* SearchTableViewController.swift */,
+				ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */,
 				ADA96CF6299CD9890048F5C3 /* TitleCell.swift */,
 			);
 			path = Controllers;
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */,
 				ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */,
 				ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */,
 				AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */,

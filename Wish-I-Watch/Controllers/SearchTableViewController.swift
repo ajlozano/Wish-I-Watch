@@ -14,10 +14,11 @@ class SearchTableViewController: UITableViewController {
     var titleFetchData = TitleData(results: [])
     var titles = [Title]()
     var cell = TitleCell()
+    var detailTitleIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         titleManager.delegate = self
         
         //tableView.dataSource = self
@@ -45,10 +46,10 @@ class SearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TitleCell
+        cell.delegate = self
         //cell.titleImage.image = UIImage(named: "WishIWatchLogo")
         cell.titleLabel.text = titles[indexPath.row].name
         cell.titleLabel.numberOfLines = 0
-
         //cell.imageView?.image = nil
         if let data = titles[indexPath.row].imageData {
             cell.imageView?.image = UIImage(data: data)
@@ -68,7 +69,7 @@ class SearchTableViewController: UITableViewController {
     }
 }
 
-// MARK: - TitleManagerDelegate
+// MARK: - Title Manager delegate
 
 extension SearchTableViewController: TitleManagerDelegate {
     func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleData) {
@@ -126,12 +127,22 @@ extension SearchTableViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - Title Cell delegate methods
+
 extension SearchTableViewController: TitleCellDelegate {
-    func didDetailButtonPressed() {
-        
+    func didDetailButtonPressed(_ titleLabel: UILabel) {
+        if let index = titles.firstIndex(where: {$0.name == titleLabel.text!}) {
+            detailTitleIndex = index
+        }
+        performSegue(withIdentifier: "goToDetailFromSearch", sender: self)
     }
     
     func didSaveButtonPressed() {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! DetailViewController
+        destinationVC.detailTitle = titles[detailTitleIndex]
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TitleCellDelegate {
-    func didDetailButtonPressed()
+    func didDetailButtonPressed(_ titleLabel: UILabel)
     func didSaveButtonPressed()
 }
 
@@ -33,16 +33,14 @@ class TitleCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         print("save button pressed, \(String(describing: titleLabel.text))")
         delegate?.didSaveButtonPressed()
-        
     }
     @IBAction func detailsButtonPressed(_ sender: UIButton) {
         print("details button pressed, \(String(describing: titleLabel.text))")
-        delegate?.didDetailButtonPressed()
+        delegate?.didDetailButtonPressed(titleLabel)
     }
 }

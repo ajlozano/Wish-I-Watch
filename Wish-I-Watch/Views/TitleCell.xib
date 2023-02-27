@@ -134,7 +134,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="mah-Bx-Fei" secondAttribute="trailing" constant="10" id="0Tk-hv-Vuh"/>
                     <constraint firstItem="mah-Bx-Fei" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bne-zi-Fyh"/>
@@ -146,8 +146,6 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="sP0-RD-jfn"/>
-                <outlet property="detailsButton" destination="hjf-Ii-jj3" id="6qu-St-Qds"/>
-                <outlet property="saveButton" destination="T1c-jh-dYq" id="oL7-3Q-t68"/>
                 <outlet property="titleImage" destination="2yl-dN-Kje" id="Kck-ty-ToV"/>
                 <outlet property="titleLabel" destination="O4d-LV-nDn" id="PCQ-tz-ndp"/>
                 <outlet property="typeLabel" destination="1lM-Il-1DO" id="Oax-Yd-hzt"/>
