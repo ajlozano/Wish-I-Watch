@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		136A55C7F89C5C502AB89C9D /* Pods_Wish_I_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */; };
 		AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0757E4299A8C6C00D2F6CD /* K.swift */; };
-		AD0757E9299A8EA700D2F6CD /* MoonTime-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD0757E8299A8EA700D2F6CD /* MoonTime-Regular.ttf */; };
+		AD49156A29A7FA1300F33BE7 /* MoonTime-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */; };
 		AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FCE21299D04CC00BCA324 /* Title.swift */; };
 		AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD886479299B978B00E1940E /* SearchTableViewController.swift */; };
 		AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD7F299A542C0042C63E /* AppDelegate.swift */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		37012AB482FF24B7600896B9 /* Pods-Wish-I-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.release.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		AD0757E4299A8C6C00D2F6CD /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		AD0757E8299A8EA700D2F6CD /* MoonTime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MoonTime-Regular.ttf"; path = "../../Desktop/res/MoonTime-Regular.ttf"; sourceTree = "<group>"; };
+		AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MoonTime-Regular.ttf"; path = "../_res/MoonTime-Regular.ttf"; sourceTree = "<group>"; };
 		AD4FCE21299D04CC00BCA324 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		AD886479299B978B00E1940E /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AD95BD7C299A542C0042C63E /* Wish-I-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wish-I-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +84,7 @@
 		AD95BD73299A542C0042C63E = {
 			isa = PBXGroup;
 			children = (
-				AD0757E8299A8EA700D2F6CD /* MoonTime-Regular.ttf */,
+				AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */,
 				AD95BD7E299A542C0042C63E /* Wish-I-Watch */,
 				AD95BD7D299A542C0042C63E /* Products */,
 				958B37AA57CFB6EE046AFC27 /* Pods */,
@@ -131,9 +131,9 @@
 				ADAE45F7299C12EE00D27742 /* TitleManager.swift */,
 				ADAE45F5299C089B00D27742 /* TitleData.swift */,
 				AD4FCE21299D04CC00BCA324 /* Title.swift */,
-				AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */,
 				ADAE45FB299C2B8A00D27742 /* ApiKey.swift */,
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
+				AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 			files = (
 				AD95BD8F299A542C0042C63E /* LaunchScreen.storyboard in Resources */,
 				AD95BD8C299A542C0042C63E /* Assets.xcassets in Resources */,
+				AD49156A29A7FA1300F33BE7 /* MoonTime-Regular.ttf in Resources */,
 				AD95BD87299A542C0042C63E /* Main.storyboard in Resources */,
 				ADA96CF9299CD9890048F5C3 /* TitleCell.xib in Resources */,
-				AD0757E9299A8EA700D2F6CD /* MoonTime-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

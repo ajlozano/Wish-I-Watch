@@ -13,6 +13,7 @@ class SearchTableViewController: UITableViewController {
     
     var titleFetchData = TitleData(results: [])
     var titles = [Title]()
+    var cell = TitleCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,16 @@ class SearchTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
-
+//        titles = [
+//            Title(name: "abscdsjsejsjesjssjssjaajssjsjs", year: "2002", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
+//            Title(name: "Avatar 3", year: "2003", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
+//            Title(name: "Avatar 4", year: "2004", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
+//            Title(name: "Avatar 5", year: "2005", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
+//            Title(name: "Avatar 6", year: "2006", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
+//            Title(name: "Avatar 7", year: "2007", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
+//        ]
+        
+        //reloadTableViewData()
     }
 
     // MARK: - Table view data source
@@ -33,24 +43,25 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
-//        cell.textLabel?.text = titleResults.results[indexPath.row].name
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TitleCell
-//        cell.titleLabel.text = titleResults.results[indexPath.row].name
-//        cell.titleImage.image = UIImage(named: "WishIWatchLogo")
+        cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TitleCell
+        //cell.titleImage.image = UIImage(named: "WishIWatchLogo")
         cell.titleLabel.text = titles[indexPath.row].name
-        cell.imageView?.image = nil
-        cell.imageView?.image = UIImage(data: titles[indexPath.row].imageData!)
+        cell.titleLabel.numberOfLines = 0
+
+        //cell.imageView?.image = nil
+        if let data = titles[indexPath.row].imageData {
+            cell.imageView?.image = UIImage(data: data)
+            //cell.imageView?.sizeThatFits(CGSize(width: 10, height: 10))
+            //cell.imageView?.image?.withAlignmentRectInsets(UIEdgeInsets(top: -4, left: 0, bottom: -4, right: 0))
+        }
         cell.yearLabel.text = "\(titles[indexPath.row].year)"
         cell.typeLabel.text = titles[indexPath.row].tmdb_type
         
-
         return cell
     }
     
     func reloadTableViewData() {
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -73,7 +84,7 @@ extension SearchTableViewController: TitleManagerDelegate {
                                 yearString = "\(year)"
                             }
                             
-                            self.titles.append(Title(id: result.id, name: result.name, year: yearString , image_url: result.image_url, tmdb_type: result.tmdb_type ?? "", imageData: data))
+                            self.titles.append(Title(name: result.name, year: yearString , image_url: result.image_url, tmdb_type: result.tmdb_type ?? "",tmdb_id: result.tmdb_id, imageData: data))
                             if (index == titleResults.results.count - 1) {
                                 self.reloadTableViewData()
                             }
@@ -109,7 +120,18 @@ extension SearchTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.text {
+            print(titles.count)
             titleManager.fetchTitle(titleName: title)
         }
+    }
+}
+
+extension SearchTableViewController: TitleCellDelegate {
+    func didDetailButtonPressed() {
+        
+    }
+    
+    func didSaveButtonPressed() {
+        
     }
 }

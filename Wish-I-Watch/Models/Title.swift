@@ -8,10 +8,10 @@
 import Foundation
 
 struct Title {
-    let id: Int
     let name: String
     let year: String
     let image_url: String?
     let tmdb_type: String
+    let tmdb_id: Int
     var imageData: Data?
 }
