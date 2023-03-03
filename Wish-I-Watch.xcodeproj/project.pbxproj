@@ -15,14 +15,14 @@
 		AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD7F299A542C0042C63E /* AppDelegate.swift */; };
 		AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD81299A542C0042C63E /* SceneDelegate.swift */; };
 		AD95BD87299A542C0042C63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD85299A542C0042C63E /* Main.storyboard */; };
-		AD95BD8A299A542C0042C63E /* Wish_I_Watch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */; };
+		AD95BD8A299A542C0042C63E /* TitleCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */; };
 		AD95BD8C299A542C0042C63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8B299A542C0042C63E /* Assets.xcassets */; };
 		AD95BD8F299A542C0042C63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */; };
 		ADA96CF8299CD9890048F5C3 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA96CF6299CD9890048F5C3 /* TitleCell.swift */; };
 		ADA96CF9299CD9890048F5C3 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA96CF7299CD9890048F5C3 /* TitleCell.xib */; };
 		ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */; };
 		ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F3299BDBA800D27742 /* HomeViewController.swift */; };
-		ADAE45F6299C089B00D27742 /* TitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F5299C089B00D27742 /* TitleData.swift */; };
+		ADAE45F6299C089B00D27742 /* TitleAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F5299C089B00D27742 /* TitleAPIData.swift */; };
 		ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F7299C12EE00D27742 /* TitleManager.swift */; };
 		ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45FB299C2B8A00D27742 /* ApiKey.swift */; };
 		ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */; };
@@ -46,7 +46,7 @@
 		ADA96CF7299CD9890048F5C3 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewController.swift; sourceTree = "<group>"; };
 		ADAE45F3299BDBA800D27742 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ADAE45F5299C089B00D27742 /* TitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
+		ADAE45F5299C089B00D27742 /* TitleAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAPIData.swift; sourceTree = "<group>"; };
 		ADAE45F7299C12EE00D27742 /* TitleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleManager.swift; sourceTree = "<group>"; };
 		ADAE45FB299C2B8A00D27742 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -132,11 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				ADAE45F7299C12EE00D27742 /* TitleManager.swift */,
-				ADAE45F5299C089B00D27742 /* TitleData.swift */,
+				ADAE45F5299C089B00D27742 /* TitleAPIData.swift */,
 				AD4FCE21299D04CC00BCA324 /* Title.swift */,
 				ADAE45FB299C2B8A00D27742 /* ApiKey.swift */,
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
-				AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */,
+				AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,8 +275,8 @@
 				AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */,
 				AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */,
 				AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */,
-				AD95BD8A299A542C0042C63E /* Wish_I_Watch.xcdatamodeld in Sources */,
-				ADAE45F6299C089B00D27742 /* TitleData.swift in Sources */,
+				AD95BD8A299A542C0042C63E /* TitleCoreData.xcdatamodeld in Sources */,
+				ADAE45F6299C089B00D27742 /* TitleAPIData.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
 				ADA96CF8299CD9890048F5C3 /* TitleCell.swift in Sources */,
 				ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */,
@@ -506,13 +506,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		AD95BD88299A542C0042C63E /* Wish_I_Watch.xcdatamodeld */ = {
+		AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				AD95BD89299A542C0042C63E /* Wish_I_Watch.xcdatamodel */,
 			);
 			currentVersion = AD95BD89299A542C0042C63E /* Wish_I_Watch.xcdatamodel */;
-			path = Wish_I_Watch.xcdatamodeld;
+			path = TitleCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

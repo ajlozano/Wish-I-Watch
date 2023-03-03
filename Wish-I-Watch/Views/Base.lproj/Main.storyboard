@@ -183,14 +183,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Wish I Watch" id="9Gh-U1-DHz"/>
                     <connections>
+                        <outlet property="searchBar" destination="Nyl-7D-6ai" id="5k7-Sn-j9v"/>
                         <segue destination="L7K-Gt-nhf" kind="show" identifier="goToDetailFromSearch" id="3Xe-Hv-062"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngr-fr-Bko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1972" y="1449"/>
+            <point key="canvasLocation" x="-2344" y="1449"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Wish I Watch-->
         <scene sceneID="Waa-qs-mJ5">
             <objects>
                 <viewController id="L7K-Gt-nhf" customClass="DetailViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
@@ -209,16 +210,16 @@
                             </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MTC-p7-zYX"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xfO-JM-J1z"/>
+                    <navigationItem key="navigationItem" title="Wish I Watch" id="xfO-JM-J1z"/>
                     <connections>
                         <outlet property="webView" destination="8lV-Je-TZm" id="rV2-WR-xEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lh4-As-WKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-996.18320610687022" y="1448.5915492957747"/>
+            <point key="canvasLocation" x="-1579" y="1449"/>
         </scene>
         <!--WishlistTableViewController-->
         <scene sceneID="TOt-iU-Qor">
@@ -227,7 +228,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L8N-BD-ECf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.66738864689999999" green="0.3109573806" blue="0.85550688860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" id="g6X-qn-mm1">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -247,13 +248,10 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="aQ4-vX-04Z">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="4V6-mn-Fzg" kind="show" id="PBP-Rd-Gv7"/>
+                                <segue destination="4V6-mn-Fzg" kind="show" id="uxu-qc-saN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="L7K-Gt-nhf" kind="show" identifier="goToDetailFromWishlist" id="n9E-mR-ArL"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nn-Mu-uZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,18 +259,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3Xe-Hv-062"/>
-        <segue reference="PBP-Rd-Gv7"/>
+        <segue reference="uxu-qc-saN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="list.star" catalog="system" width="128" height="95"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

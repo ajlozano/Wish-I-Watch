@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol TitleManagerDelegate {
-    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleData)
+    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleAPIData)
     func didFailWithError(error: Error)
 }
 
@@ -23,6 +23,7 @@ struct TitleManager {
         let urlString = "\(titleSearchURL)\(apiKey)&search_value=\(titleName)&search_type=2"
         print(urlString)
         performRequest(with: urlString)
+
     }
     
     
@@ -44,12 +45,12 @@ struct TitleManager {
         }
     }
     
-    func parseJSON(_ titleData: Data) -> TitleData? {
+    func parseJSON(_ titleData: Data) -> TitleAPIData? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(TitleData.self, from: titleData)
+            let decodedData = try decoder.decode(TitleAPIData.self, from: titleData)
             
-            let titles = TitleData(results: decodedData.results)
+            let titles = TitleAPIData(results: decodedData.results)
             
             return titles
             

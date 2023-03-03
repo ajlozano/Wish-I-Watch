@@ -27,6 +27,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         updateWebView()
+        
+        
     }
     
     func updateWebView() {

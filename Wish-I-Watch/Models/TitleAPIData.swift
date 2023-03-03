@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TitleData: Codable {
+struct TitleAPIData: Codable {
     var results: [Results]
 }
 

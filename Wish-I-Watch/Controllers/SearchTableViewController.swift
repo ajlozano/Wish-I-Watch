@@ -9,9 +9,10 @@ import UIKit
 
 class SearchTableViewController: UITableViewController {
     
-    var titleManager = TitleManager()
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    var titleFetchData = TitleData(results: [])
+    var titleManager = TitleManager()
+    var titleFetchData = TitleAPIData(results: [])
     var titles = [Title]()
     var cell = TitleCell()
     var detailTitleIndex: Int = 0
@@ -19,22 +20,17 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleManager.delegate = self
+        self.tabBarController?.tabBar.isHidden = true
         
-        //tableView.dataSource = self
+        titleManager.delegate = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
-//        titles = [
-//            Title(name: "abscdsjsejsjesjssjssjaajssjsjs", year: "2002", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
-//            Title(name: "Avatar 3", year: "2003", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
-//            Title(name: "Avatar 4", year: "2004", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
-//            Title(name: "Avatar 5", year: "2005", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
-//            Title(name: "Avatar 6", year: "2006", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
-//            Title(name: "Avatar 7", year: "2007", image_url: "https://es.wikipedia.org/wiki/Avatar_(pel%C3%ADcula)#/media/Archivo:HuangShan.JPG", tmdb_type: "Movie", tmdb_id: 5),
-//        ]
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.searchTextField.textColor = UIColor.black
         
-        //reloadTableViewData()
+
+
     }
 
     // MARK: - Table view data source
@@ -52,9 +48,7 @@ class SearchTableViewController: UITableViewController {
         cell.titleLabel.numberOfLines = 0
         //cell.imageView?.image = nil
         if let data = titles[indexPath.row].imageData {
-            cell.imageView?.image = UIImage(data: data)
-            //cell.imageView?.sizeThatFits(CGSize(width: 10, height: 10))
-            //cell.imageView?.image?.withAlignmentRectInsets(UIEdgeInsets(top: -4, left: 0, bottom: -4, right: 0))
+            cell.titleImage.image = UIImage(data: data)
         }
         cell.yearLabel.text = "\(titles[indexPath.row].year)"
         cell.typeLabel.text = titles[indexPath.row].tmdb_type
@@ -72,7 +66,7 @@ class SearchTableViewController: UITableViewController {
 // MARK: - Title Manager delegate
 
 extension SearchTableViewController: TitleManagerDelegate {
-    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleData) {
+    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleAPIData) {
         for index in 0 ..< titleResults.results.count {
             let result = titleResults.results[index]
             if (result.image_url != nil) {
@@ -96,8 +90,6 @@ extension SearchTableViewController: TitleManagerDelegate {
                 }
             }
         }
-
-
     }
     
     func didFailWithError(error: Error) {
@@ -144,5 +136,31 @@ extension SearchTableViewController: TitleCellDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! DetailViewController
         destinationVC.detailTitle = titles[detailTitleIndex]
+        // Is necessary to unhide self tab bar before preparing detail tab bar
+        self.tabBarController?.tabBar.isHidden = false
+        destinationVC.tabBarItem.title = self.tabBarItem.title
+        destinationVC.tabBarItem.image = self.tabBarItem.image
     }
 }
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
+}
+
