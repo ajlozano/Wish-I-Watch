@@ -9,7 +9,7 @@ import UIKit
 
 protocol TitleCellDelegate {
     func didDetailButtonPressed(_ titleLabel: UILabel)
-    func didSaveButtonPressed()
+    func didSaveButtonPressed(_ titleLabel: UILabel)
 }
 
 class TitleCell: UITableViewCell {
@@ -27,6 +27,7 @@ class TitleCell: UITableViewCell {
         
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
+        titleImage.layer.cornerRadius = 10
         
         //cellView.layer.cornerRadius = cellView.frame.height / 5
     }
@@ -37,7 +38,7 @@ class TitleCell: UITableViewCell {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         print("save button pressed, \(String(describing: titleLabel.text))")
-        delegate?.didSaveButtonPressed()
+        delegate?.didSaveButtonPressed(titleLabel)
     }
     @IBAction func detailsButtonPressed(_ sender: UIButton) {
         print("details button pressed, \(String(describing: titleLabel.text))")

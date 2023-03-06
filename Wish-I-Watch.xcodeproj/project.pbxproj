@@ -107,16 +107,16 @@
 			children = (
 				AD95BD7F299A542C0042C63E /* AppDelegate.swift */,
 				AD95BD81299A542C0042C63E /* SceneDelegate.swift */,
-				AD95BD97299A54940042C63E /* Models */,
-				AD95BD96299A547D0042C63E /* Controllers */,
-				AD95BD98299A549E0042C63E /* Views */,
+				AD95BD97299A54940042C63E /* Model */,
+				AD95BD96299A547D0042C63E /* Controller */,
+				AD95BD98299A549E0042C63E /* View */,
 				AD95BD8B299A542C0042C63E /* Assets.xcassets */,
 				AD95BD90299A542C0042C63E /* Info.plist */,
 			);
 			path = "Wish-I-Watch";
 			sourceTree = "<group>";
 		};
-		AD95BD96299A547D0042C63E /* Controllers */ = {
+		AD95BD96299A547D0042C63E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				ADAE45F3299BDBA800D27742 /* HomeViewController.swift */,
@@ -125,10 +125,10 @@
 				ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */,
 				ADA96CF6299CD9890048F5C3 /* TitleCell.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		AD95BD97299A54940042C63E /* Models */ = {
+		AD95BD97299A54940042C63E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				ADAE45F7299C12EE00D27742 /* TitleManager.swift */,
@@ -138,17 +138,17 @@
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
 				AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		AD95BD98299A549E0042C63E /* Views */ = {
+		AD95BD98299A549E0042C63E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */,
 				AD95BD85299A542C0042C63E /* Main.storyboard */,
 				ADA96CF7299CD9890048F5C3 /* TitleCell.xib */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -410,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -437,7 +437,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,7 +468,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,7 +15,7 @@ class SearchTableViewController: UITableViewController {
     var titleFetchData = TitleAPIData(results: [])
     var titles = [Title]()
     var cell = TitleCell()
-    var detailTitleIndex: Int = 0
+    var selectedTitleIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,6 @@ class SearchTableViewController: UITableViewController {
         
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.searchTextField.textColor = UIColor.black
-        
-
-
     }
 
     // MARK: - Table view data source
@@ -40,7 +37,6 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TitleCell
         cell.delegate = self
         //cell.titleImage.image = UIImage(named: "WishIWatchLogo")
@@ -49,6 +45,7 @@ class SearchTableViewController: UITableViewController {
         //cell.imageView?.image = nil
         if let data = titles[indexPath.row].imageData {
             cell.titleImage.image = UIImage(data: data)
+            
         }
         cell.yearLabel.text = "\(titles[indexPath.row].year)"
         cell.typeLabel.text = titles[indexPath.row].tmdb_type
@@ -60,6 +57,20 @@ class SearchTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    // MARK: - Storage using Core Data
+    
+    func saveTitle() {
+        
+    }
+    
+    func loadWishlistTitles() {
+        
+    }
+    
+    func loadRecentlyViewedTitles() {
+        
     }
 }
 
@@ -113,7 +124,6 @@ extension SearchTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.text {
-            print(titles.count)
             titleManager.fetchTitle(titleName: title)
         }
     }
@@ -122,20 +132,34 @@ extension SearchTableViewController: UISearchBarDelegate {
 // MARK: - Title Cell delegate methods
 
 extension SearchTableViewController: TitleCellDelegate {
-    func didDetailButtonPressed(_ titleLabel: UILabel) {
-        if let index = titles.firstIndex(where: {$0.name == titleLabel.text!}) {
-            detailTitleIndex = index
+    func didSaveButtonPressed(_ titleLabel: UILabel) {
+        if (checkSelectedTitle(titleLabel)) {
+            
+        } else {
+            print("Failed selecting title index.")
         }
-        performSegue(withIdentifier: "goToDetailFromSearch", sender: self)
     }
     
-    func didSaveButtonPressed() {
+    func didDetailButtonPressed(_ titleLabel: UILabel) {
+        if (checkSelectedTitle(titleLabel)) {
+            performSegue(withIdentifier: "goToDetailFromSearch", sender: self)
+        } else {
+            print("Failed selecting title index.")
+        }
         
+    }
+    
+    private func checkSelectedTitle(_ titleLabel: UILabel) -> Bool {
+        if let index = titles.firstIndex(where: {$0.name == titleLabel.text!}) {
+            selectedTitleIndex = index
+            return true
+        }
+        return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! DetailViewController
-        destinationVC.detailTitle = titles[detailTitleIndex]
+        destinationVC.detailTitle = titles[selectedTitleIndex]
         // Is necessary to unhide self tab bar before preparing detail tab bar
         self.tabBarController?.tabBar.isHidden = false
         destinationVC.tabBarItem.title = self.tabBarItem.title
@@ -143,24 +167,5 @@ extension SearchTableViewController: TitleCellDelegate {
     }
 }
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}
+
 

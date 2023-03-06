@@ -20,10 +20,10 @@ struct TitleManager {
     var delegate: TitleManagerDelegate?
     
     func fetchTitle(titleName: String) {
-        let urlString = "\(titleSearchURL)\(apiKey)&search_value=\(titleName)&search_type=2"
+        let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
+        let urlString = "\(titleSearchURL)\(apiKey)&search_value=\(fixedTitleName)&search_type=2"
         print(urlString)
         performRequest(with: urlString)
-
     }
     
     
