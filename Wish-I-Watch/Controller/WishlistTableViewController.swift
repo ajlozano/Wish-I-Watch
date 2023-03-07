@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import CoreData
 
 class WishlistTableViewController: UITableViewController {
 
+//    var wishlistTitles = [SavedTitle]()
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var wishlistTitlesManager = DataModelManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,14 +35,15 @@ class WishlistTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return wishlistTitlesManager.savedTitles.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistCell", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.text = wishlistTitlesManager.savedTitles[indexPath.row].name
 
         return cell
     }

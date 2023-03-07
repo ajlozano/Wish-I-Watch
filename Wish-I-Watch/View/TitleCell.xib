@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -72,17 +73,17 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1c-jh-dYq">
                                         <rect key="frame" x="10" y="230" width="52" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="0TD-Hy-gwt"/>
                                             <constraint firstAttribute="width" constant="52" id="sqh-1h-S2L"/>
                                         </constraints>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="star" catalog="system" cornerStyle="fixed">
-                                            <backgroundConfiguration key="background" cornerRadius="10">
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="fixed">
+                                            <backgroundConfiguration key="background">
                                                 <color key="strokeColor" systemColor="systemYellowColor"/>
                                             </backgroundConfiguration>
-                                            <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uB9-PA-ZC0"/>
@@ -149,13 +150,13 @@
                 <outlet property="titleImage" destination="2yl-dN-Kje" id="Kck-ty-ToV"/>
                 <outlet property="titleLabel" destination="O4d-LV-nDn" id="PCQ-tz-ndp"/>
                 <outlet property="typeLabel" destination="1lM-Il-1DO" id="Oax-Yd-hzt"/>
+                <outlet property="wishlistButton" destination="T1c-jh-dYq" id="oYk-yW-afo"/>
                 <outlet property="yearLabel" destination="BOI-b9-NGU" id="k36-My-A1u"/>
             </connections>
             <point key="canvasLocation" x="173.2824427480916" y="42.605633802816904"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

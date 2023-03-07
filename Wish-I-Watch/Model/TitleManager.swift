@@ -16,6 +16,8 @@ protocol TitleManagerDelegate {
 struct TitleManager {
     let titleSearchURL = "https://api.watchmode.com/v1/autocomplete-search/?apiKey="
     let titleIdURL = "https://api.watchmode.com/v1/title/345534/details/?apiKey=YOUR_API_KEY&append_to_response=sources"
+    // TEST
+    //let testImageURL = "https://es.wikipedia.org/wiki/Archivo:The.Matrix.glmatrix.2.png"
     
     var delegate: TitleManagerDelegate?
     
@@ -24,8 +26,14 @@ struct TitleManager {
         let urlString = "\(titleSearchURL)\(apiKey)&search_value=\(fixedTitleName)&search_type=2"
         print(urlString)
         performRequest(with: urlString)
+
+        // TEST
+//        let testTitleAPI = TitleAPIData(results: [
+//            Results(name: "Avatar", year: 2010, image_url: testImageURL, tmdb_type: "Movie", tmdb_id: 1),
+//            Results(name: "Matrix", year: 1999, image_url: testImageURL, tmdb_type: "Movie", tmdb_id: 2),
+//            Results(name: "Die Hard", year: 1995, image_url: testImageURL, tmdb_type: "Movie", tmdb_id: 3)])
+//        self.delegate?.didUpdateTitle(self, testTitleAPI)
     }
-    
     
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {

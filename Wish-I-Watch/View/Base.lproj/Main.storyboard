@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="txV-AW-cH8">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -191,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="-2344" y="1449"/>
         </scene>
-        <!--Wish I Watch-->
+        <!--DetailViewController-->
         <scene sceneID="Waa-qs-mJ5">
             <objects>
-                <viewController id="L7K-Gt-nhf" customClass="DetailViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="DetailViewController" id="L7K-Gt-nhf" customClass="DetailViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EMc-Iw-OBo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,7 +213,15 @@
                         <viewLayoutGuide key="safeArea" id="MTC-p7-zYX"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Wish I Watch" id="xfO-JM-J1z"/>
+                    <navigationItem key="navigationItem" title="Wish I Watch" id="xfO-JM-J1z">
+                        <barButtonItem key="rightBarButtonItem" id="DMq-wm-Wrz">
+                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                            <connections>
+                                <action selector="SaveButtonPressed:" destination="L7K-Gt-nhf" id="Bcq-Y7-MWH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="8lV-Je-TZm" id="rV2-WR-xEt"/>
                     </connections>
@@ -259,11 +268,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1Zj-ws-rQm"/>
+        <segue reference="uxu-qc-saN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="list.star" catalog="system" width="128" height="95"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

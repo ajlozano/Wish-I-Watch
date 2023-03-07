@@ -15,7 +15,7 @@
 		AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD7F299A542C0042C63E /* AppDelegate.swift */; };
 		AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD81299A542C0042C63E /* SceneDelegate.swift */; };
 		AD95BD87299A542C0042C63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD85299A542C0042C63E /* Main.storyboard */; };
-		AD95BD8A299A542C0042C63E /* TitleCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */; };
+		AD95BD8A299A542C0042C63E /* TitleDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */; };
 		AD95BD8C299A542C0042C63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8B299A542C0042C63E /* Assets.xcassets */; };
 		AD95BD8F299A542C0042C63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95BD8D299A542C0042C63E /* LaunchScreen.storyboard */; };
 		ADA96CF8299CD9890048F5C3 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA96CF6299CD9890048F5C3 /* TitleCell.swift */; };
@@ -26,6 +26,7 @@
 		ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F7299C12EE00D27742 /* TitleManager.swift */; };
 		ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45FB299C2B8A00D27742 /* ApiKey.swift */; };
 		ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */; };
+		ADFF131D29B7B5CD00A37947 /* DataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF131C29B7B5CD00A37947 /* DataModelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		ADAE45F7299C12EE00D27742 /* TitleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleManager.swift; sourceTree = "<group>"; };
 		ADAE45FB299C2B8A00D27742 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ADFF131C29B7B5CD00A37947 /* DataModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelManager.swift; sourceTree = "<group>"; };
 		C99700FAF668032B79866035 /* Pods-Wish-I-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.debug.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.debug.xcconfig"; sourceTree = "<group>"; };
 		E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wish_I_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,8 +137,9 @@
 				ADAE45F5299C089B00D27742 /* TitleAPIData.swift */,
 				AD4FCE21299D04CC00BCA324 /* Title.swift */,
 				ADAE45FB299C2B8A00D27742 /* ApiKey.swift */,
+				ADFF131C29B7B5CD00A37947 /* DataModelManager.swift */,
+				AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */,
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
-				AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,11 +274,12 @@
 				ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */,
 				ADAE45FC299C2B8A00D27742 /* ApiKey.swift in Sources */,
 				ADAE45F8299C12EE00D27742 /* TitleManager.swift in Sources */,
+				ADFF131D29B7B5CD00A37947 /* DataModelManager.swift in Sources */,
 				AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */,
 				AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */,
 				AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */,
 				AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */,
-				AD95BD8A299A542C0042C63E /* TitleCoreData.xcdatamodeld in Sources */,
+				AD95BD8A299A542C0042C63E /* TitleDataModel.xcdatamodeld in Sources */,
 				ADAE45F6299C089B00D27742 /* TitleAPIData.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
 				ADA96CF8299CD9890048F5C3 /* TitleCell.swift in Sources */,
@@ -506,13 +510,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		AD95BD88299A542C0042C63E /* TitleCoreData.xcdatamodeld */ = {
+		AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				AD95BD89299A542C0042C63E /* Wish_I_Watch.xcdatamodel */,
 			);
 			currentVersion = AD95BD89299A542C0042C63E /* Wish_I_Watch.xcdatamodel */;
-			path = TitleCoreData.xcdatamodeld;
+			path = TitleDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

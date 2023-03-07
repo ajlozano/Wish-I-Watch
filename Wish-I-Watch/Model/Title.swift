@@ -14,4 +14,5 @@ struct Title {
     let tmdb_type: String
     let tmdb_id: Int
     var imageData: Data?
+    var isSaved: Bool
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 protocol TitleCellDelegate {
-    func didDetailButtonPressed(_ titleLabel: UILabel)
-    func didSaveButtonPressed(_ titleLabel: UILabel)
+    func didDetailButtonPressed(_ titleId: Int)
+    func didSaveButtonPressed(_ titleId: Int)
 }
 
 class TitleCell: UITableViewCell {
@@ -19,6 +19,8 @@ class TitleCell: UITableViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var titleImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var wishlistButton: UIButton!
+    var titleId: Int = 0
     
     var delegate: TitleCellDelegate?
     
@@ -29,7 +31,7 @@ class TitleCell: UITableViewCell {
         titleLabel.minimumScaleFactor = 0.5
         titleImage.layer.cornerRadius = 10
         
-        //cellView.layer.cornerRadius = cellView.frame.height / 5
+        wishlistButton.setImage(UIImage(systemName: "star"), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,11 +39,11 @@ class TitleCell: UITableViewCell {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        print("save button pressed, \(String(describing: titleLabel.text))")
-        delegate?.didSaveButtonPressed(titleLabel)
+        //print("save button pressed, \(String(describing: titleLabel.text))")
+        delegate?.didSaveButtonPressed(titleId)
     }
     @IBAction func detailsButtonPressed(_ sender: UIButton) {
-        print("details button pressed, \(String(describing: titleLabel.text))")
-        delegate?.didDetailButtonPressed(titleLabel)
+        //print("details button pressed, \(String(describing: titleLabel.text))")
+        delegate?.didDetailButtonPressed(titleId)
     }
 }
