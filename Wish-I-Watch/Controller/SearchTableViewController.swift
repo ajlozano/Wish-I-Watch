@@ -15,11 +15,16 @@ class SearchTableViewController: UITableViewController {
     var titles = [Title]()
     var cell = TitleCell()
     var selectedTitleIndex: Int = 0
+    var wishlistTitlesManager = DataModelManager()
+    
+    var detailButtonIsPressed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tabBarController?.tabBar.isHidden = true
+        
+        wishlistTitlesManager.loadTitles()
         
         titleManager.delegate = self
         tableView.delegate = self
@@ -27,7 +32,24 @@ class SearchTableViewController: UITableViewController {
         
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.searchTextField.textColor = UIColor.black
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        wishlistTitlesManager.loadTitles()
+        for index in 0 ..< titles.count {
+            if (findSavedTitle(id: titles[index].tmdb_id) != nil) {
+                if (!titles[index].isSaved) {
+                    titles[index].isSaved = true
+                    reloadTableViewData()
+                }
+
+            } else {
+                if (titles[index].isSaved) {
+                    titles[index].isSaved = false
+                    reloadTableViewData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -84,7 +106,12 @@ extension SearchTableViewController: TitleManagerDelegate {
                                 yearString = "\(year)"
                             }
                             
-                            self.titles.append(Title(name: result.name, year: yearString , image_url: result.image_url, tmdb_type: result.tmdb_type ?? "", tmdb_id: result.tmdb_id, imageData: data, isSaved: false))
+                            var isTitleSaved = false
+                            if (self.findSavedTitle(id: result.tmdb_id) != nil) {
+                                isTitleSaved = true
+                            }
+          
+                            self.titles.append(Title(name: result.name, year: yearString , image_url: result.image_url, tmdb_type: result.tmdb_type ?? "", tmdb_id: result.tmdb_id, imageData: data, isSaved: isTitleSaved))
                             
                             if (index == titleResults.results.count - 1) {
                                 self.reloadTableViewData()
@@ -100,6 +127,10 @@ extension SearchTableViewController: TitleManagerDelegate {
     
     func didFailWithError(error: Error) {
         print(error)
+    }
+    
+    func findSavedTitle(id: Int?) -> Int? {
+        return wishlistTitlesManager.savedTitles.firstIndex(where: {$0.id == id!})
     }
 }
 
@@ -129,29 +160,28 @@ extension SearchTableViewController: UISearchBarDelegate {
 
 extension SearchTableViewController: TitleCellDelegate {
     func didSaveButtonPressed(_ titleId: Int) {
-//        if (checkSelectedTitle(titleId)) {
-//            if let wishlistIndex = self.wishlistTitles.firstIndex(where: {$0.id == titles[self.selectedTitleIndex].tmdb_id}) {
-//                titles[self.selectedTitleIndex].isSaved = false
-//
-//                deleteWishlistTitle(indexTitle: wishlistIndex)
-//            } else {
-//                titles[self.selectedTitleIndex].isSaved = true
-//
-//                let newSavedTitle = SavedTitle(context: self.context)
-//
-//                newSavedTitle.id = Int32(titles[self.selectedTitleIndex].tmdb_id)
-//                newSavedTitle.imageUrl = titles[self.selectedTitleIndex].image_url
-//                newSavedTitle.name = titles[self.selectedTitleIndex].name
-//
-//                self.wishlistTitles.append(newSavedTitle)
-//
-//                saveWishlistTitles()
-//            }
-//
-//            reloadTableViewData()
-//        } else {
-//            print("Failed selecting title index.")
-//        }
+        if (checkSelectedTitle(titleId)) {
+            if let wishlistIndex = wishlistTitlesManager.savedTitles.firstIndex(where: {$0.id == titles[self.selectedTitleIndex].tmdb_id}) {
+                
+                titles[self.selectedTitleIndex].isSaved = false
+
+                wishlistTitlesManager.deleteTitles(indexTitle: wishlistIndex)
+            } else {
+                titles[self.selectedTitleIndex].isSaved = true
+
+                wishlistTitlesManager.initItem()
+                wishlistTitlesManager.savingItem!.id = Int32(titles[self.selectedTitleIndex].tmdb_id)
+                wishlistTitlesManager.savingItem!.imageUrl = titles[self.selectedTitleIndex].image_url
+                wishlistTitlesManager.savingItem!.name = titles[self.selectedTitleIndex].name
+
+                wishlistTitlesManager.savedTitles.append(wishlistTitlesManager.savingItem!)
+                wishlistTitlesManager.saveTitles()
+            }
+
+            reloadTableViewData()
+        } else {
+            print("Failed selecting title index.")
+        }
     }
     
     func didDetailButtonPressed(_ titleId: Int) {
@@ -165,7 +195,6 @@ extension SearchTableViewController: TitleCellDelegate {
     private func checkSelectedTitle(_ titleId: Int) -> Bool {
         if let searchIndex = titles.firstIndex(where: {$0.tmdb_id == titleId}) {
             selectedTitleIndex = searchIndex
-
             return true
         }
         return false

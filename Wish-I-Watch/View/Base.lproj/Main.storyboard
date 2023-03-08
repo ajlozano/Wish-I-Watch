@@ -223,6 +223,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="DMq-wm-Wrz" id="YfZ-Bq-Llh"/>
                         <outlet property="webView" destination="8lV-Je-TZm" id="rV2-WR-xEt"/>
                     </connections>
                 </viewController>

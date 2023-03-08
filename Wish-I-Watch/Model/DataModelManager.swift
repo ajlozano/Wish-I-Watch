@@ -8,19 +8,20 @@
 import UIKit
 import CoreData
 
-
 struct DataModelManager {
     
     var savedTitles: [SavedTitle]
-    let savedTitle: SavedTitle
+    var savingItem: SavedTitle?
     let context: NSManagedObjectContext
     
     init() {
-        print("Data model init")
         savedTitles = [SavedTitle]()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        savedTitle = SavedTitle(context: self.context)
-        loadTitles()
+        savingItem = nil
+    }
+    
+    mutating func initItem() {
+        savingItem = SavedTitle(context: self.context)
     }
     
     func saveTitles() {
@@ -34,13 +35,14 @@ struct DataModelManager {
     mutating func loadTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {
         do {
             savedTitles = try context.fetch(request)
-            print("Loading...")
         } catch {
             print("Error fetching context, \(error)")
         }
     }
     
-    func deleteTitles(indexTitle: Int) {
-       context.delete(savedTitles[indexTitle])
+    mutating func deleteTitles(indexTitle: Int) {
+        context.delete(savedTitles[indexTitle])
+        savedTitles.remove(at: indexTitle)
+        saveTitles()
     }
 }

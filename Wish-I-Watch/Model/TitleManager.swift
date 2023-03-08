@@ -15,7 +15,6 @@ protocol TitleManagerDelegate {
 
 struct TitleManager {
     let titleSearchURL = "https://api.watchmode.com/v1/autocomplete-search/?apiKey="
-    let titleIdURL = "https://api.watchmode.com/v1/title/345534/details/?apiKey=YOUR_API_KEY&append_to_response=sources"
     // TEST
     //let testImageURL = "https://es.wikipedia.org/wiki/Archivo:The.Matrix.glmatrix.2.png"
     
