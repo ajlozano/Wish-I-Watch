@@ -23,7 +23,7 @@ class WishlistTableViewController: UITableViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        dataModelManager.loadSavedTitles()
+        dataModelManager.loadTitles()
         tableView.reloadData()
 //        for title in wishlistTitlesManager.savedTitles {
 //            print(title.name)

@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    var storedData = DataModelManager()
+    var recentlyViewedData = DataModelManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -17,8 +17,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
-        storedData.loadViewedTitles()
+        collectionView.layer.cornerRadius = 10
+        
+        recentlyViewedData.loadTitles()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +34,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storedData.viewedTitles.count
+        return recentlyViewedData.savedTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,17 +42,29 @@ extension HomeViewController: UICollectionViewDataSource {
         
         DispatchQueue.global().async {
             // Fetch Image Data
-            if let data = try? Data(contentsOf: URL(string: self.storedData.viewedTitles[indexPath.row].imageUrl!)!) {
+            if let data = try? Data(contentsOf: URL(string: self.recentlyViewedData.savedTitles[indexPath.row].imageUrl!)!) {
                 DispatchQueue.main.async {
                     cell.setup(image: UIImage(data: data)!,
-                               name: self.storedData.viewedTitles[indexPath.row].name!,
-                               id: Int(self.storedData.viewedTitles[indexPath.row].id))
+                               name: self.recentlyViewedData.savedTitles[indexPath.row].name!,
+                               id: Int(self.recentlyViewedData.savedTitles[indexPath.row].id))
                 }
             }
             
         }
         
         return cell
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 250)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected item")
     }
 }
 

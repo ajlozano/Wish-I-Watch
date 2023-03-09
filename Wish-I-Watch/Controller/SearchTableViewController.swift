@@ -24,7 +24,7 @@ class SearchTableViewController: UITableViewController {
 
         self.tabBarController?.tabBar.isHidden = true
         
-        dataModelManager.loadSavedTitles()
+        dataModelManager.loadTitles()
         
         titleManager.delegate = self
         tableView.delegate = self
@@ -35,7 +35,7 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataModelManager.loadSavedTitles()
+        dataModelManager.loadTitles()
         for index in 0 ..< titles.count {
             if (findSavedTitle(id: titles[index].tmdb_id) != nil) {
                 titles[index].isSaved = true
@@ -159,16 +159,11 @@ extension SearchTableViewController: SearchTitleCellDelegate {
                 
                 titles[self.selectedTitleIndex].isSaved = false
 
-                dataModelManager.deleteTitles(indexTitle: wishlistIndex, isSavedType: true, title: dataModelManager.savedTitles[wishlistIndex])
+                dataModelManager.deleteTitles(indexTitle: wishlistIndex)
             } else {
                 titles[self.selectedTitleIndex].isSaved = true
 
-                dataModelManager.initSavingItem()
-                dataModelManager.savingItem!.id = Int32(titles[self.selectedTitleIndex].tmdb_id)
-                dataModelManager.savingItem!.imageUrl = titles[self.selectedTitleIndex].image_url
-                dataModelManager.savingItem!.name = titles[self.selectedTitleIndex].name
-
-                dataModelManager.savedTitles.append(dataModelManager.savingItem!)
+                dataModelManager.setupItem(item: titles[self.selectedTitleIndex])
                 dataModelManager.saveTitles()
             }
 

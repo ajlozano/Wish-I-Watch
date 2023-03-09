@@ -15,7 +15,10 @@ class ViewedTitleCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        titleImage.layer.cornerRadius = 10
+        titleImage.layer.borderColor = UIColor.systemYellow.cgColor
+        titleImage.layer.borderWidth = 1
     }
     
     func setup(image: UIImage, name: String, id: Int) {

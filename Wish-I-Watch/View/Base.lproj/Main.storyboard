@@ -21,14 +21,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemYellowColor"/>
                         <tabBarAppearance key="standardAppearance">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="selectionIndicatorTintColor" systemColor="systemYellowColor"/>
                         </tabBarAppearance>
                         <tabBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="selectionIndicatorTintColor" systemColor="systemYellowColor"/>
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
@@ -46,34 +46,35 @@
                 <navigationController title="WishlistNavController" id="Ew1-yq-imJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wishlist" id="k1i-Pk-ElV">
                         <imageReference key="image" image="list.star" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" systemColor="systemYellowColor"/>
                         <imageReference key="selectedImage" image="list.star" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8dh-JL-4iz">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="40"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemYellowColor"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="40"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemYellowColor"/>
                         </textAttributes>
                         <navigationBarAppearance key="standardAppearance">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textAttributes key="titleTextAttributes">
                                 <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
                             </textAttributes>
                         </navigationBarAppearance>
                         <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textAttributes key="titleTextAttributes">
                                 <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
                             </textAttributes>
                         </navigationBarAppearance>
                     </navigationBar>
@@ -101,29 +102,29 @@
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" systemColor="tintColor"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="0.0"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemYellowColor"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="20"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemYellowColor"/>
                         </textAttributes>
                         <navigationBarAppearance key="standardAppearance">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textAttributes key="titleTextAttributes">
                                 <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
                             </textAttributes>
                         </navigationBarAppearance>
                         <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textAttributes key="titleTextAttributes">
                                 <fontDescription key="fontDescription" name="MoonTime-Regular" family="MoonTime" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
                             </textAttributes>
                         </navigationBarAppearance>
                     </navigationBar>
@@ -144,33 +145,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mW6-EK-dlJ">
-                                <rect key="frame" x="16" y="153" width="361" height="600"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Scb-N9-yYM">
-                                    <size key="itemSize" width="160" height="243"/>
+                                <rect key="frame" x="25" y="153" width="343" height="600"/>
+                                <color key="backgroundColor" red="0.24250315659999999" green="0.19357269939999999" blue="0.0018131987450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ns3-7A-poM">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ViewedTitleCollectionViewCell" id="7P7-Pe-QH8" customClass="ViewedTitleCollectionViewCell" customModule="Wish_I_Watch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="243"/>
+                                        <rect key="frame" x="71.666666666666671" y="0.0" width="200" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NJt-Go-HWL">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="243"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQ8-gi-QqK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="213"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQ8-gi-QqK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="270"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labeldsjsjsjsjsjsjsjsjsjsjsjsjjsjs ssjs  sjsjsjs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0v-co-8NQ">
-                                                    <rect key="frame" x="0.0" y="213" width="160" height="30"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="0.0" y="270" width="200" height="30"/>
+                                                    <color key="backgroundColor" red="0.24250315659999999" green="0.19357269939999999" blue="0.0018131987450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="zM2-1w-Ugk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemYellowColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -185,7 +186,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="l0v-co-8NQ" secondAttribute="trailing" id="zS8-au-6ed"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="160" height="243"/>
+                                        <size key="customSize" width="200" height="300"/>
                                         <connections>
                                             <outlet property="titleImage" destination="tQ8-gi-QqK" id="bww-R9-MvX"/>
                                             <outlet property="titleLabel" destination="l0v-co-8NQ" id="g1S-u8-CXY"/>
@@ -194,28 +195,38 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently Viewed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCx-AO-G83" userLabel="HeaderLabel">
-                                <rect key="frame" x="16" y="119" width="361" height="24"/>
-                                <color key="backgroundColor" white="0.046339765900000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="25" y="108" width="343" height="24"/>
+                                <color key="backgroundColor" red="0.24250315659999999" green="0.19357269939999999" blue="0.0018131987450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" systemColor="systemYellowColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7C5-32-5p6" userLabel="Line">
+                                <rect key="frame" x="25" y="137" width="343" height="1"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="nGJ-aS-jIA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c6v-Po-wwa"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.24250315656565657" green="0.19357269941235972" blue="0.0018131987450709028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mW6-EK-dlJ" firstAttribute="leading" secondItem="c6v-Po-wwa" secondAttribute="leading" constant="16" id="3Sh-F7-G5w"/>
+                            <constraint firstItem="mW6-EK-dlJ" firstAttribute="leading" secondItem="c6v-Po-wwa" secondAttribute="leading" constant="25" id="3Sh-F7-G5w"/>
                             <constraint firstItem="mW6-EK-dlJ" firstAttribute="bottom" secondItem="c6v-Po-wwa" secondAttribute="bottom" constant="-16" id="ANb-bo-5rm"/>
-                            <constraint firstItem="c6v-Po-wwa" firstAttribute="trailing" secondItem="mW6-EK-dlJ" secondAttribute="trailing" constant="16" id="C4U-Az-xh0"/>
-                            <constraint firstItem="LCx-AO-G83" firstAttribute="top" secondItem="c6v-Po-wwa" secondAttribute="top" constant="16" id="ea9-Nb-njn"/>
-                            <constraint firstItem="c6v-Po-wwa" firstAttribute="trailing" secondItem="LCx-AO-G83" secondAttribute="trailing" constant="16" id="qF4-b9-8Uy"/>
-                            <constraint firstItem="LCx-AO-G83" firstAttribute="leading" secondItem="c6v-Po-wwa" secondAttribute="leading" constant="16" id="uhO-Kp-DY6"/>
-                            <constraint firstItem="mW6-EK-dlJ" firstAttribute="top" secondItem="LCx-AO-G83" secondAttribute="bottom" constant="10" id="yRG-Ve-zqp"/>
+                            <constraint firstItem="c6v-Po-wwa" firstAttribute="trailing" secondItem="mW6-EK-dlJ" secondAttribute="trailing" constant="25" id="C4U-Az-xh0"/>
+                            <constraint firstItem="c6v-Po-wwa" firstAttribute="trailing" secondItem="7C5-32-5p6" secondAttribute="trailing" constant="25" id="KnQ-Ft-5Ex"/>
+                            <constraint firstItem="LCx-AO-G83" firstAttribute="top" secondItem="c6v-Po-wwa" secondAttribute="top" constant="5" id="ea9-Nb-njn"/>
+                            <constraint firstItem="7C5-32-5p6" firstAttribute="top" secondItem="LCx-AO-G83" secondAttribute="bottom" constant="5" id="lNJ-3V-Vsn"/>
+                            <constraint firstItem="c6v-Po-wwa" firstAttribute="trailing" secondItem="LCx-AO-G83" secondAttribute="trailing" constant="25" id="qF4-b9-8Uy"/>
+                            <constraint firstItem="mW6-EK-dlJ" firstAttribute="top" secondItem="7C5-32-5p6" secondAttribute="bottom" constant="15" id="rYM-E8-33P"/>
+                            <constraint firstItem="LCx-AO-G83" firstAttribute="leading" secondItem="c6v-Po-wwa" secondAttribute="leading" constant="25" id="uhO-Kp-DY6"/>
+                            <constraint firstItem="7C5-32-5p6" firstAttribute="leading" secondItem="c6v-Po-wwa" secondAttribute="leading" constant="25" id="zP9-UI-W1n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Wish I Watch" id="eYU-sB-ZO3">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="Teu-et-6WR">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="systemYellowColor"/>
                             <connections>
                                 <segue destination="4V6-mn-Fzg" kind="show" id="1Zj-ws-rQm"/>
                             </connections>
@@ -255,7 +266,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Wish I Watch" id="GuJ-Ad-gDR">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="aQ4-vX-04Z">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="systemYellowColor"/>
                             <connections>
                                 <segue destination="4V6-mn-Fzg" kind="show" id="uxu-qc-saN"/>
                             </connections>
@@ -349,14 +360,8 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="list.star" catalog="system" width="128" height="95"/>
         <image name="star" catalog="system" width="128" height="116"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

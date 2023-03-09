@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataModelManager.loadSavedTitles()
+        dataModelManager.loadTitles()
  
         savedTitleIndex = findSavedTitle(id: detailTitle?.tmdb_id)
         if savedTitleIndex != nil {
@@ -42,21 +42,16 @@ class DetailViewController: UIViewController {
     
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
         if detailTitle?.isSaved == true {
-            detailTitle?.isSaved = false
-            dataModelManager.deleteTitles(indexTitle: savedTitleIndex!, isSavedType: true, title: dataModelManager.savedTitles[savedTitleIndex!])
-            
             sender.image = UIImage(systemName: "star")
-        } else {
+            
             detailTitle?.isSaved = false
-            dataModelManager.initSavingItem()
-            dataModelManager.savingItem!.id = Int32(detailTitle?.tmdb_id ?? 0)
-            dataModelManager.savingItem!.imageUrl = detailTitle?.image_url
-            dataModelManager.savingItem!.name = detailTitle?.name
-
-            dataModelManager.savedTitles.append(dataModelManager.savingItem!)
-            dataModelManager.saveTitles()
-
+            dataModelManager.deleteTitles(indexTitle: savedTitleIndex!)
+        } else {
             sender.image = UIImage(systemName: "star.fill")
+            detailTitle?.isSaved = false
+            
+            dataModelManager.setupItem(item: detailTitle!)
+            dataModelManager.saveTitles()
         }
     }
     

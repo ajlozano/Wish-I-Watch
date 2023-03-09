@@ -12,27 +12,24 @@ struct DataModelManager {
     
     var savedTitles: [SavedTitle]
     var savingItem: SavedTitle?
-    
-    var viewedTitles: [ViewedTitle]
-    var viewedItem: ViewedTitle?
+
     let context: NSManagedObjectContext
     
     init() {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         savedTitles = [SavedTitle]()
-        viewedTitles = [ViewedTitle]()
         savingItem = nil
-        viewedItem = nil
     }
     
-    mutating func initSavingItem() {
+    mutating func setupItem(item: Title) {
         savingItem = SavedTitle(context: self.context)
+        savingItem?.id = Int32(item.tmdb_id)
+        savingItem?.name = item.name
+        savingItem?.imageUrl = item.image_url
+        
+        savedTitles.append(savingItem!)
     }
-    
-    mutating func initViewedItem() {
-        viewedItem = ViewedTitle(context: self.context)
-    }
-    
+
     func saveTitles() {
         do {
             try context.save()
@@ -41,7 +38,7 @@ struct DataModelManager {
         }
     }
     
-    mutating func loadSavedTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {
+    mutating func loadTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {
         do {
             savedTitles = try context.fetch(request)
         } catch {
@@ -49,21 +46,9 @@ struct DataModelManager {
         }
     }
     
-    mutating func loadViewedTitles(with request: NSFetchRequest<ViewedTitle> = ViewedTitle.fetchRequest()) {
-        do {
-            viewedTitles = try context.fetch(request)
-        } catch {
-            print("Error fetching context, \(error)")
-        }
-    }
-    
-    mutating func deleteTitles(indexTitle: Int, isSavedType: Bool, title: NSManagedObject) {
-        context.delete(title)
-        if (isSavedType) {
-            savedTitles.remove(at: indexTitle)
-        } else {
-            viewedTitles.remove(at: indexTitle)
-        }
+    mutating func deleteTitles(indexTitle: Int) {
+        context.delete(savedTitles[indexTitle])
+        savedTitles.remove(at: indexTitle)
 
         saveTitles()
     }
