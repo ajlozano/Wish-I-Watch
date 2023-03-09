@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol TitleCellDelegate {
+protocol SearchTitleCellDelegate {
     func didDetailButtonPressed(_ titleId: Int)
     func didSaveButtonPressed(_ titleId: Int)
 }
 
-class TitleCell: UITableViewCell {
+class SearchTitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
@@ -22,7 +22,7 @@ class TitleCell: UITableViewCell {
     @IBOutlet weak var wishlistButton: UIButton!
     var titleId: Int = 0
     
-    var delegate: TitleCellDelegate?
+    var delegate: SearchTitleCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

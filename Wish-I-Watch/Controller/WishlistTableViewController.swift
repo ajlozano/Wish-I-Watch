@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class WishlistTableViewController: UITableViewController {
-    var wishlistTitlesManager = DataModelManager()
+    var dataModelManager = DataModelManager()
     
     var savedTitles = [SavedTitle]()
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -23,7 +23,7 @@ class WishlistTableViewController: UITableViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        wishlistTitlesManager.loadSavedTitles()
+        dataModelManager.loadSavedTitles()
         tableView.reloadData()
 //        for title in wishlistTitlesManager.savedTitles {
 //            print(title.name)
@@ -42,13 +42,13 @@ class WishlistTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishlistTitlesManager.savedTitles.count
+        return dataModelManager.savedTitles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistCell", for: indexPath)
 
-        cell.textLabel?.text = wishlistTitlesManager.savedTitles[indexPath.row].name
+        cell.textLabel?.text = dataModelManager.savedTitles[indexPath.row].name
         
         return cell
     }

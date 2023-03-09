@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     
     let urlPrefix = "https://www.themoviedb.org"
     var detailUrl = ""
-    var wishlistTitlesManager = DataModelManager()
+    var dataModelManager = DataModelManager()
     var detailTitle: Title? {
         didSet {
             if let id = detailTitle?.tmdb_id {
@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wishlistTitlesManager.loadSavedTitles()
+        dataModelManager.loadSavedTitles()
  
         savedTitleIndex = findSavedTitle(id: detailTitle?.tmdb_id)
         if savedTitleIndex != nil {
@@ -43,25 +43,25 @@ class DetailViewController: UIViewController {
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
         if detailTitle?.isSaved == true {
             detailTitle?.isSaved = false
-            wishlistTitlesManager.deleteTitles(indexTitle: savedTitleIndex!, isSavedType: true, title: wishlistTitlesManager.savedTitles[savedTitleIndex!])
+            dataModelManager.deleteTitles(indexTitle: savedTitleIndex!, isSavedType: true, title: dataModelManager.savedTitles[savedTitleIndex!])
             
             sender.image = UIImage(systemName: "star")
         } else {
             detailTitle?.isSaved = false
-            wishlistTitlesManager.initSavingItem()
-            wishlistTitlesManager.savingItem!.id = Int32(detailTitle?.tmdb_id ?? 0)
-            wishlistTitlesManager.savingItem!.imageUrl = detailTitle?.image_url
-            wishlistTitlesManager.savingItem!.name = detailTitle?.name
+            dataModelManager.initSavingItem()
+            dataModelManager.savingItem!.id = Int32(detailTitle?.tmdb_id ?? 0)
+            dataModelManager.savingItem!.imageUrl = detailTitle?.image_url
+            dataModelManager.savingItem!.name = detailTitle?.name
 
-            wishlistTitlesManager.savedTitles.append(wishlistTitlesManager.savingItem!)
-            wishlistTitlesManager.saveTitles()
+            dataModelManager.savedTitles.append(dataModelManager.savingItem!)
+            dataModelManager.saveTitles()
 
             sender.image = UIImage(systemName: "star.fill")
         }
     }
     
     func findSavedTitle(id: Int?) -> Int? {
-        return wishlistTitlesManager.savedTitles.firstIndex(where: {$0.id == id!})
+        return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
     }
     
     func updateWebView() {

@@ -13,9 +13,9 @@ class SearchTableViewController: UITableViewController {
     
     var titleManager = TitleManager()
     var titles = [Title]()
-    var cell = TitleCell()
+    var cell = SearchTitleTableViewCell()
     var selectedTitleIndex: Int = 0
-    var wishlistTitlesManager = DataModelManager()
+    var dataModelManager = DataModelManager()
     
     var detailButtonIsPressed = false
     
@@ -24,18 +24,18 @@ class SearchTableViewController: UITableViewController {
 
         self.tabBarController?.tabBar.isHidden = true
         
-        wishlistTitlesManager.loadSavedTitles()
+        dataModelManager.loadSavedTitles()
         
         titleManager.delegate = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: "SearchTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.searchTextField.textColor = UIColor.black
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        wishlistTitlesManager.loadSavedTitles()
+        dataModelManager.loadSavedTitles()
         for index in 0 ..< titles.count {
             if (findSavedTitle(id: titles[index].tmdb_id) != nil) {
                 titles[index].isSaved = true
@@ -53,7 +53,7 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TitleCell
+        cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! SearchTitleTableViewCell
         cell.delegate = self
         
         //cell.titleImage.image = UIImage(systemName: "star")
@@ -123,7 +123,7 @@ extension SearchTableViewController: TitleManagerDelegate {
     }
     
     func findSavedTitle(id: Int?) -> Int? {
-        return wishlistTitlesManager.savedTitles.firstIndex(where: {$0.id == id!})
+        return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
     }
 }
 
@@ -151,25 +151,25 @@ extension SearchTableViewController: UISearchBarDelegate {
 
 // MARK: - Title Cell delegate methods
 
-extension SearchTableViewController: TitleCellDelegate {
+extension SearchTableViewController: SearchTitleCellDelegate {
     func didSaveButtonPressed(_ titleId: Int) {
         if (checkSelectedTitle(titleId)) {
-            if let wishlistIndex = wishlistTitlesManager.savedTitles.firstIndex(
+            if let wishlistIndex = dataModelManager.savedTitles.firstIndex(
                 where: {$0.id == titles[self.selectedTitleIndex].tmdb_id}) {
                 
                 titles[self.selectedTitleIndex].isSaved = false
 
-                wishlistTitlesManager.deleteTitles(indexTitle: wishlistIndex, isSavedType: true, title: wishlistTitlesManager.savedTitles[wishlistIndex])
+                dataModelManager.deleteTitles(indexTitle: wishlistIndex, isSavedType: true, title: dataModelManager.savedTitles[wishlistIndex])
             } else {
                 titles[self.selectedTitleIndex].isSaved = true
 
-                wishlistTitlesManager.initSavingItem()
-                wishlistTitlesManager.savingItem!.id = Int32(titles[self.selectedTitleIndex].tmdb_id)
-                wishlistTitlesManager.savingItem!.imageUrl = titles[self.selectedTitleIndex].image_url
-                wishlistTitlesManager.savingItem!.name = titles[self.selectedTitleIndex].name
+                dataModelManager.initSavingItem()
+                dataModelManager.savingItem!.id = Int32(titles[self.selectedTitleIndex].tmdb_id)
+                dataModelManager.savingItem!.imageUrl = titles[self.selectedTitleIndex].image_url
+                dataModelManager.savingItem!.name = titles[self.selectedTitleIndex].name
 
-                wishlistTitlesManager.savedTitles.append(wishlistTitlesManager.savingItem!)
-                wishlistTitlesManager.saveTitles()
+                dataModelManager.savedTitles.append(dataModelManager.savingItem!)
+                dataModelManager.saveTitles()
             }
 
             reloadTableViewData()
