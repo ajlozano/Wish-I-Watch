@@ -23,11 +23,11 @@ class WishlistTableViewController: UITableViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        wishlistTitlesManager.loadTitles()
+        wishlistTitlesManager.loadSavedTitles()
         tableView.reloadData()
-        for title in wishlistTitlesManager.savedTitles {
-            print(title.name)
-        }
+//        for title in wishlistTitlesManager.savedTitles {
+//            print(title.name)
+//        }
     }
     
     func loadTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {

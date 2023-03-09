@@ -24,7 +24,7 @@ class SearchTableViewController: UITableViewController {
 
         self.tabBarController?.tabBar.isHidden = true
         
-        wishlistTitlesManager.loadTitles()
+        wishlistTitlesManager.loadSavedTitles()
         
         titleManager.delegate = self
         tableView.delegate = self
@@ -35,21 +35,15 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        wishlistTitlesManager.loadTitles()
+        wishlistTitlesManager.loadSavedTitles()
         for index in 0 ..< titles.count {
             if (findSavedTitle(id: titles[index].tmdb_id) != nil) {
-                if (!titles[index].isSaved) {
-                    titles[index].isSaved = true
-                    reloadTableViewData()
-                }
-
+                titles[index].isSaved = true
             } else {
-                if (titles[index].isSaved) {
-                    titles[index].isSaved = false
-                    reloadTableViewData()
-                }
+                titles[index].isSaved = false
             }
         }
+        reloadTableViewData()
     }
 
     // MARK: - Table view data source
@@ -87,7 +81,6 @@ class SearchTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
 }
 
 // MARK: - Title Manager delegate
@@ -161,15 +154,16 @@ extension SearchTableViewController: UISearchBarDelegate {
 extension SearchTableViewController: TitleCellDelegate {
     func didSaveButtonPressed(_ titleId: Int) {
         if (checkSelectedTitle(titleId)) {
-            if let wishlistIndex = wishlistTitlesManager.savedTitles.firstIndex(where: {$0.id == titles[self.selectedTitleIndex].tmdb_id}) {
+            if let wishlistIndex = wishlistTitlesManager.savedTitles.firstIndex(
+                where: {$0.id == titles[self.selectedTitleIndex].tmdb_id}) {
                 
                 titles[self.selectedTitleIndex].isSaved = false
 
-                wishlistTitlesManager.deleteTitles(indexTitle: wishlistIndex)
+                wishlistTitlesManager.deleteTitles(indexTitle: wishlistIndex, isSavedType: true, title: wishlistTitlesManager.savedTitles[wishlistIndex])
             } else {
                 titles[self.selectedTitleIndex].isSaved = true
 
-                wishlistTitlesManager.initItem()
+                wishlistTitlesManager.initSavingItem()
                 wishlistTitlesManager.savingItem!.id = Int32(titles[self.selectedTitleIndex].tmdb_id)
                 wishlistTitlesManager.savingItem!.imageUrl = titles[self.selectedTitleIndex].image_url
                 wishlistTitlesManager.savingItem!.name = titles[self.selectedTitleIndex].name

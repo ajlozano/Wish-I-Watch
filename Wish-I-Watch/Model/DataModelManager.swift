@@ -12,16 +12,25 @@ struct DataModelManager {
     
     var savedTitles: [SavedTitle]
     var savingItem: SavedTitle?
+    
+    var viewedTitles: [ViewedTitle]
+    var viewedItem: ViewedTitle?
     let context: NSManagedObjectContext
     
     init() {
-        savedTitles = [SavedTitle]()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        savedTitles = [SavedTitle]()
+        viewedTitles = [ViewedTitle]()
         savingItem = nil
+        viewedItem = nil
     }
     
-    mutating func initItem() {
+    mutating func initSavingItem() {
         savingItem = SavedTitle(context: self.context)
+    }
+    
+    mutating func initViewedItem() {
+        viewedItem = ViewedTitle(context: self.context)
     }
     
     func saveTitles() {
@@ -32,7 +41,7 @@ struct DataModelManager {
         }
     }
     
-    mutating func loadTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {
+    mutating func loadSavedTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {
         do {
             savedTitles = try context.fetch(request)
         } catch {
@@ -40,9 +49,22 @@ struct DataModelManager {
         }
     }
     
-    mutating func deleteTitles(indexTitle: Int) {
-        context.delete(savedTitles[indexTitle])
-        savedTitles.remove(at: indexTitle)
+    mutating func loadViewedTitles(with request: NSFetchRequest<ViewedTitle> = ViewedTitle.fetchRequest()) {
+        do {
+            viewedTitles = try context.fetch(request)
+        } catch {
+            print("Error fetching context, \(error)")
+        }
+    }
+    
+    mutating func deleteTitles(indexTitle: Int, isSavedType: Bool, title: NSManagedObject) {
+        context.delete(title)
+        if (isSavedType) {
+            savedTitles.remove(at: indexTitle)
+        } else {
+            viewedTitles.remove(at: indexTitle)
+        }
+
         saveTitles()
     }
 }

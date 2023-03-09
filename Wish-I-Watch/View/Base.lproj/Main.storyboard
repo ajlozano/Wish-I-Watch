@@ -10,6 +10,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--TabBarController-->
+        <scene sceneID="Xud-cW-n67">
+            <objects>
+                <tabBarController title="TabBarController" id="txV-AW-cH8" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="RYw-gv-9lU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tabBarAppearance>
+                        <tabBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tabBarAppearance>
+                    </tabBar>
+                    <connections>
+                        <segue destination="L2z-EZ-wOs" kind="relationship" relationship="viewControllers" id="C8Z-Zm-pH6"/>
+                        <segue destination="Ew1-yq-imJ" kind="relationship" relationship="viewControllers" id="az6-5o-Q8x"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f41-CD-B7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1579" y="-771"/>
+        </scene>
         <!--WishlistNavController-->
         <scene sceneID="L49-Xy-c3W">
             <objects>
@@ -57,35 +86,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bac-dw-hui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1579" y="-27"/>
-        </scene>
-        <!--TabBarController-->
-        <scene sceneID="Xud-cW-n67">
-            <objects>
-                <tabBarController title="TabBarController" id="txV-AW-cH8" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="RYw-gv-9lU">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <tabBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </tabBarAppearance>
-                        <tabBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="selectionIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </tabBarAppearance>
-                    </tabBar>
-                    <connections>
-                        <segue destination="L2z-EZ-wOs" kind="relationship" relationship="viewControllers" id="C8Z-Zm-pH6"/>
-                        <segue destination="Ew1-yq-imJ" kind="relationship" relationship="viewControllers" id="az6-5o-Q8x"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f41-CD-B7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1579" y="-771"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="p8Z-So-GY6">
@@ -156,6 +156,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGI-E2-Vzw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2344" y="711"/>
+        </scene>
+        <!--WishlistTableViewController-->
+        <scene sceneID="TOt-iU-Qor">
+            <objects>
+                <tableViewController title="WishlistTableViewController" id="9xp-eQ-L1U" customClass="WishlistTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L8N-BD-ECf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.66738864689999999" green="0.3109573806" blue="0.85550688860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" id="g6X-qn-mm1">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g6X-qn-mm1" id="e0M-0H-h5r">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9xp-eQ-L1U" id="B5f-7r-cm7"/>
+                            <outlet property="delegate" destination="9xp-eQ-L1U" id="Wcf-pW-PY3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wish I Watch" id="GuJ-Ad-gDR">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="aQ4-vX-04Z">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="4V6-mn-Fzg" kind="show" id="uxu-qc-saN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nn-Mu-uZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1579" y="711"/>
         </scene>
         <!--SearchTableViewController-->
         <scene sceneID="qP8-a5-H9V">
@@ -230,42 +266,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lh4-As-WKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1579" y="1449"/>
-        </scene>
-        <!--WishlistTableViewController-->
-        <scene sceneID="TOt-iU-Qor">
-            <objects>
-                <tableViewController title="WishlistTableViewController" id="9xp-eQ-L1U" customClass="WishlistTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L8N-BD-ECf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.66738864689999999" green="0.3109573806" blue="0.85550688860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" id="g6X-qn-mm1">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g6X-qn-mm1" id="e0M-0H-h5r">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9xp-eQ-L1U" id="B5f-7r-cm7"/>
-                            <outlet property="delegate" destination="9xp-eQ-L1U" id="Wcf-pW-PY3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Wish I Watch" id="GuJ-Ad-gDR">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="aQ4-vX-04Z">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="4V6-mn-Fzg" kind="show" id="uxu-qc-saN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1nn-Mu-uZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1579" y="711"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

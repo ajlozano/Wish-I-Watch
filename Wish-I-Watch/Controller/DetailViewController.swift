@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wishlistTitlesManager.loadTitles()
+        wishlistTitlesManager.loadSavedTitles()
  
         savedTitleIndex = findSavedTitle(id: detailTitle?.tmdb_id)
         if savedTitleIndex != nil {
@@ -43,12 +43,12 @@ class DetailViewController: UIViewController {
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
         if detailTitle?.isSaved == true {
             detailTitle?.isSaved = false
-            wishlistTitlesManager.deleteTitles(indexTitle: savedTitleIndex!)
+            wishlistTitlesManager.deleteTitles(indexTitle: savedTitleIndex!, isSavedType: true, title: wishlistTitlesManager.savedTitles[savedTitleIndex!])
             
             sender.image = UIImage(systemName: "star")
         } else {
             detailTitle?.isSaved = false
-            wishlistTitlesManager.initItem()
+            wishlistTitlesManager.initSavingItem()
             wishlistTitlesManager.savingItem!.id = Int32(detailTitle?.tmdb_id ?? 0)
             wishlistTitlesManager.savingItem!.imageUrl = detailTitle?.image_url
             wishlistTitlesManager.savingItem!.name = detailTitle?.name
