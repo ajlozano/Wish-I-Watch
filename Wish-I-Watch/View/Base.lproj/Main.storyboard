@@ -234,7 +234,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="mW6-EK-dlJ" id="7wP-WC-lL8"/>
-                        <segue destination="L7K-Gt-nhf" kind="show" identifier="goToDetailFromHome" id="NJH-Cs-oks"/>
+                        <segue destination="L7K-Gt-nhf" kind="show" identifier="goToDetailFromHome" id="STZ-ce-kBV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGI-E2-Vzw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -353,7 +353,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NJH-Cs-oks"/>
+        <segue reference="STZ-ce-kBV"/>
         <segue reference="1Zj-ws-rQm"/>
     </inferredMetricsTieBreakers>
     <resources>

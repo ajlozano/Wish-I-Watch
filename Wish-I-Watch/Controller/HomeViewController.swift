@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var selectedTitleIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,18 +25,21 @@ class HomeViewController: UIViewController {
         collectionView.layer.cornerRadius = 10
         
         recentlyViewedData.loadTitles()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         self.tabBarController?.tabBar.isHidden = false
+        recentlyViewedData.loadTitles()
+        collectionView.reloadData()
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recentlyViewedData.savedTitles.count
+        return recentlyViewedData.viewedTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,14 +47,13 @@ extension HomeViewController: UICollectionViewDataSource {
         
         DispatchQueue.global().async {
             // Fetch Image Data
-            if let data = try? Data(contentsOf: URL(string: self.recentlyViewedData.savedTitles[indexPath.row].imageUrl!)!) {
+            if let data = try? Data(contentsOf: URL(string: self.recentlyViewedData.viewedTitles[indexPath.row].imageUrl!)!) {
                 DispatchQueue.main.async {
                     cell.setup(image: UIImage(data: data)!,
-                               name: self.recentlyViewedData.savedTitles[indexPath.row].name!,
-                               id: Int(self.recentlyViewedData.savedTitles[indexPath.row].id))
+                               name: self.recentlyViewedData.viewedTitles[indexPath.row].name!,
+                               id: Int(self.recentlyViewedData.viewedTitles[indexPath.row].id))
                 }
             }
-            
         }
         
         return cell
@@ -65,6 +69,29 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected item")
+        
+        selectedTitleIndex = indexPath.item
+        performSegue(withIdentifier: "goToDetailFromHome", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "goToDetailFromHome") {
+            let destinationVC = segue.destination as! DetailViewController
+            let title = Title(
+                name: recentlyViewedData.viewedTitles[selectedTitleIndex].name!,
+                year: recentlyViewedData.viewedTitles[selectedTitleIndex].year!,
+                image_url: recentlyViewedData.viewedTitles[selectedTitleIndex].imageUrl,
+                tmdb_type: recentlyViewedData.viewedTitles[selectedTitleIndex].type!,
+                tmdb_id: Int(recentlyViewedData.viewedTitles[selectedTitleIndex].id),
+                isSaved: recentlyViewedData.viewedTitles[selectedTitleIndex].isSaved)
+
+            destinationVC.detailTitle = title
+            // Is necessary to unhide self tab bar before preparing detail tab bar
+            self.tabBarController?.tabBar.isHidden = false
+            destinationVC.tabBarItem.title = self.tabBarItem.title
+            destinationVC.tabBarItem.image = self.tabBarItem.image
+        }
     }
 }
 

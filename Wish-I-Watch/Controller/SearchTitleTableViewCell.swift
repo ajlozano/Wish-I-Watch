@@ -46,4 +46,5 @@ class SearchTitleTableViewCell: UITableViewCell {
         //print("details button pressed, \(String(describing: titleLabel.text))")
         delegate?.didDetailButtonPressed(titleId)
     }
+    
 }

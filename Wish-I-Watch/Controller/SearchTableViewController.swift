@@ -37,7 +37,7 @@ class SearchTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         dataModelManager.loadTitles()
         for index in 0 ..< titles.count {
-            if (findSavedTitle(id: titles[index].tmdb_id) != nil) {
+            if (findPersistentTitle(id: titles[index].tmdb_id) != nil) {
                 titles[index].isSaved = true
             } else {
                 titles[index].isSaved = false
@@ -100,7 +100,7 @@ extension SearchTableViewController: TitleManagerDelegate {
                             }
                             
                             var isTitleSaved = false
-                            if (self.findSavedTitle(id: result.tmdb_id) != nil) {
+                            if (self.findPersistentTitle(id: result.tmdb_id) != nil) {
                                 isTitleSaved = true
                             }
           
@@ -122,8 +122,12 @@ extension SearchTableViewController: TitleManagerDelegate {
         print(error)
     }
     
-    func findSavedTitle(id: Int?) -> Int? {
-        return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
+    func findPersistentTitle(id: Int?, isSavedTitle: Bool = true) -> Int? {
+        if (isSavedTitle) {
+            return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
+        } else {
+            return dataModelManager.viewedTitles.firstIndex(where: {$0.id == id!})
+        }
     }
 }
 
@@ -196,6 +200,13 @@ extension SearchTableViewController: SearchTitleCellDelegate {
         self.tabBarController?.tabBar.isHidden = false
         destinationVC.tabBarItem.title = self.tabBarItem.title
         destinationVC.tabBarItem.image = self.tabBarItem.image
+        
+        if let viewedTitleIndex = findPersistentTitle(id: titles[selectedTitleIndex].tmdb_id, isSavedTitle: false) {
+            dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
+        }
+        
+        dataModelManager.setupItem(item: titles[selectedTitleIndex], isSavedItem: false)
+        dataModelManager.saveTitles()
     }
 }
 
