@@ -8,4 +8,6 @@ target 'Wish-I-Watch' do
   # Pods for Wish-I-Watch
   pod 'CLTypingLabel'
 
+  pod 'ViewAnimator'
+
 end

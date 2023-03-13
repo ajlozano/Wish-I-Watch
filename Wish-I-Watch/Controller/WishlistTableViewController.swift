@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import ViewAnimator
 
 class WishlistTableViewController: UIViewController {
     var wishlistData = DataModelManager()
@@ -23,8 +24,7 @@ class WishlistTableViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         collectionView.layer.cornerRadius = 10
-        
-        wishlistData.loadTitles()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +33,10 @@ class WishlistTableViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         
         wishlistData.loadTitles()
+        
+        let animation = AnimationType.from(direction: .top, offset: 300)
+        UIView.animate(views: collectionView.visibleCells, animations: [animation])
+        
         collectionView.reloadData()
     }
 }

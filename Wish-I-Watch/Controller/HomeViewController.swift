@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class HomeViewController: UIViewController {
 
@@ -23,8 +24,7 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         collectionView.layer.cornerRadius = 10
-        
-        recentlyViewedData.loadTitles()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +33,10 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         
         recentlyViewedData.loadTitles()
+        
+        let animation = AnimationType.from(direction: .top, offset: 300)
+        UIView.animate(views: collectionView.visibleCells, animations: [animation])
+        
         collectionView.reloadData()
     }
 }
@@ -49,6 +53,7 @@ extension HomeViewController: UICollectionViewDataSource {
             // Fetch Image Data
             if let data = try? Data(contentsOf: URL(string: self.recentlyViewedData.viewedTitles[indexPath.row].imageUrl!)!) {
                 DispatchQueue.main.async {
+                    
                     cell.setup(image: UIImage(data: data)!,
                                name: self.recentlyViewedData.viewedTitles[indexPath.row].name!,
                                id: Int(self.recentlyViewedData.viewedTitles[indexPath.row].id))

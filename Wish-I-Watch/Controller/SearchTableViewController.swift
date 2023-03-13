@@ -79,6 +79,7 @@ class SearchTableViewController: UITableViewController {
 
 extension SearchTableViewController: TitleManagerDelegate {
     func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleAPIData) {
+        
         for index in 0 ..< titleResults.results.count {
             let result = titleResults.results[index]
             if (result.image_url != nil) {

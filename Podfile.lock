@@ -1,16 +1,20 @@
 PODS:
   - CLTypingLabel (0.4.0)
+  - ViewAnimator (3.1.0)
 
 DEPENDENCIES:
   - CLTypingLabel
+  - ViewAnimator
 
 SPEC REPOS:
   trunk:
     - CLTypingLabel
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   CLTypingLabel: 95a7d1faf7e3d1d952cd11cb0491d17d80c50934
+  ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: edd0ad0100e5579468b55b4981865ce36fe6ebbd
+PODFILE CHECKSUM: 275d9df8e27eaf12962296a686300dd20343e116
 
 COCOAPODS: 1.11.3
