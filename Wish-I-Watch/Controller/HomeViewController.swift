@@ -29,9 +29,10 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
+        
         recentlyViewedData.loadTitles()
         collectionView.reloadData()
     }
@@ -62,7 +63,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 250)
+        return CGSize(width: 100, height: 180)
     }
 }
 
@@ -73,7 +74,6 @@ extension HomeViewController: UICollectionViewDelegate {
         selectedTitleIndex = indexPath.item
         performSegue(withIdentifier: "goToDetailFromHome", sender: self)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goToDetailFromHome") {

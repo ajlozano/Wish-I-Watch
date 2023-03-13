@@ -19,15 +19,12 @@ class WishlistTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
         
         dataModelManager.loadTitles()
         tableView.reloadData()
-//        for title in wishlistTitlesManager.savedTitles {
-//            print(title.name)
-//        }
     }
     
     func loadTitles(with request: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest()) {

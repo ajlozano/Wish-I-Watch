@@ -21,9 +21,7 @@ class SearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tabBarController?.tabBar.isHidden = true
-        
+       
         dataModelManager.loadTitles()
         
         titleManager.delegate = self
@@ -35,15 +33,19 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataModelManager.loadTitles()
-        for index in 0 ..< titles.count {
-            if (findPersistentTitle(id: titles[index].tmdb_id) != nil) {
-                titles[index].isSaved = true
-            } else {
-                titles[index].isSaved = false
-            }
-        }
-        reloadTableViewData()
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = true
+            
+//        dataModelManager.loadTitles()
+//        for index in 0 ..< titles.count {
+//            if (findPersistentTitle(id: titles[index].tmdb_id) != nil) {
+//                titles[index].isSaved = true
+//            } else {
+//                titles[index].isSaved = false
+//            }
+//        }
+//        reloadTableViewData()
     }
 
     // MARK: - Table view data source
@@ -196,6 +198,7 @@ extension SearchTableViewController: SearchTitleCellDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! DetailViewController
         destinationVC.detailTitle = titles[selectedTitleIndex]
+        
         // Is necessary to unhide self tab bar before preparing detail tab bar
         self.tabBarController?.tabBar.isHidden = false
         destinationVC.tabBarItem.title = self.tabBarItem.title

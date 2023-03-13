@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
         }
     }
     var savedTitleIndex: Int?
+    var viewAppearedBefore = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,19 @@ class DetailViewController: UIViewController {
         
         updateWebView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if viewAppearedBefore  {
+            if let mainVC = self.navigationController?.viewControllers[0] {
+                self.navigationController?.popToViewController(mainVC, animated: true)
+            }
+        } else {
+            viewAppearedBefore = true
+        }
+    }
+
     
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
         if detailTitle?.isSaved == true {
