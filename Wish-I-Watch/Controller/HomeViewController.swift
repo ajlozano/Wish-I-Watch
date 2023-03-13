@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
         collectionView.layer.cornerRadius = 10
         
         recentlyViewedData.loadTitles()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

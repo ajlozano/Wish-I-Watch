@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="9xp-eQ-L1U" kind="relationship" relationship="rootViewController" id="ZKR-Fn-npq"/>
+                        <segue destination="DGf-An-7z0" kind="relationship" relationship="rootViewController" id="1Vb-Rf-Hfp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bac-dw-hui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,7 +164,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQ8-gi-QqK">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="270"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labeldsjsjsjsjsjsjsjsjsjsjsjsjjsjs ssjs  sjsjsjs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0v-co-8NQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0v-co-8NQ">
                                                     <rect key="frame" x="0.0" y="270" width="200" height="30"/>
                                                     <color key="backgroundColor" red="0.24250315659999999" green="0.19357269939999999" blue="0.0018131987450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -241,42 +241,6 @@
             </objects>
             <point key="canvasLocation" x="-1579.3893129770993" y="695.77464788732402"/>
         </scene>
-        <!--WishlistTableViewController-->
-        <scene sceneID="TOt-iU-Qor">
-            <objects>
-                <tableViewController title="WishlistTableViewController" id="9xp-eQ-L1U" customClass="WishlistTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="L8N-BD-ECf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.66738864689999999" green="0.3109573806" blue="0.85550688860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" id="g6X-qn-mm1">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g6X-qn-mm1" id="e0M-0H-h5r">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9xp-eQ-L1U" id="B5f-7r-cm7"/>
-                            <outlet property="delegate" destination="9xp-eQ-L1U" id="Wcf-pW-PY3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Wish I Watch" id="GuJ-Ad-gDR">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="aQ4-vX-04Z">
-                            <color key="tintColor" systemColor="systemYellowColor"/>
-                            <connections>
-                                <segue destination="4V6-mn-Fzg" kind="show" id="uxu-qc-saN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1nn-Mu-uZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2344" y="696"/>
-        </scene>
         <!--SearchTableViewController-->
         <scene sceneID="qP8-a5-H9V">
             <objects>
@@ -310,7 +274,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngr-fr-Bko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2344" y="1435"/>
+            <point key="canvasLocation" x="-2344" y="1613"/>
         </scene>
         <!--DetailViewController-->
         <scene sceneID="Waa-qs-mJ5">
@@ -349,12 +313,117 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lh4-As-WKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1579" y="1435"/>
+            <point key="canvasLocation" x="-1579" y="1613"/>
+        </scene>
+        <!--WishlistViewController-->
+        <scene sceneID="zBB-nu-P0i">
+            <objects>
+                <viewController title="WishlistViewController" id="DGf-An-7z0" customClass="WishlistTableViewController" customModule="Wish_I_Watch" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sgf-VI-8bt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Zb-8G-CkB">
+                                <rect key="frame" x="25" y="153" width="343" height="600"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fDG-2q-tbc">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WishlistTitleCollectionViewCell" id="LRM-jo-Lwh" customClass="WishlistTitleCollectionViewCell" customModule="Wish_I_Watch" customModuleProvider="target">
+                                        <rect key="frame" x="71.666666666666671" y="0.0" width="200" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CJH-EC-P4h">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQ0-dm-a5i">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="270"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-8q-lZU">
+                                                    <rect key="frame" x="0.0" y="270" width="200" height="30"/>
+                                                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="Oay-jT-fj9"/>
+                                                        <constraint firstAttribute="height" constant="30" id="vjY-sf-TY3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nMC-8q-lZU" firstAttribute="top" secondItem="gQ0-dm-a5i" secondAttribute="bottom" id="2Pe-k3-L3d"/>
+                                                <constraint firstAttribute="bottom" secondItem="nMC-8q-lZU" secondAttribute="bottom" id="3fO-ha-wtO"/>
+                                                <constraint firstItem="gQ0-dm-a5i" firstAttribute="top" secondItem="CJH-EC-P4h" secondAttribute="top" id="W0A-jR-GXr"/>
+                                                <constraint firstAttribute="trailing" secondItem="gQ0-dm-a5i" secondAttribute="trailing" id="ZTd-g4-gL9"/>
+                                                <constraint firstItem="nMC-8q-lZU" firstAttribute="leading" secondItem="CJH-EC-P4h" secondAttribute="leading" id="aux-h1-814"/>
+                                                <constraint firstAttribute="trailing" secondItem="nMC-8q-lZU" secondAttribute="trailing" id="fui-6J-Pbk"/>
+                                                <constraint firstItem="gQ0-dm-a5i" firstAttribute="leading" secondItem="CJH-EC-P4h" secondAttribute="leading" id="kkt-QZ-PzK"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="200" height="300"/>
+                                        <connections>
+                                            <outlet property="titleImage" destination="gQ0-dm-a5i" id="VJa-1w-tWe"/>
+                                            <outlet property="titleLabel" destination="nMC-8q-lZU" id="bBg-uF-513"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist Titles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mt-yn-FlM" userLabel="HeaderLabel">
+                                <rect key="frame" x="25" y="108" width="343" height="24"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yF1-ev-YW9" userLabel="Line">
+                                <rect key="frame" x="25" y="137" width="343" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="YVz-qv-XFS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bxy-wR-aGZ"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="0mt-yn-FlM" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="25" id="FKY-nF-r2N"/>
+                            <constraint firstItem="0mt-yn-FlM" firstAttribute="top" secondItem="Bxy-wR-aGZ" secondAttribute="top" constant="5" id="Mud-CT-4Zc"/>
+                            <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="yF1-ev-YW9" secondAttribute="trailing" constant="25" id="UDR-5v-MwI"/>
+                            <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="0mt-yn-FlM" secondAttribute="trailing" constant="25" id="bEx-9E-gWz"/>
+                            <constraint firstItem="4Zb-8G-CkB" firstAttribute="top" secondItem="yF1-ev-YW9" secondAttribute="bottom" constant="15" id="c2P-EU-hTl"/>
+                            <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="4Zb-8G-CkB" secondAttribute="trailing" constant="25" id="hZX-xf-9hj"/>
+                            <constraint firstItem="yF1-ev-YW9" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="25" id="mnE-bS-6o0"/>
+                            <constraint firstItem="4Zb-8G-CkB" firstAttribute="bottom" secondItem="Bxy-wR-aGZ" secondAttribute="bottom" constant="-16" id="oEr-Ka-fbp"/>
+                            <constraint firstItem="4Zb-8G-CkB" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="25" id="q30-zF-QvN"/>
+                            <constraint firstItem="yF1-ev-YW9" firstAttribute="top" secondItem="0mt-yn-FlM" secondAttribute="bottom" constant="5" id="tYT-MK-VJb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Wish I Watch" id="d2i-48-u2n">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="l8Q-2U-WDY">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                            <connections>
+                                <segue destination="4V6-mn-Fzg" kind="show" id="Uwf-r0-jgg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="4Zb-8G-CkB" id="TBA-1p-wYp"/>
+                        <segue destination="L7K-Gt-nhf" kind="show" identifier="goToDetailFromWishlist" id="Bhf-LN-UJB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ju-ex-G1v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2344.2748091603053" y="695.77464788732402"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="STZ-ce-kBV"/>
-        <segue reference="uxu-qc-saN"/>
+        <segue reference="Bhf-LN-UJB"/>
+        <segue reference="Uwf-r0-jgg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

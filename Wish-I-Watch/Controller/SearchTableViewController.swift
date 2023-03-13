@@ -36,16 +36,6 @@ class SearchTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.isHidden = true
-            
-//        dataModelManager.loadTitles()
-//        for index in 0 ..< titles.count {
-//            if (findPersistentTitle(id: titles[index].tmdb_id) != nil) {
-//                titles[index].isSaved = true
-//            } else {
-//                titles[index].isSaved = false
-//            }
-//        }
-//        reloadTableViewData()
     }
 
     // MARK: - Table view data source
@@ -128,7 +118,7 @@ extension SearchTableViewController: TitleManagerDelegate {
         if (isSavedTitle) {
             return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
         } else {
-            return dataModelManager.viewedTitles.firstIndex(where: {$0.id == id!})
+            return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
         }
     }
 }
