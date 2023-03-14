@@ -39,11 +39,9 @@ class SearchTitleTableViewCell: UITableViewCell {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        //print("save button pressed, \(String(describing: titleLabel.text))")
         delegate?.didSaveButtonPressed(titleId)
     }
     @IBAction func detailsButtonPressed(_ sender: UIButton) {
-        //print("details button pressed, \(String(describing: titleLabel.text))")
         delegate?.didDetailButtonPressed(titleId)
     }
     

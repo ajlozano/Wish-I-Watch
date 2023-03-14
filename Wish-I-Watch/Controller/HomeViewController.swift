@@ -11,10 +11,8 @@ import ViewAnimator
 class HomeViewController: UIViewController {
 
     var dataModelManager = DataModelManager()
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     var selectedTitleIndex: Int = 0
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +20,7 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
-        collectionView.layer.cornerRadius = 10
-
+        //collectionView.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,14 +28,16 @@ class HomeViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        dataModelManager.loadTitles()
-        
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
+        
+        dataModelManager.loadTitles()
         
         collectionView.reloadData()
     }
 }
+
+// MARK: - Collection view data source
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,11 +63,15 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Collection view delegate flow layout
+
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 180)
     }
 }
+
+// MARK: - Collection view delegate methods
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

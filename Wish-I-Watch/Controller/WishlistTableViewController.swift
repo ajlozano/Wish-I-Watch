@@ -11,10 +11,9 @@ import ViewAnimator
 
 class WishlistTableViewController: UIViewController {
     var dataModelManager = DataModelManager()
+    var selectedTitleIndex: Int = 0
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var selectedTitleIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +31,16 @@ class WishlistTableViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        dataModelManager.loadTitles()
-        
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
+        
+        dataModelManager.loadTitles()
         
         collectionView.reloadData()
     }
 }
+
+// MARK: - Collection view data source
 
 extension WishlistTableViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,11 +65,15 @@ extension WishlistTableViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Collection view Delegate Flow Layout
+
 extension WishlistTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 145, height: 245)
     }
 }
+
+// MARK: - Collection view Delegate methods
 
 extension WishlistTableViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -91,10 +96,9 @@ extension WishlistTableViewController: UICollectionViewDelegate {
 
             destinationVC.detailTitle = title
 
-            if let viewedTitleIndex = findPersistentTitle(id: title.tmdb_id, isSavedTitle: false) {
+            if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: title.tmdb_id, isSavedTitle: false) {
                 dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
             }
-            
             dataModelManager.setupItem(item: title, isSavedItem: false)
             dataModelManager.saveTitles()
             
@@ -102,14 +106,6 @@ extension WishlistTableViewController: UICollectionViewDelegate {
             self.tabBarController?.tabBar.isHidden = false
             destinationVC.tabBarItem.title = self.tabBarItem.title
             destinationVC.tabBarItem.image = self.tabBarItem.image
-        }
-    }
-    
-    func findPersistentTitle(id: Int?, isSavedTitle: Bool = true) -> Int? {
-        if (isSavedTitle) {
-            return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
-        } else {
-            return dataModelManager.viewedTitles.firstIndex(where: {$0.id == id!})
         }
     }
 }

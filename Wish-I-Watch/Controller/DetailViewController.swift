@@ -30,14 +30,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataModelManager.loadTitles()
- 
-        savedTitleIndex = findSavedTitle(id: detailTitle?.tmdb_id)
-        if savedTitleIndex != nil {
-            detailTitle?.isSaved = true
-            saveButton.image = UIImage(systemName: "star.fill")
-        }
-        
         updateWebView()
     }
     
@@ -51,26 +43,27 @@ class DetailViewController: UIViewController {
         } else {
             viewAppearedBefore = true
         }
+        
+        dataModelManager.loadTitles()
+ 
+        savedTitleIndex = dataModelManager.findPersistentTitle(id: detailTitle?.tmdb_id)
+        if savedTitleIndex != nil {
+            detailTitle?.isSaved = true
+            saveButton.image = UIImage(systemName: "star.fill")
+        }
     }
 
-    
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
-        if detailTitle?.isSaved == true {
+        if dataModelManager.findPersistentTitle(id: detailTitle?.tmdb_id) != nil {
             sender.image = UIImage(systemName: "star")
-            
             detailTitle?.isSaved = false
             dataModelManager.deleteTitles(indexTitle: savedTitleIndex!)
         } else {
             sender.image = UIImage(systemName: "star.fill")
             detailTitle?.isSaved = false
-            
             dataModelManager.setupItem(item: detailTitle!)
             dataModelManager.saveTitles()
         }
-    }
-    
-    func findSavedTitle(id: Int?) -> Int? {
-        return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
     }
     
     func updateWebView() {
