@@ -88,4 +88,12 @@ struct DataModelManager {
         }
         saveTitles()
     }
+    
+    mutating func findPersistentTitle(id: Int?, isSavedTitle: Bool = true) -> Int? {
+        if (isSavedTitle) {
+            return savedTitles.firstIndex(where: {$0.id == id!})
+        } else {
+            return viewedTitles.firstIndex(where: {$0.id == id!})
+        }
+    }
 }

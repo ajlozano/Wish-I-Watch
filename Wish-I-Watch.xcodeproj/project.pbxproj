@@ -143,9 +143,9 @@
 				ADAE45F5299C089B00D27742 /* TitleAPIData.swift */,
 				AD4FCE21299D04CC00BCA324 /* Title.swift */,
 				ADFF131C29B7B5CD00A37947 /* DataModelManager.swift */,
-				AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */,
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
 				AD4070F729BF7D3D00778677 /* ApiKey.swift */,
+				AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";

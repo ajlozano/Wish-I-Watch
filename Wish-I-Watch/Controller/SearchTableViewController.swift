@@ -39,12 +39,13 @@ class SearchTableViewController: UITableViewController {
         
         // FIX PROBLEM WITH SAVING STAR
         for index in 0..<titles.count {
-            if findPersistentTitle(id: titles[index].tmdb_id) != nil {
+            if dataModelManager.findPersistentTitle(id: titles[index].tmdb_id) != nil {
                 titles[index].isSaved = true
             } else {
                 titles[index].isSaved = false
             }
         }
+        
         reloadTableViewData()
     }
 
@@ -57,8 +58,6 @@ class SearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! SearchTitleTableViewCell
         cell.delegate = self
-        
-        //cell.titleImage.image = UIImage(systemName: "star")
         cell.titleLabel.text = titles[indexPath.row].name
         cell.titleLabel.numberOfLines = 0
         cell.yearLabel.text = "\(titles[indexPath.row].year)"
@@ -102,10 +101,9 @@ extension SearchTableViewController: TitleManagerDelegate {
                             if let year = result.year {
                                 yearString = "\(year)"
                             }
-                            
-                            
+                        
                             var isTitleSaved = false
-                            if (self.findPersistentTitle(id: result.tmdb_id) != nil) {
+                            if (self.dataModelManager.findPersistentTitle(id: result.tmdb_id) != nil) {
                                 isTitleSaved = true
                             }
           
@@ -126,14 +124,6 @@ extension SearchTableViewController: TitleManagerDelegate {
     func didFailWithError(error: Error) {
         print(error)
     }
-    
-    func findPersistentTitle(id: Int?, isSavedTitle: Bool = true) -> Int? {
-        if (isSavedTitle) {
-            return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
-        } else {
-            return dataModelManager.viewedTitles.firstIndex(where: {$0.id == id!})
-        }
-    }
 }
 
 // MARK: - Search Bar delegate methods
@@ -144,9 +134,9 @@ extension SearchTableViewController: UISearchBarDelegate {
             titles = []
             reloadTableViewData()
             // Resign cursor in search
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
+            //DispatchQueue.main.async {
+            //    searchBar.resignFirstResponder()
+            //}
         }
     }
     
@@ -163,19 +153,14 @@ extension SearchTableViewController: UISearchBarDelegate {
 extension SearchTableViewController: SearchTitleCellDelegate {
     func didSaveButtonPressed(_ titleId: Int) {
         if (checkSelectedTitle(titleId)) {
-            if let wishlistIndex = dataModelManager.savedTitles.firstIndex(
-                where: {$0.id == titles[self.selectedTitleIndex].tmdb_id}) {
-                
+            if let wishlistIndex = dataModelManager.findPersistentTitle(id: titleId) {
                 titles[self.selectedTitleIndex].isSaved = false
-
                 dataModelManager.deleteTitles(indexTitle: wishlistIndex)
             } else {
                 titles[self.selectedTitleIndex].isSaved = true
-
                 dataModelManager.setupItem(item: titles[self.selectedTitleIndex])
                 dataModelManager.saveTitles()
             }
-
             reloadTableViewData()
         } else {
             print("Failed selecting title index.")
@@ -207,7 +192,7 @@ extension SearchTableViewController: SearchTitleCellDelegate {
         destinationVC.tabBarItem.title = self.tabBarItem.title
         destinationVC.tabBarItem.image = self.tabBarItem.image
         
-        if let viewedTitleIndex = findPersistentTitle(id: titles[selectedTitleIndex].tmdb_id, isSavedTitle: false) {
+        if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: titles[selectedTitleIndex].tmdb_id, isSavedTitle: false) {
             dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
         }
         
