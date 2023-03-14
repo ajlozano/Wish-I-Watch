@@ -31,26 +31,26 @@
                                 <rect key="frame" x="215" y="0.0" width="204" height="265"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labesss" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4d-LV-nDn" userLabel="Title">
-                                        <rect key="frame" x="0.0" y="0.0" width="204" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <rect key="frame" x="0.0" y="10" width="204" height="30"/>
+                                        <fontDescription key="fontDescription" name="Optima-BoldItalic" family="Optima" pointSize="25"/>
                                         <color key="textColor" systemColor="systemYellowColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1990" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-b9-NGU" userLabel="Year">
-                                        <rect key="frame" x="0.0" y="30" width="204" height="18"/>
+                                        <rect key="frame" x="0.0" y="40" width="204" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="1n3-Lh-zuA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="15"/>
                                         <color key="textColor" systemColor="systemYellowColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tv" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lM-Il-1DO" userLabel="Type">
-                                        <rect key="frame" x="0.0" y="48" width="204" height="13"/>
+                                        <rect key="frame" x="0.0" y="58" width="204" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="97c-79-nyz"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="12"/>
                                         <color key="textColor" systemColor="systemYellowColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -61,10 +61,25 @@
                                             <constraint firstAttribute="width" constant="76" id="SYG-kv-rTe"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Details">
+                                        <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" cornerRadius="10">
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                             </backgroundConfiguration>
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Detail">
+                                                    <attributes>
+                                                        <font key="NSFont" size="16" name="Optima-Bold"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="s">
+                                                    <attributes>
+                                                        <font key="NSFont" size="16" name="Optima-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -100,7 +115,7 @@
                                     <constraint firstItem="BOI-b9-NGU" firstAttribute="leading" secondItem="alq-6f-hG1" secondAttribute="leading" id="SIv-NY-haO"/>
                                     <constraint firstAttribute="bottom" secondItem="hjf-Ii-jj3" secondAttribute="bottom" id="ULx-7S-NVF"/>
                                     <constraint firstAttribute="trailing" secondItem="O4d-LV-nDn" secondAttribute="trailing" id="ao4-0f-79Y"/>
-                                    <constraint firstItem="O4d-LV-nDn" firstAttribute="top" secondItem="alq-6f-hG1" secondAttribute="top" id="jfa-bU-mmV"/>
+                                    <constraint firstItem="O4d-LV-nDn" firstAttribute="top" secondItem="alq-6f-hG1" secondAttribute="top" constant="10" id="jfa-bU-mmV"/>
                                     <constraint firstAttribute="bottom" secondItem="T1c-jh-dYq" secondAttribute="bottom" id="lVq-xJ-vzf"/>
                                     <constraint firstItem="O4d-LV-nDn" firstAttribute="centerX" secondItem="alq-6f-hG1" secondAttribute="centerX" id="uDv-Yi-vcR"/>
                                     <constraint firstAttribute="trailing" secondItem="hjf-Ii-jj3" secondAttribute="trailing" constant="1" id="vyr-tm-kZj"/>

@@ -10,7 +10,7 @@ import CoreData
 import ViewAnimator
 
 class WishlistTableViewController: UIViewController {
-    var wishlistData = DataModelManager()
+    var dataModelManager = DataModelManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,7 +32,7 @@ class WishlistTableViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        wishlistData.loadTitles()
+        dataModelManager.loadTitles()
         
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
@@ -43,7 +43,7 @@ class WishlistTableViewController: UIViewController {
 
 extension WishlistTableViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return wishlistData.savedTitles.count
+        return dataModelManager.savedTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,11 +51,11 @@ extension WishlistTableViewController: UICollectionViewDataSource {
         
         DispatchQueue.global().async {
             // Fetch Image Data
-            if let data = try? Data(contentsOf: URL(string: self.wishlistData.savedTitles[indexPath.row].imageUrl!)!) {
+            if let data = try? Data(contentsOf: URL(string: self.dataModelManager.savedTitles[indexPath.row].imageUrl!)!) {
                 DispatchQueue.main.async {
                     cell.setup(image: UIImage(data: data)!,
-                               name: self.wishlistData.savedTitles[indexPath.row].name!,
-                               id: Int(self.wishlistData.savedTitles[indexPath.row].id))
+                               name: self.dataModelManager.savedTitles[indexPath.row].name!,
+                               id: Int(self.dataModelManager.savedTitles[indexPath.row].id))
                 }
             }
         }
@@ -82,18 +82,34 @@ extension WishlistTableViewController: UICollectionViewDelegate {
         if (segue.identifier == "goToDetailFromWishlist") {
             let destinationVC = segue.destination as! DetailViewController
             let title = Title(
-                name: wishlistData.savedTitles[selectedTitleIndex].name!,
-                year: wishlistData.savedTitles[selectedTitleIndex].year!,
-                image_url: wishlistData.savedTitles[selectedTitleIndex].imageUrl,
-                tmdb_type: wishlistData.savedTitles[selectedTitleIndex].type!,
-                tmdb_id: Int(wishlistData.savedTitles[selectedTitleIndex].id),
-                isSaved: wishlistData.savedTitles[selectedTitleIndex].isSaved)
+                name: dataModelManager.savedTitles[selectedTitleIndex].name!,
+                year: dataModelManager.savedTitles[selectedTitleIndex].year!,
+                image_url: dataModelManager.savedTitles[selectedTitleIndex].imageUrl,
+                tmdb_type: dataModelManager.savedTitles[selectedTitleIndex].type!,
+                tmdb_id: Int(dataModelManager.savedTitles[selectedTitleIndex].id),
+                isSaved: dataModelManager.savedTitles[selectedTitleIndex].isSaved)
 
             destinationVC.detailTitle = title
+
+            if let viewedTitleIndex = findPersistentTitle(id: title.tmdb_id, isSavedTitle: false) {
+                dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
+            }
+            
+            dataModelManager.setupItem(item: title, isSavedItem: false)
+            dataModelManager.saveTitles()
+            
             // Is necessary to unhide self tab bar before preparing detail tab bar
             self.tabBarController?.tabBar.isHidden = false
             destinationVC.tabBarItem.title = self.tabBarItem.title
             destinationVC.tabBarItem.image = self.tabBarItem.image
+        }
+    }
+    
+    func findPersistentTitle(id: Int?, isSavedTitle: Bool = true) -> Int? {
+        if (isSavedTitle) {
+            return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
+        } else {
+            return dataModelManager.viewedTitles.firstIndex(where: {$0.id == id!})
         }
     }
 }

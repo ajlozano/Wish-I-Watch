@@ -10,7 +10,7 @@ import ViewAnimator
 
 class HomeViewController: UIViewController {
 
-    var recentlyViewedData = DataModelManager()
+    var dataModelManager = DataModelManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        recentlyViewedData.loadTitles()
+        dataModelManager.loadTitles()
         
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recentlyViewedData.viewedTitles.count
+        return dataModelManager.viewedTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,12 +51,12 @@ extension HomeViewController: UICollectionViewDataSource {
         
         DispatchQueue.global().async {
             // Fetch Image Data
-            if let data = try? Data(contentsOf: URL(string: self.recentlyViewedData.viewedTitles[indexPath.row].imageUrl!)!) {
+            if let data = try? Data(contentsOf: URL(string: self.dataModelManager.viewedTitles[indexPath.row].imageUrl!)!) {
                 DispatchQueue.main.async {
                     
                     cell.setup(image: UIImage(data: data)!,
-                               name: self.recentlyViewedData.viewedTitles[indexPath.row].name!,
-                               id: Int(self.recentlyViewedData.viewedTitles[indexPath.row].id))
+                               name: self.dataModelManager.viewedTitles[indexPath.row].name!,
+                               id: Int(self.dataModelManager.viewedTitles[indexPath.row].id))
                 }
             }
         }
@@ -83,12 +83,12 @@ extension HomeViewController: UICollectionViewDelegate {
         if (segue.identifier == "goToDetailFromHome") {
             let destinationVC = segue.destination as! DetailViewController
             let title = Title(
-                name: recentlyViewedData.viewedTitles[selectedTitleIndex].name!,
-                year: recentlyViewedData.viewedTitles[selectedTitleIndex].year!,
-                image_url: recentlyViewedData.viewedTitles[selectedTitleIndex].imageUrl,
-                tmdb_type: recentlyViewedData.viewedTitles[selectedTitleIndex].type!,
-                tmdb_id: Int(recentlyViewedData.viewedTitles[selectedTitleIndex].id),
-                isSaved: recentlyViewedData.viewedTitles[selectedTitleIndex].isSaved)
+                name: dataModelManager.viewedTitles[selectedTitleIndex].name!,
+                year: dataModelManager.viewedTitles[selectedTitleIndex].year!,
+                image_url: dataModelManager.viewedTitles[selectedTitleIndex].imageUrl,
+                tmdb_type: dataModelManager.viewedTitles[selectedTitleIndex].type!,
+                tmdb_id: Int(dataModelManager.viewedTitles[selectedTitleIndex].id),
+                isSaved: dataModelManager.viewedTitles[selectedTitleIndex].isSaved)
 
             destinationVC.detailTitle = title
             // Is necessary to unhide self tab bar before preparing detail tab bar

@@ -21,8 +21,6 @@ class SearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        dataModelManager.loadTitles()
         
         titleManager.delegate = self
         tableView.delegate = self
@@ -36,6 +34,18 @@ class SearchTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.isHidden = true
+        
+        dataModelManager.loadTitles()
+        
+        // FIX PROBLEM WITH SAVING STAR
+        for index in 0..<titles.count {
+            if findPersistentTitle(id: titles[index].tmdb_id) != nil {
+                titles[index].isSaved = true
+            } else {
+                titles[index].isSaved = false
+            }
+        }
+        reloadTableViewData()
     }
 
     // MARK: - Table view data source
@@ -82,6 +92,7 @@ extension SearchTableViewController: TitleManagerDelegate {
         
         for index in 0 ..< titleResults.results.count {
             let result = titleResults.results[index]
+            
             if (result.image_url != nil) {
                 DispatchQueue.global().async {
                     // Fetch Image Data
@@ -91,6 +102,7 @@ extension SearchTableViewController: TitleManagerDelegate {
                             if let year = result.year {
                                 yearString = "\(year)"
                             }
+                            
                             
                             var isTitleSaved = false
                             if (self.findPersistentTitle(id: result.tmdb_id) != nil) {
@@ -119,7 +131,7 @@ extension SearchTableViewController: TitleManagerDelegate {
         if (isSavedTitle) {
             return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
         } else {
-            return dataModelManager.savedTitles.firstIndex(where: {$0.id == id!})
+            return dataModelManager.viewedTitles.firstIndex(where: {$0.id == id!})
         }
     }
 }

@@ -43,7 +43,8 @@ struct TitleManager {
                     return
                 }
                 if let safeData = data {
-                    if let titles = self.parseJSON(safeData) {
+                    if var titles = self.parseJSON(safeData) {
+                        titles.results.removeAll(where: { $0.image_url == nil})
                         self.delegate?.didUpdateTitle(self, titles)
                     }
                 }
