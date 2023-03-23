@@ -134,15 +134,15 @@ class SearchTableViewController: UITableViewController {
 // MARK: - Title Manager delegate
 
 extension SearchTableViewController: TitleManagerDelegate {
-    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleAPIData) {
+    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: Titles) {
         
         for index in 0 ..< titleResults.results.count {
             let result = titleResults.results[index]
             
-            if (result.image_url != nil) {
+            if (result.imageUrl != nil) {
                 DispatchQueue.global().async {
                     // Fetch Image Data
-                    if let data = try? Data(contentsOf: URL(string: result.image_url!)!) {
+                    if let data = try? Data(contentsOf: URL(string: result.imageUrl!)!) {
                         DispatchQueue.main.async {
                             var yearString = ""
                             if let year = result.year {
@@ -150,11 +150,11 @@ extension SearchTableViewController: TitleManagerDelegate {
                             }
                         
                             var isTitleSaved = false
-                            if (self.dataModelManager.findPersistentTitle(id: result.tmdb_id) != nil) {
+                            if (self.dataModelManager.findPersistentTitle(id: result.id) != nil) {
                                 isTitleSaved = true
                             }
           
-                            self.titles.append(Title(name: result.name, year: yearString , image_url: result.image_url, tmdb_type: result.tmdb_type ?? "", tmdb_id: result.tmdb_id, imageData: data, isSaved: isTitleSaved))
+                            self.titles.append(Title(name: result.name, year: yearString , image_url: result.imageUrl, tmdb_type: result.type ?? "", tmdb_id: result.id, imageData: data, isSaved: isTitleSaved))
                             
                             if (index == titleResults.results.count - 1) {
                                 self.reloadTableViewData()

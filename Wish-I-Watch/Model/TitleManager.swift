@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol TitleManagerDelegate {
-    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: TitleAPIData)
+    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: Titles)
     func didFailWithError(error: Error)
 }
 
@@ -36,7 +36,7 @@ struct TitleManager {
                 }
                 if let safeData = data {
                     if var titles = self.parseJSON(safeData) {
-                        titles.results.removeAll(where: { $0.image_url == nil})
+                        titles.results.removeAll(where: { $0.imageUrl == nil})
                         self.delegate?.didUpdateTitle(self, titles)
                     }
                 }
@@ -45,12 +45,12 @@ struct TitleManager {
         }
     }
     
-    func parseJSON(_ titleData: Data) -> TitleAPIData? {
+    func parseJSON(_ titleData: Data) -> Titles? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(TitleAPIData.self, from: titleData)
+            let decodedData = try decoder.decode(Titles.self, from: titleData)
             
-            let titles = TitleAPIData(results: decodedData.results)
+            let titles = Titles(results: decodedData.results)
             
             return titles
             

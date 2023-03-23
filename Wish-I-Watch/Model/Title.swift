@@ -16,3 +16,23 @@ struct Title {
     var imageData: Data?
     var isSaved: Bool
 }
+
+struct Titles: Codable {
+    var results: [Results]
+}
+
+struct Results: Codable {
+    let name: String
+    let year: Int?
+    let imageUrl: String?
+    let type: String?
+    let id: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case year
+        case imageUrl = "image_url"
+        case type = "tmdb_type"
+        case id = "tmdb_id"
+    }
+}
