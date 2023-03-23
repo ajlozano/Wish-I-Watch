@@ -19,6 +19,10 @@ class SearchTableViewController: UITableViewController {
     
     var detailButtonIsPressed = false
     
+    let loadingView = UIView()
+    let spinner = UIActivityIndicatorView()
+    let loadingLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +32,8 @@ class SearchTableViewController: UITableViewController {
         
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.searchTextField.textColor = UIColor.black
+        
+        setupActivityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +42,8 @@ class SearchTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         dataModelManager.loadTitles()
+        
+
         
         // FIX PROBLEM WITH SAVING STAR
         for index in 0..<titles.count {
@@ -47,6 +55,45 @@ class SearchTableViewController: UITableViewController {
         }
         
         reloadTableViewData()
+    }
+    
+    func setupActivityIndicator() {
+        // Sets the view which contains the loading text and the spinner
+        let width: CGFloat = 120
+        let height: CGFloat = 30
+        let x = (tableView.frame.width / 2) - (width / 2)
+        let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
+        loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
+        loadingView.isHidden = true
+        
+        // Sets loading text
+        loadingLabel.textColor = .gray
+        loadingLabel.textAlignment = .center
+        loadingLabel.text = "Loading..."
+        loadingLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
+
+        // Sets spinner
+        spinner.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        spinner.style = .large
+        spinner.color = .white
+
+        loadingView.addSubview(spinner)
+        loadingView.addSubview(loadingLabel)
+        
+        self.tableView.addSubview(loadingView)
+    }
+    
+    func turnActivityIndicator(state: Bool) {
+        if (state) {
+            loadingView.isHidden = false
+            //loadingLabel.isHidden = false
+            spinner.startAnimating()
+            
+        } else {
+            spinner.stopAnimating()
+            //loadingLabel.isHidden = true
+            loadingView.isHidden = true
+        }
     }
 
     // MARK: - Table view data source
@@ -111,6 +158,7 @@ extension SearchTableViewController: TitleManagerDelegate {
                             
                             if (index == titleResults.results.count - 1) {
                                 self.reloadTableViewData()
+                                self.turnActivityIndicator(state: false)
                             }
                         }
                     } else {
@@ -143,6 +191,7 @@ extension SearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         titles = []
         if let title = searchBar.text {
+            turnActivityIndicator(state: true)
             titleManager.fetchTitle(titleName: title)
         }
     }
