@@ -18,8 +18,8 @@ class DetailViewController: UIViewController {
     var dataModelManager = DataModelManager()
     var detailTitle: Title? {
         didSet {
-            if let id = detailTitle?.tmdb_id {
-                detailUrl = "\(urlPrefix)/\(detailTitle?.tmdb_type ?? "")/\(id)"
+            if let id = detailTitle?.id {
+                detailUrl = "\(K.URL.main)\(K.Endpoints.urlDetailMovie)\(id)"
                 print(detailUrl)
             }
         }
@@ -44,21 +44,21 @@ class DetailViewController: UIViewController {
         
         dataModelManager.loadTitles()
  
-        savedTitleIndex = dataModelManager.findPersistentTitle(id: detailTitle?.tmdb_id)
+        savedTitleIndex = dataModelManager.findPersistentTitle(id: detailTitle?.id)
         if savedTitleIndex != nil {
-            detailTitle?.isSaved = true
+            //detailTitle?.isSaved = true
             saveButton.image = UIImage(systemName: "star.fill")
         }
     }
 
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
-        if dataModelManager.findPersistentTitle(id: detailTitle?.tmdb_id) != nil {
+        if dataModelManager.findPersistentTitle(id: detailTitle?.id) != nil {
             sender.image = UIImage(systemName: "star")
-            detailTitle?.isSaved = false
+            //detailTitle?.isSaved = false
             dataModelManager.deleteTitles(indexTitle: savedTitleIndex!)
         } else {
             sender.image = UIImage(systemName: "star.fill")
-            detailTitle?.isSaved = false
+            //detailTitle?.isSaved = false
             dataModelManager.setupItem(item: detailTitle!)
             dataModelManager.saveTitles()
         }

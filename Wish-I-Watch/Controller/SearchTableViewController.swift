@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchTableViewController: UITableViewController {
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     var titleManager = TitleManager()
@@ -42,18 +41,6 @@ class SearchTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         dataModelManager.loadTitles()
-        
-
-        
-        // FIX PROBLEM WITH SAVING STAR
-        for index in 0..<titles.count {
-            if dataModelManager.findPersistentTitle(id: titles[index].tmdb_id) != nil {
-                titles[index].isSaved = true
-            } else {
-                titles[index].isSaved = false
-            }
-        }
-        
         reloadTableViewData()
     }
     
@@ -84,15 +71,16 @@ class SearchTableViewController: UITableViewController {
     }
     
     func turnActivityIndicator(state: Bool) {
-        if (state) {
-            loadingView.isHidden = false
-            //loadingLabel.isHidden = false
-            spinner.startAnimating()
-            
-        } else {
-            spinner.stopAnimating()
-            //loadingLabel.isHidden = true
-            loadingView.isHidden = true
+        DispatchQueue.main.async {
+            if (state) {
+                self.loadingView.isHidden = false
+                self.loadingLabel.isHidden = false
+                self.spinner.startAnimating()
+            } else {
+                self.spinner.stopAnimating()
+                self.loadingLabel.isHidden = true
+                self.loadingView.isHidden = true
+            }
         }
     }
 
@@ -107,15 +95,13 @@ class SearchTableViewController: UITableViewController {
         cell.delegate = self
         cell.titleLabel.text = titles[indexPath.row].name
         cell.titleLabel.numberOfLines = 0
-        cell.yearLabel.text = "\(titles[indexPath.row].year)"
-        cell.typeLabel.text = titles[indexPath.row].tmdb_type
-        cell.titleId = titles[indexPath.row].tmdb_id
         
-        if let data = titles[indexPath.row].imageData {
-            cell.titleImage.image = UIImage(data: data)
-        }
-
-        if (titles[indexPath.row].isSaved) {
+        cell.dateLabel.text = "\(titles[indexPath.row].date)"
+        cell.overviewLabel.text = titles[indexPath.row].overview
+        cell.titleId = titles[indexPath.row].id
+        cell.titleImage.imageFromServerUrl(imageUrl: "\(K.URL.urlImages+titles[indexPath.row].posterPath!)",
+                                           placeHolderImage: UIImage(named: "MovieImage")!)
+        if (dataModelManager.findPersistentTitle(id: titles[indexPath.row].id) != nil) {
             cell.wishlistButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
             cell.wishlistButton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -135,38 +121,11 @@ class SearchTableViewController: UITableViewController {
 
 extension SearchTableViewController: TitleManagerDelegate {
     func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: Titles) {
-        
-        for index in 0 ..< titleResults.results.count {
-            let result = titleResults.results[index]
-            
-            if (result.imageUrl != nil) {
-                DispatchQueue.global().async {
-                    // Fetch Image Data
-                    if let data = try? Data(contentsOf: URL(string: result.imageUrl!)!) {
-                        DispatchQueue.main.async {
-                            var yearString = ""
-                            if let year = result.year {
-                                yearString = "\(year)"
-                            }
-                        
-                            var isTitleSaved = false
-                            if (self.dataModelManager.findPersistentTitle(id: result.id) != nil) {
-                                isTitleSaved = true
-                            }
-          
-                            self.titles.append(Title(name: result.name, year: yearString , image_url: result.imageUrl, tmdb_type: result.type ?? "", tmdb_id: result.id, imageData: data, isSaved: isTitleSaved))
-                            
-                            if (index == titleResults.results.count - 1) {
-                                self.reloadTableViewData()
-                                self.turnActivityIndicator(state: false)
-                            }
-                        }
-                    } else {
-                        print("Error Getting image from URL")
-                    }
-                }
-            }
+        self.turnActivityIndicator(state: false)
+        for result in titleResults.listOfTitles {
+            self.titles.append(result)
         }
+        self.reloadTableViewData()
     }
     
     func didFailWithError(error: Error) {
@@ -181,10 +140,6 @@ extension SearchTableViewController: UISearchBarDelegate {
         if (searchBar.text?.count == 0) {
             titles = []
             reloadTableViewData()
-            // Resign cursor in search
-            //DispatchQueue.main.async {
-            //    searchBar.resignFirstResponder()
-            //}
         }
     }
     
@@ -203,10 +158,8 @@ extension SearchTableViewController: SearchTitleCellDelegate {
     func didSaveButtonPressed(_ titleId: Int) {
         if (checkSelectedTitle(titleId)) {
             if let wishlistIndex = dataModelManager.findPersistentTitle(id: titleId) {
-                titles[self.selectedTitleIndex].isSaved = false
                 dataModelManager.deleteTitles(indexTitle: wishlistIndex)
             } else {
-                titles[self.selectedTitleIndex].isSaved = true
                 dataModelManager.setupItem(item: titles[self.selectedTitleIndex])
                 dataModelManager.saveTitles()
             }
@@ -225,7 +178,7 @@ extension SearchTableViewController: SearchTitleCellDelegate {
     }
     
     private func checkSelectedTitle(_ titleId: Int) -> Bool {
-        if let searchIndex = titles.firstIndex(where: {$0.tmdb_id == titleId}) {
+        if let searchIndex = titles.firstIndex(where: {$0.id == titleId}) {
             selectedTitleIndex = searchIndex
             return true
         }
@@ -241,7 +194,7 @@ extension SearchTableViewController: SearchTitleCellDelegate {
         destinationVC.tabBarItem.title = self.tabBarItem.title
         destinationVC.tabBarItem.image = self.tabBarItem.image
         
-        if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: titles[selectedTitleIndex].tmdb_id, isSavedTitle: false) {
+        if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: titles[selectedTitleIndex].id, isSavedTitle: false) {
             dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
         }
         

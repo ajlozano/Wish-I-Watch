@@ -47,18 +47,11 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewedTitleCollectionViewCell", for: indexPath) as! ViewedTitleCollectionViewCell
         
-        DispatchQueue.global().async {
-            // Fetch Image Data
-            if let data = try? Data(contentsOf: URL(string: self.dataModelManager.viewedTitles[indexPath.row].imageUrl!)!) {
-                DispatchQueue.main.async {
-                    
-                    cell.setup(image: UIImage(data: data)!,
-                               name: self.dataModelManager.viewedTitles[indexPath.row].name!,
-                               id: Int(self.dataModelManager.viewedTitles[indexPath.row].id))
-                }
-            }
-        }
-        
+        cell.setup(
+            imageUrl: self.dataModelManager.viewedTitles[indexPath.row].posterPath!,
+            name: self.dataModelManager.viewedTitles[indexPath.row].name!,
+            id: Int(self.dataModelManager.viewedTitles[indexPath.row].id))
+  
         return cell
     }
 }
@@ -85,13 +78,12 @@ extension HomeViewController: UICollectionViewDelegate {
         if (segue.identifier == "goToDetailFromHome") {
             let destinationVC = segue.destination as! DetailViewController
             let title = Title(
+                id: Int(dataModelManager.viewedTitles[selectedTitleIndex].id),
                 name: dataModelManager.viewedTitles[selectedTitleIndex].name!,
-                year: dataModelManager.viewedTitles[selectedTitleIndex].year!,
-                image_url: dataModelManager.viewedTitles[selectedTitleIndex].imageUrl,
-                tmdb_type: dataModelManager.viewedTitles[selectedTitleIndex].type!,
-                tmdb_id: Int(dataModelManager.viewedTitles[selectedTitleIndex].id),
-                isSaved: dataModelManager.viewedTitles[selectedTitleIndex].isSaved)
-
+                overview: dataModelManager.viewedTitles[selectedTitleIndex].overview!,
+                date: dataModelManager.viewedTitles[selectedTitleIndex].date!,
+                posterPath: dataModelManager.viewedTitles[selectedTitleIndex].posterPath,
+                voteAverage: dataModelManager.viewedTitles[selectedTitleIndex].voteAverage)
             destinationVC.detailTitle = title
             // Is necessary to unhide self tab bar before preparing detail tab bar
             self.tabBarController?.tabBar.isHidden = false

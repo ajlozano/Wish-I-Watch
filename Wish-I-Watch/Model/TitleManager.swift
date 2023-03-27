@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol TitleManagerDelegate {
     func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: Titles)
@@ -14,49 +13,34 @@ protocol TitleManagerDelegate {
 }
 
 struct TitleManager {
-    let titleSearchURL = "https://api.watchmode.com/v1/autocomplete-search/?apiKey="
-
     var delegate: TitleManagerDelegate?
     
     func fetchTitle(titleName: String) {
         let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
-        let urlString = "\(titleSearchURL)\(apiKey)&search_value=\(fixedTitleName)&search_type=2"
+        let urlString = "\(K.URL.urlSearch)\(fixedTitleName)\(K.Endpoints.urlSearch)"
         print(urlString)
-        performRequest(with: urlString)
-
-    }
-    
-    func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
+        
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "GET"
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                self.delegate?.didFailWithError(error: error!)
+                return
+            }
+            if let safeData = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let decodedData = try decoder.decode(Titles.self, from: safeData)
+                    var titles = Titles(listOfTitles: decodedData.listOfTitles)
+                    titles.listOfTitles.removeAll(where: { $0.posterPath == nil})
+                    self.delegate?.didUpdateTitle(self, titles)
+                } catch {
+                    delegate?.didFailWithError(error: error)
                     return
                 }
-                if let safeData = data {
-                    if var titles = self.parseJSON(safeData) {
-                        titles.results.removeAll(where: { $0.imageUrl == nil})
-                        self.delegate?.didUpdateTitle(self, titles)
-                    }
-                }
             }
-            task.resume()
         }
-    }
-    
-    func parseJSON(_ titleData: Data) -> Titles? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(Titles.self, from: titleData)
-            
-            let titles = Titles(results: decodedData.results)
-            
-            return titles
-            
-        } catch {
-            delegate?.didFailWithError(error: error)
-            return nil
-        }
+        task.resume()
     }
 }

@@ -29,23 +29,21 @@ struct DataModelManager {
         if (isSavedItem) {
             savingItem = SavedTitle(context: self.context)
             
-            savingItem?.id = Int32(item.tmdb_id)
+            savingItem?.id = Int32(item.id)
             savingItem?.name = item.name
-            savingItem?.imageUrl = item.image_url
-            savingItem?.type = item.tmdb_type
-            savingItem?.year = item.year
-            savingItem?.isSaved = item.isSaved
+            savingItem?.posterPath = item.posterPath
+            savingItem?.overview = item.overview
+            savingItem?.date = item.date
             
             savedTitles.append(savingItem!)
         } else {
             viewedItem = ViewedTitle(context: self.context)
             
-            viewedItem?.id = Int32(item.tmdb_id)
+            viewedItem?.id = Int32(item.id)
             viewedItem?.name = item.name
-            viewedItem?.imageUrl = item.image_url
-            viewedItem?.type = item.tmdb_type
-            viewedItem?.year = item.year
-            viewedItem?.isSaved = item.isSaved
+            viewedItem?.posterPath = item.posterPath
+            viewedItem?.overview = item.overview
+            viewedItem?.date = item.date
             
             viewedTitles.append(viewedItem!)
             

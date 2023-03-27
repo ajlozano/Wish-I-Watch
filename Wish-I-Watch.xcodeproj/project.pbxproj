@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		136A55C7F89C5C502AB89C9D /* Pods_Wish_I_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */; };
 		AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0757E4299A8C6C00D2F6CD /* K.swift */; };
+		AD1FFCBE29D1E17200F2E44D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FFCBD29D1E17200F2E44D /* Extensions.swift */; };
 		AD4070F429BF4E9500778677 /* WishlistTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4070F329BF4E9500778677 /* WishlistTitleCollectionViewCell.swift */; };
-		AD4070F829BF7D3D00778677 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4070F729BF7D3D00778677 /* ApiKey.swift */; };
 		AD49156A29A7FA1300F33BE7 /* MoonTime-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */; };
 		AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FCE21299D04CC00BCA324 /* Title.swift */; };
 		AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD886479299B978B00E1940E /* SearchTableViewController.swift */; };
@@ -34,8 +34,8 @@
 /* Begin PBXFileReference section */
 		37012AB482FF24B7600896B9 /* Pods-Wish-I-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.release.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		AD0757E4299A8C6C00D2F6CD /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		AD1FFCBD29D1E17200F2E44D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AD4070F329BF4E9500778677 /* WishlistTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTitleCollectionViewCell.swift; sourceTree = "<group>"; };
-		AD4070F729BF7D3D00778677 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MoonTime-Regular.ttf"; path = "../_res/MoonTime-Regular.ttf"; sourceTree = "<group>"; };
 		AD4FCE21299D04CC00BCA324 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		AD886479299B978B00E1940E /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +89,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AD1FFCBB29D1E14E00F2E44D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD1FFCBC29D1E15800F2E44D /* Extensions */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD1FFCBC29D1E15800F2E44D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD1FFCBD29D1E17200F2E44D /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AD95BD73299A542C0042C63E = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +133,7 @@
 				AD95BD97299A54940042C63E /* Model */,
 				AD95BD96299A547D0042C63E /* Controller */,
 				AD95BD98299A549E0042C63E /* View */,
+				AD1FFCBB29D1E14E00F2E44D /* Resources */,
 				AD95BD8B299A542C0042C63E /* Assets.xcassets */,
 				AD95BD90299A542C0042C63E /* Info.plist */,
 			);
@@ -142,9 +159,8 @@
 			children = (
 				ADAE45F7299C12EE00D27742 /* TitleManager.swift */,
 				AD4FCE21299D04CC00BCA324 /* Title.swift */,
-				ADFF131C29B7B5CD00A37947 /* DataModelManager.swift */,
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
-				AD4070F729BF7D3D00778677 /* ApiKey.swift */,
+				ADFF131C29B7B5CD00A37947 /* DataModelManager.swift */,
 				AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */,
 			);
 			path = Model;
@@ -288,7 +304,7 @@
 				AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */,
 				AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */,
 				AD95BD8A299A542C0042C63E /* TitleDataModel.xcdatamodeld in Sources */,
-				AD4070F829BF7D3D00778677 /* ApiKey.swift in Sources */,
+				AD1FFCBE29D1E17200F2E44D /* Extensions.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
 				ADA96CF8299CD9890048F5C3 /* SearchTitleTableViewCell.swift in Sources */,
 				ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */,

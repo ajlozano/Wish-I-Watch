@@ -23,7 +23,6 @@ class WishlistTableViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         collectionView.layer.cornerRadius = 10
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,18 +48,11 @@ extension WishlistTableViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WishlistTitleCollectionViewCell", for: indexPath) as! WishlistTitleCollectionViewCell
-        
-        DispatchQueue.global().async {
-            // Fetch Image Data
-            if let data = try? Data(contentsOf: URL(string: self.dataModelManager.savedTitles[indexPath.row].imageUrl!)!) {
-                DispatchQueue.main.async {
-                    cell.setup(image: UIImage(data: data)!,
-                               name: self.dataModelManager.savedTitles[indexPath.row].name!,
-                               id: Int(self.dataModelManager.savedTitles[indexPath.row].id))
-                }
-            }
-        }
-        
+
+        cell.setup(imageUrl: self.dataModelManager.savedTitles[indexPath.row].posterPath!,
+                   name: self.dataModelManager.savedTitles[indexPath.row].name!,
+                   id: Int(self.dataModelManager.savedTitles[indexPath.row].id))
+
         return cell
     }
 }
@@ -87,16 +79,15 @@ extension WishlistTableViewController: UICollectionViewDelegate {
         if (segue.identifier == "goToDetailFromWishlist") {
             let destinationVC = segue.destination as! DetailViewController
             let title = Title(
+                id: Int(dataModelManager.savedTitles[selectedTitleIndex].id),
                 name: dataModelManager.savedTitles[selectedTitleIndex].name!,
-                year: dataModelManager.savedTitles[selectedTitleIndex].year!,
-                image_url: dataModelManager.savedTitles[selectedTitleIndex].imageUrl,
-                tmdb_type: dataModelManager.savedTitles[selectedTitleIndex].type!,
-                tmdb_id: Int(dataModelManager.savedTitles[selectedTitleIndex].id),
-                isSaved: dataModelManager.savedTitles[selectedTitleIndex].isSaved)
-
+                overview: dataModelManager.savedTitles[selectedTitleIndex].overview!,
+                date: dataModelManager.savedTitles[selectedTitleIndex].date!,
+                posterPath: dataModelManager.savedTitles[selectedTitleIndex].posterPath,
+                voteAverage: dataModelManager.savedTitles[selectedTitleIndex].voteAverage)
             destinationVC.detailTitle = title
 
-            if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: title.tmdb_id, isSavedTitle: false) {
+            if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: title.id, isSavedTitle: false) {
                 dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
             }
             dataModelManager.setupItem(item: title, isSavedItem: false)

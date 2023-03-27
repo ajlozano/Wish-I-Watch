@@ -21,9 +21,9 @@ class ViewedTitleCollectionViewCell: UICollectionViewCell {
         titleImage.layer.borderWidth = 1
     }
     
-    func setup(image: UIImage, name: String, id: Int) {
+    func setup(imageUrl: String, name: String, id: Int) {
         titleLabel.text = name
-        titleImage.image = image
+        titleImage.imageFromServerUrl(imageUrl: "\(K.URL.urlImages+imageUrl)", placeHolderImage: UIImage(named: "MovieImage")!)
         titleId = id
     }
 }

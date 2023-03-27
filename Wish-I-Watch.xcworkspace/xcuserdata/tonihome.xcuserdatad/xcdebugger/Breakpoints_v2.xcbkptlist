@@ -14,8 +14,8 @@
             filePath = "Wish-I-Watch/Model/TitleManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "fetchTitle(titleName:)"
             landmarkType = "7">
          </BreakpointContent>
