@@ -9,7 +9,7 @@
 
 - Swift
 - UIKit
-- MVC
+- MVVM Architecture Pattern
 - API request
 - Core Data
 - WebView
