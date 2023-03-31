@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 struct DataPersistence {
-    var wishlistTitles = [SavedTitle]()
+    var wishlistTitles = [WishlistTitle]()
     var viewedTitles = [ViewedTitle]()
 
     let context: NSManagedObjectContext
@@ -19,12 +19,12 @@ struct DataPersistence {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    mutating func loadTitles(with savedRequest: NSFetchRequest<SavedTitle> = SavedTitle.fetchRequest(),
+    mutating func loadTitles(with savedRequest: NSFetchRequest<WishlistTitle> = WishlistTitle.fetchRequest(),
                              with viewedRequest: NSFetchRequest<ViewedTitle> = ViewedTitle.fetchRequest(),
-                             completion: ([SavedTitle], [ViewedTitle]) -> ()) {
+                             completion: ([WishlistTitle], [ViewedTitle]) -> ()) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let wishlistList: [SavedTitle]
+        let wishlistList: [WishlistTitle]
         let viewedList: [ViewedTitle]
         do {
             wishlistList = try context.fetch(savedRequest)
@@ -47,7 +47,7 @@ struct DataPersistence {
     
     mutating func setupItem(item: Title, isWishlistItem: Bool = true) {
         if (isWishlistItem) {
-            let wishlistItem = SavedTitle(context: self.context)
+            let wishlistItem = WishlistTitle(context: self.context)
             
             wishlistItem.id = Int32(item.id)
             wishlistItem.name = item.name
@@ -74,7 +74,7 @@ struct DataPersistence {
         }
     }
     
-    func saveTitles(completion: ([SavedTitle], [ViewedTitle]) -> ()) {
+    func saveTitles(completion: ([WishlistTitle], [ViewedTitle]) -> ()) {
         do {
             try context.save()
             completion(wishlistTitles, viewedTitles)

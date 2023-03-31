@@ -12,7 +12,7 @@ import ViewAnimator
 class WishlistTableViewController: UIViewController {
     
     private let dataPersistenceViewModel = DataPersistenceViewModel()
-    var wishlistTitles = [SavedTitle]()
+    var wishlistTitles = [WishlistTitle]()
 
     var selectedTitleIndex: Int = 0
     

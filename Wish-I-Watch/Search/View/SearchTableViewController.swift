@@ -13,7 +13,7 @@ class SearchTableViewController: UITableViewController {
     private let searchViewModel = SearchViewModel()
     private let dataPersistenceViewModel = DataPersistenceViewModel()
     var titles = [Title]()
-    var wishlistTitles = [SavedTitle]()
+    var wishlistTitles = [WishlistTitle]()
     var viewedTitles = [ViewedTitle]()
 
     var selectedTitleIndex: Int = 0

@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     var detailUrl = ""
     
     private let dataPersistenceViewModel = DataPersistenceViewModel()
-    var wishlistTitles = [SavedTitle]()
+    var wishlistTitles = [WishlistTitle]()
     
     var detailTitle: Title? {
         didSet {
@@ -46,11 +46,6 @@ class DetailViewController: UIViewController {
         }
  
         dataPersistenceViewModel.getTitles()
-        
-        savedTitleIndex = wishlistTitles.firstIndex(where: {$0.id == detailTitle!.id})
-        if savedTitleIndex != nil {
-            saveButton.image = UIImage(systemName: "star.fill")
-        }
     }
     
     func setupBinders() {
@@ -61,12 +56,13 @@ class DetailViewController: UIViewController {
             }
             self.wishlistTitles.removeAll()
             for title in titles {
-                if (title.id == self.detailTitle!.id) {
-                    self.saveButton.image = UIImage(systemName: "star.fill")
-                } else {
-                    self.saveButton.image = UIImage(systemName: "star")
-                }
                 self.wishlistTitles.append(title)
+            }
+            
+            if (wishlistTitles?.firstIndex(where: { $0.id == self.detailTitle!.id}) != nil) {
+                self.saveButton.image = UIImage(systemName: "star.fill")
+            } else {
+                self.saveButton.image = UIImage(systemName: "star")
             }
         }
     }

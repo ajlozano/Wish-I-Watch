@@ -8,7 +8,7 @@
 import Foundation
 
 final class DataPersistenceViewModel {
-    var wishlistTitles: ObservableObject<[SavedTitle]?> = ObservableObject(nil)
+    var wishlistTitles: ObservableObject<[WishlistTitle]?> = ObservableObject(nil)
     var viewedTitles: ObservableObject<[ViewedTitle]?> = ObservableObject(nil)
     
     func getTitles() {
