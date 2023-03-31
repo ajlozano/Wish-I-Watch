@@ -12,10 +12,12 @@ import CoreData
 class DetailViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    let urlPrefix = "https://www.themoviedb.org"
+
     var detailUrl = ""
-    var dataModelManager = DataModelManager()
+    
+    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    var wishlistTitles = [SavedTitle]()
+    
     var detailTitle: Title? {
         didSet {
             if let id = detailTitle?.id {
@@ -30,6 +32,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBinders()
         updateWebView()
     }
     
@@ -41,27 +44,35 @@ class DetailViewController: UIViewController {
         } else {
             viewAppearedBefore = true
         }
-        
-        dataModelManager.loadTitles()
  
-        savedTitleIndex = dataModelManager.findPersistentTitle(id: detailTitle?.id)
+        dataPersistenceViewModel.getTitles()
+        
+        savedTitleIndex = wishlistTitles.firstIndex(where: {$0.id == detailTitle!.id})
         if savedTitleIndex != nil {
-            //detailTitle?.isSaved = true
             saveButton.image = UIImage(systemName: "star.fill")
+        }
+    }
+    
+    func setupBinders() {
+        dataPersistenceViewModel.wishlistTitles.bind { wishlistTitles in
+            guard let titles = wishlistTitles else {
+                print("Error getting savedTitles from persistent data.")
+                return
+            }
+            self.wishlistTitles.removeAll()
+            for title in titles {
+                if (title.id == self.detailTitle!.id) {
+                    self.saveButton.image = UIImage(systemName: "star.fill")
+                } else {
+                    self.saveButton.image = UIImage(systemName: "star")
+                }
+                self.wishlistTitles.append(title)
+            }
         }
     }
 
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
-        if dataModelManager.findPersistentTitle(id: detailTitle?.id) != nil {
-            sender.image = UIImage(systemName: "star")
-            //detailTitle?.isSaved = false
-            dataModelManager.deleteTitles(indexTitle: savedTitleIndex!)
-        } else {
-            sender.image = UIImage(systemName: "star.fill")
-            //detailTitle?.isSaved = false
-            dataModelManager.setupItem(item: detailTitle!)
-            dataModelManager.saveTitles()
-        }
+        dataPersistenceViewModel.replacePersistentTitle(title: detailTitle!)
     }
     
     func updateWebView() {

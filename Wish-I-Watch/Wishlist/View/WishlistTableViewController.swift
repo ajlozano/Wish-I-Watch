@@ -10,7 +10,10 @@ import CoreData
 import ViewAnimator
 
 class WishlistTableViewController: UIViewController {
-    var dataModelManager = DataModelManager()
+    
+    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    var wishlistTitles = [SavedTitle]()
+
     var selectedTitleIndex: Int = 0
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,19 +26,34 @@ class WishlistTableViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         collectionView.layer.cornerRadius = 10
+
+        setupBinders()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
+
+        dataPersistenceViewModel.getTitles()
         
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
-        
-        dataModelManager.loadTitles()
-        
-        collectionView.reloadData()
+    }
+    
+    func setupBinders() {
+        dataPersistenceViewModel.wishlistTitles.bind { wishlistTitles in
+            guard let titles = wishlistTitles else {
+                print("Error getting savedTitles from persistent data.")
+                return
+            }
+            self.wishlistTitles.removeAll()
+            for title in titles {
+                self.wishlistTitles.append(title)
+            }
+            
+            self.reloadCollectionViewData()
+        }
     }
 }
 
@@ -43,17 +61,23 @@ class WishlistTableViewController: UIViewController {
 
 extension WishlistTableViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataModelManager.savedTitles.count
+        return wishlistTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WishlistTitleCollectionViewCell", for: indexPath) as! WishlistTitleCollectionViewCell
 
-        cell.setup(imageUrl: self.dataModelManager.savedTitles[indexPath.row].posterPath!,
-                   name: self.dataModelManager.savedTitles[indexPath.row].name!,
-                   id: Int(self.dataModelManager.savedTitles[indexPath.row].id))
+        cell.setup(imageUrl: self.wishlistTitles[indexPath.row].posterPath!,
+                   name: self.wishlistTitles[indexPath.row].name!,
+                   id: Int(self.wishlistTitles[indexPath.row].id))
 
         return cell
+    }
+    
+    func reloadCollectionViewData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -79,19 +103,15 @@ extension WishlistTableViewController: UICollectionViewDelegate {
         if (segue.identifier == "goToDetailFromWishlist") {
             let destinationVC = segue.destination as! DetailViewController
             let title = Title(
-                id: Int(dataModelManager.savedTitles[selectedTitleIndex].id),
-                name: dataModelManager.savedTitles[selectedTitleIndex].name!,
-                overview: dataModelManager.savedTitles[selectedTitleIndex].overview!,
-                date: dataModelManager.savedTitles[selectedTitleIndex].date!,
-                posterPath: dataModelManager.savedTitles[selectedTitleIndex].posterPath,
-                voteAverage: dataModelManager.savedTitles[selectedTitleIndex].voteAverage)
+                id: Int(wishlistTitles[selectedTitleIndex].id),
+                name: wishlistTitles[selectedTitleIndex].name!,
+                overview: wishlistTitles[selectedTitleIndex].overview!,
+                date: wishlistTitles[selectedTitleIndex].date!,
+                posterPath: wishlistTitles[selectedTitleIndex].posterPath,
+                voteAverage: wishlistTitles[selectedTitleIndex].voteAverage)
             destinationVC.detailTitle = title
 
-            if let viewedTitleIndex = dataModelManager.findPersistentTitle(id: title.id, isSavedTitle: false) {
-                dataModelManager.deleteTitles(indexTitle: viewedTitleIndex, isSavedItem: false)
-            }
-            dataModelManager.setupItem(item: title, isSavedItem: false)
-            dataModelManager.saveTitles()
+            dataPersistenceViewModel.replacePersistentTitle(title: destinationVC.detailTitle!, isWishlistTitle: false)
             
             // Is necessary to unhide self tab bar before preparing detail tab bar
             self.tabBarController?.tabBar.isHidden = false

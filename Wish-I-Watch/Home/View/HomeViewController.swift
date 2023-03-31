@@ -10,8 +10,10 @@ import ViewAnimator
 
 class HomeViewController: UIViewController {
 
-    var dataModelManager = DataModelManager()
+    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    var viewedTitles = [ViewedTitle]()
     var selectedTitleIndex: Int = 0
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,6 +23,8 @@ class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         //collectionView.layer.cornerRadius = 10
+
+        setupBinders()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,12 +32,25 @@ class HomeViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
+        dataPersistenceViewModel.getTitles()
+        
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
         
-        dataModelManager.loadTitles()
-        
-        collectionView.reloadData()
+    }
+    
+    func setupBinders() {
+        dataPersistenceViewModel.viewedTitles.bind { viewedTitles in
+            guard let titles = viewedTitles else {
+                print("Error getting viewedTitles from persistent data.")
+                return
+            }
+            self.viewedTitles.removeAll()
+            for title in titles {
+                self.viewedTitles.append(title)
+            }
+            self.reloadCollectionViewData()
+        }
     }
 }
 
@@ -41,18 +58,24 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataModelManager.viewedTitles.count
+        return viewedTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewedTitleCollectionViewCell", for: indexPath) as! ViewedTitleCollectionViewCell
         
         cell.setup(
-            imageUrl: self.dataModelManager.viewedTitles[indexPath.row].posterPath!,
-            name: self.dataModelManager.viewedTitles[indexPath.row].name!,
-            id: Int(self.dataModelManager.viewedTitles[indexPath.row].id))
+            imageUrl: self.viewedTitles[indexPath.row].posterPath!,
+            name: self.viewedTitles[indexPath.row].name!,
+            id: Int((self.viewedTitles[indexPath.row].id)))
   
         return cell
+    }
+    
+    func reloadCollectionViewData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -77,18 +100,19 @@ extension HomeViewController: UICollectionViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goToDetailFromHome") {
             let destinationVC = segue.destination as! DetailViewController
-            let title = Title(
-                id: Int(dataModelManager.viewedTitles[selectedTitleIndex].id),
-                name: dataModelManager.viewedTitles[selectedTitleIndex].name!,
-                overview: dataModelManager.viewedTitles[selectedTitleIndex].overview!,
-                date: dataModelManager.viewedTitles[selectedTitleIndex].date!,
-                posterPath: dataModelManager.viewedTitles[selectedTitleIndex].posterPath,
-                voteAverage: dataModelManager.viewedTitles[selectedTitleIndex].voteAverage)
-            destinationVC.detailTitle = title
-            // Is necessary to unhide self tab bar before preparing detail tab bar
-            self.tabBarController?.tabBar.isHidden = false
             destinationVC.tabBarItem.title = self.tabBarItem.title
             destinationVC.tabBarItem.image = self.tabBarItem.image
+            // Is necessary to unhide self tab bar before preparing detail tab bar
+            self.tabBarController?.tabBar.isHidden = false
+            
+            let title = Title(
+                id: Int(self.viewedTitles[selectedTitleIndex].id),
+                name: self.viewedTitles[selectedTitleIndex].name!,
+                overview: self.viewedTitles[selectedTitleIndex].overview!,
+                date: self.viewedTitles[selectedTitleIndex].date!,
+                posterPath: self.viewedTitles[selectedTitleIndex].posterPath,
+                voteAverage: self.viewedTitles[selectedTitleIndex].voteAverage)
+            destinationVC.detailTitle = title
         }
     }
 }

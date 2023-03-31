@@ -28,7 +28,7 @@ class SearchTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.minimumScaleFactor = 0.5
+        titleLabel.minimumScaleFactor = 0.7
         titleImage.layer.cornerRadius = 10
         
         wishlistButton.setImage(UIImage(systemName: "star"), for: .normal)

@@ -324,7 +324,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Zb-8G-CkB">
-                                <rect key="frame" x="25" y="153" width="343" height="600"/>
+                                <rect key="frame" x="35" y="153" width="323" height="600"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fDG-2q-tbc">
                                     <size key="itemSize" width="128" height="128"/>
@@ -334,7 +334,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WishlistTitleCollectionViewCell" id="LRM-jo-Lwh" customClass="WishlistTitleCollectionViewCell" customModule="Wish_I_Watch" customModuleProvider="target">
-                                        <rect key="frame" x="71.666666666666671" y="0.0" width="200" height="300"/>
+                                        <rect key="frame" x="61.666666666666664" y="0.0" width="200" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CJH-EC-P4h">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
@@ -396,10 +396,10 @@
                             <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="yF1-ev-YW9" secondAttribute="trailing" constant="25" id="UDR-5v-MwI"/>
                             <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="0mt-yn-FlM" secondAttribute="trailing" constant="25" id="bEx-9E-gWz"/>
                             <constraint firstItem="4Zb-8G-CkB" firstAttribute="top" secondItem="yF1-ev-YW9" secondAttribute="bottom" constant="15" id="c2P-EU-hTl"/>
-                            <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="4Zb-8G-CkB" secondAttribute="trailing" constant="25" id="hZX-xf-9hj"/>
+                            <constraint firstItem="Bxy-wR-aGZ" firstAttribute="trailing" secondItem="4Zb-8G-CkB" secondAttribute="trailing" constant="35" id="hZX-xf-9hj"/>
                             <constraint firstItem="yF1-ev-YW9" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="25" id="mnE-bS-6o0"/>
                             <constraint firstItem="4Zb-8G-CkB" firstAttribute="bottom" secondItem="Bxy-wR-aGZ" secondAttribute="bottom" constant="-16" id="oEr-Ka-fbp"/>
-                            <constraint firstItem="4Zb-8G-CkB" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="25" id="q30-zF-QvN"/>
+                            <constraint firstItem="4Zb-8G-CkB" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="35" id="q30-zF-QvN"/>
                             <constraint firstItem="yF1-ev-YW9" firstAttribute="top" secondItem="0mt-yn-FlM" secondAttribute="bottom" constant="5" id="tYT-MK-VJb"/>
                         </constraints>
                     </view>
@@ -422,8 +422,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3Xe-Hv-062"/>
-        <segue reference="1Zj-ws-rQm"/>
+        <segue reference="Bhf-LN-UJB"/>
+        <segue reference="Uwf-r0-jgg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

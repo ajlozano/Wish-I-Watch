@@ -7,15 +7,10 @@
 
 import Foundation
 
-protocol TitleManagerDelegate {
-    func didUpdateTitle(_ titleManager: TitleManager, _ titleResults: Titles)
-    func didFailWithError(error: Error)
-}
-
-struct TitleManager {
-    var delegate: TitleManagerDelegate?
+struct NetworkService {
+    static let shared = NetworkService()
     
-    func fetchTitle(titleName: String) {
+    func fetchTitle(titleName: String, completion: @escaping ([Title]) -> ()) {
         let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
         let urlString = "\(K.URL.urlSearch)\(fixedTitleName)\(K.Endpoints.urlSearch)"
         print(urlString)
@@ -25,7 +20,7 @@ struct TitleManager {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                self.delegate?.didFailWithError(error: error!)
+                print(error?.localizedDescription ?? "Error during data task session")
                 return
             }
             if let safeData = data {
@@ -33,10 +28,9 @@ struct TitleManager {
                     let decoder = JSONDecoder()
                     let decodedData = try decoder.decode(Titles.self, from: safeData)
                     var titles = Titles(listOfTitles: decodedData.listOfTitles)
-                    titles.listOfTitles.removeAll(where: { $0.posterPath == nil})
-                    self.delegate?.didUpdateTitle(self, titles)
+                    completion(titles.listOfTitles)
                 } catch {
-                    delegate?.didFailWithError(error: error)
+                    print(error)
                     return
                 }
             }
