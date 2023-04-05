@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		136A55C7F89C5C502AB89C9D /* Pods_Wish_I_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */; };
 		AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0757E4299A8C6C00D2F6CD /* K.swift */; };
 		AD1FFCBE29D1E17200F2E44D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FFCBD29D1E17200F2E44D /* Extensions.swift */; };
 		AD4070F429BF4E9500778677 /* WishlistTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4070F329BF4E9500778677 /* WishlistTitleCollectionViewCell.swift */; };
@@ -32,14 +31,17 @@
 		ADB3E78E29C38B0600A9D67B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADB3E78D29C38B0600A9D67B /* README.md */; };
 		ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */; };
 		ADFF131D29B7B5CD00A37947 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF131C29B7B5CD00A37947 /* DataPersistence.swift */; };
+		B67E759064167B64DDE1158A /* Pods_Wish_I_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138447AB9A9489A5B7724375 /* Pods_Wish_I_Watch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		37012AB482FF24B7600896B9 /* Pods-Wish-I-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.release.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.release.xcconfig"; sourceTree = "<group>"; };
+		138447AB9A9489A5B7724375 /* Pods_Wish_I_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wish_I_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		184EF2A017BA68FFB8C24206 /* Pods-Wish-I-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.debug.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.debug.xcconfig"; sourceTree = "<group>"; };
+		924B8F0A08EA591E242A13C6 /* Pods-Wish-I-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.release.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		AD0757E4299A8C6C00D2F6CD /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		AD1FFCBD29D1E17200F2E44D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AD4070F329BF4E9500778677 /* WishlistTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTitleCollectionViewCell.swift; sourceTree = "<group>"; };
-		AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MoonTime-Regular.ttf"; path = "../_res/MoonTime-Regular.ttf"; sourceTree = "<group>"; };
+		AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MoonTime-Regular.ttf"; sourceTree = "<group>"; };
 		AD4FCE21299D04CC00BCA324 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		AD886479299B978B00E1940E /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AD95BD7C299A542C0042C63E /* Wish-I-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wish-I-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,8 +64,6 @@
 		ADB3E78D29C38B0600A9D67B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ADFF131C29B7B5CD00A37947 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
-		C99700FAF668032B79866035 /* Pods-Wish-I-Watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.debug.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.debug.xcconfig"; sourceTree = "<group>"; };
-		E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wish_I_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,26 +71,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136A55C7F89C5C502AB89C9D /* Pods_Wish_I_Watch.framework in Frameworks */,
+				B67E759064167B64DDE1158A /* Pods_Wish_I_Watch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		123279ACDAF412CDDAFC4413 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E517AF2EB1D6E939DEB1A24B /* Pods_Wish_I_Watch.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		958B37AA57CFB6EE046AFC27 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C99700FAF668032B79866035 /* Pods-Wish-I-Watch.debug.xcconfig */,
-				37012AB482FF24B7600896B9 /* Pods-Wish-I-Watch.release.xcconfig */,
+				184EF2A017BA68FFB8C24206 /* Pods-Wish-I-Watch.debug.xcconfig */,
+				924B8F0A08EA591E242A13C6 /* Pods-Wish-I-Watch.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -120,7 +112,7 @@
 				AD95BD7E299A542C0042C63E /* Wish-I-Watch */,
 				AD95BD7D299A542C0042C63E /* Products */,
 				958B37AA57CFB6EE046AFC27 /* Pods */,
-				123279ACDAF412CDDAFC4413 /* Frameworks */,
+				F5B97C3E4FFD35E3CF7B9E9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -265,6 +257,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F5B97C3E4FFD35E3CF7B9E9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				138447AB9A9489A5B7724375 /* Pods_Wish_I_Watch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,11 +272,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD95BD93299A542C0042C63E /* Build configuration list for PBXNativeTarget "Wish-I-Watch" */;
 			buildPhases = (
-				73FC0DE17F5A565328344DF5 /* [CP] Check Pods Manifest.lock */,
+				4F3277A2754A66B8453B2BF9 /* [CP] Check Pods Manifest.lock */,
 				AD95BD78299A542C0042C63E /* Sources */,
 				AD95BD79299A542C0042C63E /* Frameworks */,
 				AD95BD7A299A542C0042C63E /* Resources */,
-				B0BF9E9F5F6AAB7903B17FA8 /* [CP] Embed Pods Frameworks */,
+				161421233684671EB2BBCB1C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,7 +337,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		73FC0DE17F5A565328344DF5 /* [CP] Check Pods Manifest.lock */ = {
+		161421233684671EB2BBCB1C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F3277A2754A66B8453B2BF9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,23 +374,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0BF9E9F5F6AAB7903B17FA8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -542,7 +542,7 @@
 		};
 		AD95BD94299A542C0042C63E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C99700FAF668032B79866035 /* Pods-Wish-I-Watch.debug.xcconfig */;
+			baseConfigurationReference = 184EF2A017BA68FFB8C24206 /* Pods-Wish-I-Watch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -573,7 +573,7 @@
 		};
 		AD95BD95299A542C0042C63E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37012AB482FF24B7600896B9 /* Pods-Wish-I-Watch.release.xcconfig */;
+			baseConfigurationReference = 924B8F0A08EA591E242A13C6 /* Pods-Wish-I-Watch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
