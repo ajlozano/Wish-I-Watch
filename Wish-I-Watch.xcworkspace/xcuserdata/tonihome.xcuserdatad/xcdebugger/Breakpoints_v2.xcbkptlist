@@ -84,5 +84,177 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36390393-D1DD-40FA-98C1-26A6C8C47715"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/Managers/DataPersistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA714F17-DF0D-47B2-BE4E-074A79E32054"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/Home/View/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBAE53A4-8DD6-45F2-BC84-63D73E738D76"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/Home/View/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/Home/View/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2 - eed212da574074ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.HomeViewController.viewedTitles.getter : Swift.Array&lt;Wish_I_Watch.ViewedTitle&gt;"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Home/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2 - ac93bdf008ae18eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.HomeViewController.viewedTitles.setter : Swift.Array&lt;Wish_I_Watch.ViewedTitle&gt;"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Home/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2 - 587e3e9857808df8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.HomeViewController.viewedTitles.modify : Swift.Array&lt;Wish_I_Watch.ViewedTitle&gt;"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Home/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2 - 94a00c62cc3e28ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.HomeViewController.viewedTitles.modify : Swift.Array&lt;Wish_I_Watch.ViewedTitle&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Home/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2 - e5265a9ac69a3d0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.HomeViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Wish_I_Watch.HomeViewController"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Home/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "26FC573B-B960-49A0-B5C1-BD1E10134BC2 - 844d12e6d9d60101"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.HomeViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Wish_I_Watch.HomeViewController&gt;"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Home/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D2DA151-BFC7-41D4-A680-9349A937DC1B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/Home/View/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
