@@ -56,6 +56,10 @@ final class DataPersistenceViewModel {
         }
     }
     
+    func deleteAllWishlistTitles() {
+        DataPersistence.shared.deleteAllData()
+    }
+    
     private func save() {
         DataPersistence.shared.saveTitles { wishlistTitles, viewedTitles in
             self.wishlistTitles.value = wishlistTitles

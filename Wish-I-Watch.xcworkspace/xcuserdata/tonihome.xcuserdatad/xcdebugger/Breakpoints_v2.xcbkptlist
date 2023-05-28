@@ -62,9 +62,9 @@
             filePath = "Wish-I-Watch/ViewModel/DataPersistenceViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "replacePersistentTitle(title:isWishlistTitle:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "save()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -254,6 +254,69 @@
             endingLineNumber = "19"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44C14F9C-0D95-4F57-860A-9B2A7287118C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/Settings/View/SettingsViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "SettingsViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "44C14F9C-0D95-4F57-860A-9B2A7287118C - 9e91b3f18614da07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.SettingsViewCell.relativeFontConstant.getter : CoreGraphics.CGFloat"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Settings/View/SettingsViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "44C14F9C-0D95-4F57-860A-9B2A7287118C - ac6ddabde7a6070e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.SettingsViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; Wish_I_Watch.SettingsViewCell"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Settings/View/SettingsViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "44C14F9C-0D95-4F57-860A-9B2A7287118C - eaaf7ac319a59a90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wish_I_Watch.SettingsViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Wish_I_Watch.SettingsViewCell&gt;"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/Settings/View/SettingsViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "248">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
