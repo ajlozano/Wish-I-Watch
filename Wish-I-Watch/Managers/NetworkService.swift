@@ -27,7 +27,7 @@ struct NetworkService {
                 do {
                     let decoder = JSONDecoder()
                     let decodedData = try decoder.decode(Titles.self, from: safeData)
-                    var titles = Titles(listOfTitles: decodedData.listOfTitles)
+                    let titles = Titles(listOfTitles: decodedData.listOfTitles)
                     completion(titles.listOfTitles)
                 } catch {
                     print(error)

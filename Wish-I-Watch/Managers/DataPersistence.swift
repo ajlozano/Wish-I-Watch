@@ -103,4 +103,12 @@ struct DataPersistence {
             return viewedTitles.firstIndex(where: {$0.id == id!})
         }
     }
+    
+    mutating func deleteAllData() {
+        for data in wishlistTitles {
+            context.delete(data)
+            saveTitles { _, _ in }
+        }
+        wishlistTitles.removeAll()
+    }
 }

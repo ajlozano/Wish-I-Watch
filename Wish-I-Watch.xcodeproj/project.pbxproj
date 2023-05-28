@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0757E4299A8C6C00D2F6CD /* K.swift */; };
 		AD1FFCBE29D1E17200F2E44D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FFCBD29D1E17200F2E44D /* Extensions.swift */; };
+		AD23671D2A23BC30009D7272 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23671C2A23BC30009D7272 /* Contact.swift */; };
+		AD23671F2A23BC38009D7272 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23671E2A23BC38009D7272 /* Setting.swift */; };
+		AD2367212A23BC56009D7272 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2367202A23BC56009D7272 /* Constants.swift */; };
+		AD2367232A23BD47009D7272 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2367222A23BD47009D7272 /* SettingsViewController.swift */; };
+		AD2367252A23BE5C009D7272 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2367242A23BE5C009D7272 /* SettingsViewCell.swift */; };
+		AD2367272A23BE6A009D7272 /* ContactsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2367262A23BE6A009D7272 /* ContactsViewCell.swift */; };
+		AD23672B2A23BFEF009D7272 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23672A2A23BFEF009D7272 /* SettingsViewModel.swift */; };
 		AD4070F429BF4E9500778677 /* WishlistTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4070F329BF4E9500778677 /* WishlistTitleCollectionViewCell.swift */; };
 		AD49156A29A7FA1300F33BE7 /* MoonTime-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */; };
 		AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FCE21299D04CC00BCA324 /* Title.swift */; };
@@ -40,6 +47,13 @@
 		924B8F0A08EA591E242A13C6 /* Pods-Wish-I-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wish-I-Watch.release.xcconfig"; path = "Target Support Files/Pods-Wish-I-Watch/Pods-Wish-I-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		AD0757E4299A8C6C00D2F6CD /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		AD1FFCBD29D1E17200F2E44D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AD23671C2A23BC30009D7272 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		AD23671E2A23BC38009D7272 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		AD2367202A23BC56009D7272 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AD2367222A23BD47009D7272 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AD2367242A23BE5C009D7272 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		AD2367262A23BE6A009D7272 /* ContactsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewCell.swift; sourceTree = "<group>"; };
+		AD23672A2A23BFEF009D7272 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD4070F329BF4E9500778677 /* WishlistTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MoonTime-Regular.ttf"; sourceTree = "<group>"; };
 		AD4FCE21299D04CC00BCA324 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
@@ -90,6 +104,7 @@
 		AD1FFCBB29D1E14E00F2E44D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD23671B2A23BC20009D7272 /* Helpers */,
 				AD95BD8B299A542C0042C63E /* Assets.xcassets */,
 				AD1FFCBC29D1E15800F2E44D /* Extensions */,
 			);
@@ -102,6 +117,41 @@
 				AD1FFCBD29D1E17200F2E44D /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AD23671A2A23BC0B009D7272 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AD2367282A23BFD2009D7272 /* View */,
+				AD2367292A23BFD7009D7272 /* ViewModel */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AD23671B2A23BC20009D7272 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AD2367202A23BC56009D7272 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AD2367282A23BFD2009D7272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD2367222A23BD47009D7272 /* SettingsViewController.swift */,
+				AD2367242A23BE5C009D7272 /* SettingsViewCell.swift */,
+				AD2367262A23BE6A009D7272 /* ContactsViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD2367292A23BFD7009D7272 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD23672A2A23BFEF009D7272 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AD95BD73299A542C0042C63E = {
@@ -137,6 +187,7 @@
 				ADA034EF29D2EAE10027D6BA /* Wishlist */,
 				ADA034F129D2EB000027D6BA /* Search */,
 				ADA034F029D2EAF30027D6BA /* Detail */,
+				AD23671A2A23BC0B009D7272 /* Settings */,
 				AD1FFCBB29D1E14E00F2E44D /* Resources */,
 				AD95BD90299A542C0042C63E /* Info.plist */,
 			);
@@ -149,6 +200,8 @@
 				AD4FCE21299D04CC00BCA324 /* Title.swift */,
 				AD0757E4299A8C6C00D2F6CD /* K.swift */,
 				AD95BD88299A542C0042C63E /* TitleDataModel.xcdatamodeld */,
+				AD23671C2A23BC30009D7272 /* Contact.swift */,
+				AD23671E2A23BC38009D7272 /* Setting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4070F429BF4E9500778677 /* WishlistTitleCollectionViewCell.swift in Sources */,
+				AD23671D2A23BC30009D7272 /* Contact.swift in Sources */,
 				ADA53F2829B9F29000B39793 /* ViewedTitleCollectionViewCell.swift in Sources */,
 				AD9C43C029D42B1A0069BED6 /* ObservableObject.swift in Sources */,
 				ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */,
@@ -392,10 +446,16 @@
 				AD9C43CE29D5CBFB0069BED6 /* SearchViewModel.swift in Sources */,
 				AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */,
 				AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */,
+				AD23672B2A23BFEF009D7272 /* SettingsViewModel.swift in Sources */,
+				AD23671F2A23BC38009D7272 /* Setting.swift in Sources */,
+				AD2367272A23BE6A009D7272 /* ContactsViewCell.swift in Sources */,
+				AD2367212A23BC56009D7272 /* Constants.swift in Sources */,
 				AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */,
+				AD2367232A23BD47009D7272 /* SettingsViewController.swift in Sources */,
 				AD0757E5299A8C6C00D2F6CD /* K.swift in Sources */,
 				AD95BD8A299A542C0042C63E /* TitleDataModel.xcdatamodeld in Sources */,
 				AD1FFCBE29D1E17200F2E44D /* Extensions.swift in Sources */,
+				AD2367252A23BE5C009D7272 /* SettingsViewCell.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
 				AD9C43C829D5CACB0069BED6 /* DataPersistenceViewModel.swift in Sources */,
 				ADA96CF8299CD9890048F5C3 /* SearchTitleTableViewCell.swift in Sources */,
