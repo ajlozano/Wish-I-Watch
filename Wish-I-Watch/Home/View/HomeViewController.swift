@@ -42,7 +42,6 @@ class HomeViewController: UIViewController {
     func setupBinders() {
         dataPersistenceViewModel.viewedTitles.bind { viewedTitles in
             guard let titles = viewedTitles else {
-                print("Error getting viewedTitles from persistent data.")
                 return
             }
             self.viewedTitles.removeAll()

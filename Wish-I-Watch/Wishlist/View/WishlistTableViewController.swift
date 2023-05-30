@@ -44,7 +44,6 @@ class WishlistTableViewController: UIViewController {
     func setupBinders() {
         dataPersistenceViewModel.wishlistTitles.bind { wishlistTitles in
             guard let titles = wishlistTitles else {
-                print("Error getting savedTitles from persistent data.")
                 return
             }
             self.wishlistTitles.removeAll()

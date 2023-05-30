@@ -55,7 +55,6 @@ class SearchTableViewController: UITableViewController {
         
         dataPersistenceViewModel.viewedTitles.bind { viewedTitles in
             guard let titles = viewedTitles else {
-                print("Error getting viewedTitles from persistent data.")
                 return
             }
             self.viewedTitles.removeAll()
@@ -95,7 +94,7 @@ class SearchTableViewController: UITableViewController {
             cell.titleImage.imageFromServerUrl(imageUrl: nil,
                                                placeHolderImage: UIImage(named: "MovieImage")!)
         } else {
-            cell.titleImage.imageFromServerUrl(imageUrl: "\(K.URL.urlImages+titles[indexPath.row].posterPath!)",
+            cell.titleImage.imageFromServerUrl(imageUrl: "\(Constants.URL.urlImages+titles[indexPath.row].posterPath!)",
                                                placeHolderImage: UIImage(named: "MovieImage")!)
         }
         

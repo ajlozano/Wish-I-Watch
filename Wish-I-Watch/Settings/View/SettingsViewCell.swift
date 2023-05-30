@@ -22,8 +22,6 @@ class SettingsViewCell: UITableViewCell {
         cellView.backgroundColor = .clear
     }
     
-    
-
     func setup(icon: UIImage ,title: String, action: UIView, screenWidth: CGFloat) {
         iconImage.image = icon
         titleLabel.font = titleLabel.font.withSize(screenWidth * relativeFontConstant)

@@ -12,7 +12,7 @@ struct NetworkService {
     
     func fetchTitle(titleName: String, completion: @escaping ([Title]) -> ()) {
         let fixedTitleName = titleName.replacingOccurrences(of: " ", with: "%20")
-        let urlString = "\(K.URL.urlSearch)\(fixedTitleName)\(K.Endpoints.urlSearch)"
+        let urlString = "\(Constants.URL.urlSearch)\(fixedTitleName)\(Constants.Endpoints.urlSearch)"
         print(urlString)
         
         var request = URLRequest(url: URL(string: urlString)!)

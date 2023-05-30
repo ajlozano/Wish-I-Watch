@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
     var detailTitle: Title? {
         didSet {
             if let id = detailTitle?.id {
-                detailUrl = "\(K.URL.main)\(K.Endpoints.urlDetailMovie)\(id)"
+                detailUrl = "\(Constants.URL.main)\(Constants.Endpoints.urlDetailMovie)\(id)"
                 print(detailUrl)
             }
         }
@@ -51,7 +51,6 @@ class DetailViewController: UIViewController {
     func setupBinders() {
         dataPersistenceViewModel.wishlistTitles.bind { wishlistTitles in
             guard let titles = wishlistTitles else {
-                print("Error getting savedTitles from persistent data.")
                 return
             }
             self.wishlistTitles.removeAll()

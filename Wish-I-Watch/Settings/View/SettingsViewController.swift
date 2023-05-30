@@ -38,6 +38,8 @@ class SettingsViewController: UIViewController {
     }
 }
 
+// MARK: - Table view data source and delegate
+
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(tableView == settingsTableView) {
@@ -86,6 +88,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - View setup
+
 extension SettingsViewController {
     private func updateUI() {
         DispatchQueue.main.async {
@@ -128,6 +132,8 @@ extension SettingsViewController {
             Contact(title: Constants.linkedinTitle, path: Constants.linkedinPath)]
     }
 }
+
+// MARK: - Alert setup
 
 extension SettingsViewController {
     private func showAlert(_ sender: UIButton) {
