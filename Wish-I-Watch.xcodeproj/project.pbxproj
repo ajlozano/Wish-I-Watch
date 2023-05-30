@@ -35,10 +35,21 @@
 		ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F3299BDBA800D27742 /* HomeViewController.swift */; };
 		ADAE45F8299C12EE00D27742 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F7299C12EE00D27742 /* NetworkService.swift */; };
 		ADB3E78E29C38B0600A9D67B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADB3E78D29C38B0600A9D67B /* README.md */; };
+		ADBDF8182A267C2E00846C74 /* Wish_I_WatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBDF8172A267C2E00846C74 /* Wish_I_WatchTests.swift */; };
 		ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */; };
 		ADFF131D29B7B5CD00A37947 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF131C29B7B5CD00A37947 /* DataPersistence.swift */; };
 		B67E759064167B64DDE1158A /* Pods_Wish_I_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138447AB9A9489A5B7724375 /* Pods_Wish_I_Watch.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ADBDF8192A267C2E00846C74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD95BD74299A542C0042C63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD95BD7B299A542C0042C63E;
+			remoteInfo = "Wish-I-Watch";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		138447AB9A9489A5B7724375 /* Pods_Wish_I_Watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wish_I_Watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +85,8 @@
 		ADAE45F3299BDBA800D27742 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ADAE45F7299C12EE00D27742 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		ADB3E78D29C38B0600A9D67B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ADBDF8152A267C2E00846C74 /* Wish-I-WatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wish-I-WatchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADBDF8172A267C2E00846C74 /* Wish_I_WatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish_I_WatchTests.swift; sourceTree = "<group>"; };
 		ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ADFF131C29B7B5CD00A37947 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +97,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B67E759064167B64DDE1158A /* Pods_Wish_I_Watch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBDF8122A267C2E00846C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +178,7 @@
 				ADB3E78D29C38B0600A9D67B /* README.md */,
 				AD49156929A7F94E00F33BE7 /* MoonTime-Regular.ttf */,
 				AD95BD7E299A542C0042C63E /* Wish-I-Watch */,
+				ADBDF8162A267C2E00846C74 /* Wish-I-WatchTests */,
 				AD95BD7D299A542C0042C63E /* Products */,
 				958B37AA57CFB6EE046AFC27 /* Pods */,
 				F5B97C3E4FFD35E3CF7B9E9F /* Frameworks */,
@@ -168,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				AD95BD7C299A542C0042C63E /* Wish-I-Watch.app */,
+				ADBDF8152A267C2E00846C74 /* Wish-I-WatchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,6 +329,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		ADBDF8162A267C2E00846C74 /* Wish-I-WatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADBDF8172A267C2E00846C74 /* Wish_I_WatchTests.swift */,
+			);
+			path = "Wish-I-WatchTests";
+			sourceTree = "<group>";
+		};
 		F5B97C3E4FFD35E3CF7B9E9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +367,24 @@
 			productReference = AD95BD7C299A542C0042C63E /* Wish-I-Watch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		ADBDF8142A267C2E00846C74 /* Wish-I-WatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADBDF81D2A267C2E00846C74 /* Build configuration list for PBXNativeTarget "Wish-I-WatchTests" */;
+			buildPhases = (
+				ADBDF8112A267C2E00846C74 /* Sources */,
+				ADBDF8122A267C2E00846C74 /* Frameworks */,
+				ADBDF8132A267C2E00846C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADBDF81A2A267C2E00846C74 /* PBXTargetDependency */,
+			);
+			name = "Wish-I-WatchTests";
+			productName = "Wish-I-WatchTests";
+			productReference = ADBDF8152A267C2E00846C74 /* Wish-I-WatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -344,11 +392,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					AD95BD7B299A542C0042C63E = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					ADBDF8142A267C2E00846C74 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = AD95BD7B299A542C0042C63E;
 					};
 				};
 			};
@@ -366,6 +418,7 @@
 			projectRoot = "";
 			targets = (
 				AD95BD7B299A542C0042C63E /* Wish-I-Watch */,
+				ADBDF8142A267C2E00846C74 /* Wish-I-WatchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,6 +434,13 @@
 				AD49156A29A7FA1300F33BE7 /* MoonTime-Regular.ttf in Resources */,
 				AD95BD87299A542C0042C63E /* Main.storyboard in Resources */,
 				ADA96CF9299CD9890048F5C3 /* SearchTitleTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADBDF8132A267C2E00846C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +520,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ADBDF8112A267C2E00846C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADBDF8182A267C2E00846C74 /* Wish_I_WatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ADBDF81A2A267C2E00846C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD95BD7B299A542C0042C63E /* Wish-I-Watch */;
+			targetProxy = ADBDF8192A267C2E00846C74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AD95BD85299A542C0042C63E /* Main.storyboard */ = {
@@ -658,6 +734,44 @@
 			};
 			name = Release;
 		};
+		ADBDF81B2A267C2E00846C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anthonydev.Wish-I-WatchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wish-I-Watch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wish-I-Watch";
+			};
+			name = Debug;
+		};
+		ADBDF81C2A267C2E00846C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UJ8245Z3MQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anthonydev.Wish-I-WatchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wish-I-Watch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wish-I-Watch";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -675,6 +789,15 @@
 			buildConfigurations = (
 				AD95BD94299A542C0042C63E /* Debug */,
 				AD95BD95299A542C0042C63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADBDF81D2A267C2E00846C74 /* Build configuration list for PBXNativeTarget "Wish-I-WatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADBDF81B2A267C2E00846C74 /* Debug */,
+				ADBDF81C2A267C2E00846C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
