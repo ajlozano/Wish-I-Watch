@@ -244,7 +244,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2D2DA151-BFC7-41D4-A680-9349A937DC1B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Wish-I-Watch/Home/View/HomeViewController.swift"
@@ -333,6 +333,192 @@
             endingLineNumber = "17"
             landmarkName = "getTitles()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/APIService/FetchPostsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "fetchPosts(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14 - 4cbf9acbf2fd6921"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "768">
+               </Location>
+               <Location
+                  uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14 - 4cbf9acbf2fd6921"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14 - c5d08ea1e0813d2f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14 - c5d08ea1e0813d2f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14 - 8166096c994b1b28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "7A4365EF-0A0E-4C56-B987-C7103A5C5C14 - 8166096c994b1b28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3027340-9EFB-423F-9C9D-0126F827DFBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wish-I-Watch/APIService/FetchPostsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "fetchPosts(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C3027340-9EFB-423F-9C9D-0126F827DFBB - 4cbf9acbf2fd687b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "C3027340-9EFB-423F-9C9D-0126F827DFBB - aebbf8f62aede127"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "C3027340-9EFB-423F-9C9D-0126F827DFBB - c5d08ea1e0813c75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "C3027340-9EFB-423F-9C9D-0126F827DFBB - 8166096c994b1a72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; Wish_I_Watch.PostsDecodable in Wish_I_Watch.DefaultFetchPostsRepository.fetchPosts(url: Swift.String) async throws -&gt; Wish_I_Watch.PostsDecodable"
+                  moduleName = "Wish-I-Watch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonihome/iOSProjects/Wish-I-Watch/Wish-I-Watch/Wish-I-Watch/APIService/FetchPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

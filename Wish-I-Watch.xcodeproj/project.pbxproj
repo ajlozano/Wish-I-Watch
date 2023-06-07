@@ -25,6 +25,9 @@
 		AD77CABD2A30829F00AD57C5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CABC2A30829F00AD57C5 /* ApiService.swift */; };
 		AD77CABF2A3082AF00AD57C5 /* FetchPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CABE2A3082AF00AD57C5 /* FetchPostsRepository.swift */; };
 		AD77CAC12A30833600AD57C5 /* PostsDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CAC02A30833600AD57C5 /* PostsDecodable.swift */; };
+		AD77CAC72A30897900AD57C5 /* ApiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CAC62A30897900AD57C5 /* ApiServiceMock.swift */; };
+		AD77CAC92A30898D00AD57C5 /* PostsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CAC82A30898D00AD57C5 /* PostsMock.swift */; };
+		AD77CACB2A308B3E00AD57C5 /* FetchPostsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CACA2A308B3E00AD57C5 /* FetchPostsRepositoryTests.swift */; };
 		AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD886479299B978B00E1940E /* SearchTableViewController.swift */; };
 		AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD7F299A542C0042C63E /* AppDelegate.swift */; };
 		AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD81299A542C0042C63E /* SceneDelegate.swift */; };
@@ -78,6 +81,9 @@
 		AD77CABC2A30829F00AD57C5 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		AD77CABE2A3082AF00AD57C5 /* FetchPostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPostsRepository.swift; sourceTree = "<group>"; };
 		AD77CAC02A30833600AD57C5 /* PostsDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDecodable.swift; sourceTree = "<group>"; };
+		AD77CAC62A30897900AD57C5 /* ApiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceMock.swift; sourceTree = "<group>"; };
+		AD77CAC82A30898D00AD57C5 /* PostsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsMock.swift; sourceTree = "<group>"; };
+		AD77CACA2A308B3E00AD57C5 /* FetchPostsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPostsRepositoryTests.swift; sourceTree = "<group>"; };
 		AD886479299B978B00E1940E /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AD95BD7C299A542C0042C63E /* Wish-I-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wish-I-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD95BD7F299A542C0042C63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,14 +228,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		AD491A7B2A2786350063BFDF /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				AD491A822A27AEDB0063BFDF /* DataPersistenceTest.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		AD491A7D2A2786680063BFDF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,12 +263,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		AD491A842A27D9E10063BFDF /* Models */ = {
+		AD491A842A27D9E10063BFDF /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				AD491A852A27DA020063BFDF /* DataPersistenceViewModelTest.swift */,
+				AD491A822A27AEDB0063BFDF /* DataPersistenceTest.swift */,
 			);
-			path = Models;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		AD77CAB52A306C9400AD57C5 /* Base */ = {
@@ -302,6 +301,23 @@
 				AD9C43C729D5CACB0069BED6 /* DataPersistenceViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AD77CAC22A3088F000AD57C5 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				AD77CACA2A308B3E00AD57C5 /* FetchPostsRepositoryTests.swift */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
+		AD77CAC32A30890500AD57C5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AD77CAC62A30897900AD57C5 /* ApiServiceMock.swift */,
+				AD77CAC82A30898D00AD57C5 /* PostsMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		AD95BD73299A542C0042C63E = {
@@ -445,8 +461,9 @@
 		ADBDF8162A267C2E00846C74 /* Wish-I-WatchTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD491A842A27D9E10063BFDF /* Models */,
-				AD491A7B2A2786350063BFDF /* Managers */,
+				AD77CAC32A30890500AD57C5 /* Mocks */,
+				AD77CAC22A3088F000AD57C5 /* ApiService */,
+				AD491A842A27D9E10063BFDF /* Database */,
 				AD491A792A27858F0063BFDF /* Detail */,
 				AD491A782A2785880063BFDF /* Home */,
 				AD491A772A27857E0063BFDF /* Search */,
@@ -647,8 +664,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD77CAC72A30897900AD57C5 /* ApiServiceMock.swift in Sources */,
 				AD491A862A27DA020063BFDF /* DataPersistenceViewModelTest.swift in Sources */,
 				AD491A832A27AEDB0063BFDF /* DataPersistenceTest.swift in Sources */,
+				AD77CACB2A308B3E00AD57C5 /* FetchPostsRepositoryTests.swift in Sources */,
+				AD77CAC92A30898D00AD57C5 /* PostsMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

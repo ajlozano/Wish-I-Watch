@@ -13,20 +13,17 @@ final class DataPersistenceTest: XCTestCase {
     // Given
     var sut: DataPersistence?
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
         sut = DataPersistence()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
         sut = nil
+        super.tearDown()
     }
     
     func testLoadTitles_whenNoDataIsReceived_ReturnFailure() {
-//        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
-//            XCTAssertNil(wishlistTitles)
-//        })
     }
     
     func testLoadTitles_whenDataIsReceived_ReturnSuccess() {
