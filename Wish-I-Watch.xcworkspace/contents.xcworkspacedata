@@ -8,9 +8,9 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../Wish-I-Watch.xctestplan">
+      location = "group:Wish-I-WatchTests.xctestplan">
    </FileRef>
    <FileRef
-      location = "group:../Wish-I-WatchUITests.xctestplan">
+      location = "group:Wish-I-WatchUITests.xctestplan">
    </FileRef>
 </Workspace>

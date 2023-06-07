@@ -207,81 +207,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		AD491A762A27856D0063BFDF /* Wishlist */ = {
-			isa = PBXGroup;
-			children = (
-				AD491A812A27868A0063BFDF /* Controllers */,
-			);
-			path = Wishlist;
-			sourceTree = "<group>";
-		};
-		AD491A772A27857E0063BFDF /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				AD491A802A2786840063BFDF /* Controllers */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		AD491A782A2785880063BFDF /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				AD491A7F2A27867A0063BFDF /* Controllers */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		AD491A792A27858F0063BFDF /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				AD491A7E2A27866F0063BFDF /* Controllers */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		AD491A7A2A2785940063BFDF /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				AD491A7D2A2786680063BFDF /* Controllers */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		AD491A7D2A2786680063BFDF /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		AD491A7E2A27866F0063BFDF /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		AD491A7F2A27867A0063BFDF /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		AD491A802A2786840063BFDF /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		AD491A812A27868A0063BFDF /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		AD491A842A27D9E10063BFDF /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,11 +419,6 @@
 				AD77CAC32A30890500AD57C5 /* Mocks */,
 				AD77CAC22A3088F000AD57C5 /* ApiService */,
 				AD491A842A27D9E10063BFDF /* Database */,
-				AD491A792A27858F0063BFDF /* Detail */,
-				AD491A782A2785880063BFDF /* Home */,
-				AD491A772A27857E0063BFDF /* Search */,
-				AD491A7A2A2785940063BFDF /* Settings */,
-				AD491A762A27856D0063BFDF /* Wishlist */,
 			);
 			path = "Wish-I-WatchTests";
 			sourceTree = "<group>";

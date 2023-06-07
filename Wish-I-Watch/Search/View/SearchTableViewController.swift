@@ -112,7 +112,6 @@ class SearchTableViewController: UITableViewController {
     }
     
     func reloadTableViewData() {
-        print("RELOAD")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

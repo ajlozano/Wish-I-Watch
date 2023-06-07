@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "097803A0-C5E7-4951-8B21-EB3DB16A27C9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Wish-I-Watch.xcodeproj",
+        "identifier" : "AD77CACF2A3095D000AD57C5",
+        "name" : "Wish-I-WatchUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
