@@ -96,7 +96,8 @@ struct DataPersistence {
         saveTitles { _, _ in }
     }
     
-    mutating func findPersistentTitle(id: Int?, isWishlistTitle: Bool = true) -> Int? {
+    mutating func findPersistentTitle(id: Int?, isWishlistTitle: Bool = true) -> Int?
+    {
         if (isWishlistTitle) {
             return wishlistTitles.firstIndex(where: {$0.id == id!})
         } else {

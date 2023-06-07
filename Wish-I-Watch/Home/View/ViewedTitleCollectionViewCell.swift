@@ -23,7 +23,7 @@ class ViewedTitleCollectionViewCell: UICollectionViewCell {
     
     func setup(imageUrl: String, name: String, id: Int) {
         titleLabel.text = name
-        titleImage.imageFromServerUrl(imageUrl: "\(Constants.URL.urlImages+imageUrl)", placeHolderImage: UIImage(named: "MovieImage")!)
+        titleImage.imageFromServerUrl(imageUrl: "\(Endpoints.urlImages+imageUrl)", placeHolderImage: UIImage(named: "MovieImage")!)
         titleId = id
     }
 }

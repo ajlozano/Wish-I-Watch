@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
     var detailTitle: Title? {
         didSet {
             if let id = detailTitle?.id {
-                detailUrl = "\(Constants.URL.main)\(Constants.Endpoints.urlDetailMovie)\(id)"
+                detailUrl = "\(Endpoints.main)\(Endpoints.urlDetailMovie)\(id)"
                 print(detailUrl)
             }
         }

@@ -49,6 +49,8 @@ class SearchTableViewController: UITableViewController {
                 return
             }
             self?.titles = titleList
+            self?.reloadTableViewData()
+
             self?.turnActivityIndicator(state: false)
             self?.reloadTableViewData()
         }
@@ -68,10 +70,12 @@ class SearchTableViewController: UITableViewController {
                 print("Error getting savedTitles from persistent data.")
                 return
             }
+            
             self.wishlistTitles.removeAll()
             for title in titles {
                 self.wishlistTitles.append(title)
             }
+
             self.reloadTableViewData()
         }
     }
@@ -94,7 +98,7 @@ class SearchTableViewController: UITableViewController {
             cell.titleImage.imageFromServerUrl(imageUrl: nil,
                                                placeHolderImage: UIImage(named: "MovieImage")!)
         } else {
-            cell.titleImage.imageFromServerUrl(imageUrl: "\(Constants.URL.urlImages+titles[indexPath.row].posterPath!)",
+            cell.titleImage.imageFromServerUrl(imageUrl: "\(Endpoints.urlImages+titles[indexPath.row].posterPath!)",
                                                placeHolderImage: UIImage(named: "MovieImage")!)
         }
         
@@ -108,6 +112,7 @@ class SearchTableViewController: UITableViewController {
     }
     
     func reloadTableViewData() {
+        print("RELOAD")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -143,7 +148,8 @@ extension SearchTableViewController: SearchTitleCellDelegate {
             } else {
                 dataPersistenceViewModel.saveTitle(title: titles[self.selectedTitleIndex])
             }
-            reloadTableViewData()
+            
+            //reloadTableViewData()
         } else {
             print("Failed selecting title index.")
         }
