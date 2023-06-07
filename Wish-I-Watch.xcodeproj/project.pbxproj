@@ -22,6 +22,9 @@
 		AD4FCE22299D04CC00BCA324 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FCE21299D04CC00BCA324 /* Title.swift */; };
 		AD77CAB92A306F1900AD57C5 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CAB82A306F1900AD57C5 /* AppError.swift */; };
 		AD77CABB2A306F8C00AD57C5 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CABA2A306F8C00AD57C5 /* Endpoints.swift */; };
+		AD77CABD2A30829F00AD57C5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CABC2A30829F00AD57C5 /* ApiService.swift */; };
+		AD77CABF2A3082AF00AD57C5 /* FetchPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CABE2A3082AF00AD57C5 /* FetchPostsRepository.swift */; };
+		AD77CAC12A30833600AD57C5 /* PostsDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77CAC02A30833600AD57C5 /* PostsDecodable.swift */; };
 		AD88647A299B978B00E1940E /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD886479299B978B00E1940E /* SearchTableViewController.swift */; };
 		AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD7F299A542C0042C63E /* AppDelegate.swift */; };
 		AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95BD81299A542C0042C63E /* SceneDelegate.swift */; };
@@ -37,7 +40,6 @@
 		ADA96CF9299CD9890048F5C3 /* SearchTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADA96CF7299CD9890048F5C3 /* SearchTitleTableViewCell.xib */; };
 		ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */; };
 		ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F3299BDBA800D27742 /* HomeViewController.swift */; };
-		ADAE45F8299C12EE00D27742 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE45F7299C12EE00D27742 /* NetworkService.swift */; };
 		ADB3E78E29C38B0600A9D67B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADB3E78D29C38B0600A9D67B /* README.md */; };
 		ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */; };
 		ADFF131D29B7B5CD00A37947 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF131C29B7B5CD00A37947 /* DataPersistence.swift */; };
@@ -73,6 +75,9 @@
 		AD4FCE21299D04CC00BCA324 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		AD77CAB82A306F1900AD57C5 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		AD77CABA2A306F8C00AD57C5 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		AD77CABC2A30829F00AD57C5 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		AD77CABE2A3082AF00AD57C5 /* FetchPostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPostsRepository.swift; sourceTree = "<group>"; };
+		AD77CAC02A30833600AD57C5 /* PostsDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDecodable.swift; sourceTree = "<group>"; };
 		AD886479299B978B00E1940E /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AD95BD7C299A542C0042C63E /* Wish-I-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wish-I-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD95BD7F299A542C0042C63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +95,6 @@
 		ADA96CF7299CD9890048F5C3 /* SearchTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTitleTableViewCell.xib; sourceTree = "<group>"; };
 		ADAE45F1299BDB0600D27742 /* WishlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewController.swift; sourceTree = "<group>"; };
 		ADAE45F3299BDBA800D27742 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ADAE45F7299C12EE00D27742 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		ADB3E78D29C38B0600A9D67B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ADBDF8152A267C2E00846C74 /* Wish-I-WatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wish-I-WatchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDCBBAD29ACC41C00277953 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -353,7 +357,9 @@
 		AD9C43C129D44EAA0069BED6 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				ADAE45F7299C12EE00D27742 /* NetworkService.swift */,
+				AD77CABE2A3082AF00AD57C5 /* FetchPostsRepository.swift */,
+				AD77CABC2A30829F00AD57C5 /* ApiService.swift */,
+				AD77CAC02A30833600AD57C5 /* PostsDecodable.swift */,
 				AD77CABA2A306F8C00AD57C5 /* Endpoints.swift */,
 			);
 			path = APIService;
@@ -611,8 +617,9 @@
 				AD77CABB2A306F8C00AD57C5 /* Endpoints.swift in Sources */,
 				ADA53F2829B9F29000B39793 /* ViewedTitleCollectionViewCell.swift in Sources */,
 				AD9C43C029D42B1A0069BED6 /* ObservableObject.swift in Sources */,
+				AD77CABD2A30829F00AD57C5 /* ApiService.swift in Sources */,
 				ADDCBBAE29ACC41C00277953 /* DetailViewController.swift in Sources */,
-				ADAE45F8299C12EE00D27742 /* NetworkService.swift in Sources */,
+				AD77CAC12A30833600AD57C5 /* PostsDecodable.swift in Sources */,
 				ADFF131D29B7B5CD00A37947 /* DataPersistence.swift in Sources */,
 				AD9C43CE29D5CBFB0069BED6 /* SearchViewModel.swift in Sources */,
 				AD95BD80299A542C0042C63E /* AppDelegate.swift in Sources */,
@@ -629,6 +636,7 @@
 				AD2367252A23BE5C009D7272 /* SettingsViewCell.swift in Sources */,
 				ADAE45F2299BDB0600D27742 /* WishlistTableViewController.swift in Sources */,
 				AD9C43C829D5CACB0069BED6 /* DataPersistenceViewModel.swift in Sources */,
+				AD77CABF2A3082AF00AD57C5 /* FetchPostsRepository.swift in Sources */,
 				ADA96CF8299CD9890048F5C3 /* SearchTitleTableViewCell.swift in Sources */,
 				ADAE45F4299BDBA800D27742 /* HomeViewController.swift in Sources */,
 				AD95BD82299A542C0042C63E /* SceneDelegate.swift in Sources */,

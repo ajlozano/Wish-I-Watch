@@ -7,13 +7,6 @@
 
 import Foundation
 
-struct Titles: Codable {
-    var listOfTitles: [Title]
-    enum CodingKeys: String, CodingKey {
-        case listOfTitles = "results"
-    }
-}
-
 struct Title: Codable {
     let id: Int
     let name: String
