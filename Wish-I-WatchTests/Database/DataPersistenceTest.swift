@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CoreData
 @testable import Wish_I_Watch
 
 final class DataPersistenceTest: XCTestCase {
@@ -13,9 +14,33 @@ final class DataPersistenceTest: XCTestCase {
     // Given
     var sut: DataPersistence?
     
+    var managedObjectModel: NSManagedObjectModel = {
+        let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle.main])!
+        return managedObjectModel
+    }()
+    
+    lazy var mockPersistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "TitleDataModel", managedObjectModel: self.managedObjectModel)
+        let description = NSPersistentStoreDescription()
+        description.type = NSInMemoryStoreType
+        description.shouldAddStoreAsynchronously = false
+        
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores { (description, error) in
+            // Check if the data store is in memory
+            precondition( description.type == NSInMemoryStoreType )
+            
+            // Check if creating container wrong
+            if let error = error {
+                fatalError("In memory coordinator creation failed \(error)")
+            }
+        }
+        return container
+    }()
+    
     override func setUp() {
         super.setUp()
-        sut = DataPersistence()
+        sut = DataPersistence(container: mockPersistentContainer)
     }
 
     override func tearDown() {
@@ -24,6 +49,7 @@ final class DataPersistenceTest: XCTestCase {
     }
     
     func testLoadTitles_whenNoDataIsReceived_ReturnFailure() {
+        
     }
     
     func testLoadTitles_whenDataIsReceived_ReturnSuccess() {

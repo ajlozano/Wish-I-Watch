@@ -8,22 +8,33 @@
 import UIKit
 import CoreData
 
-struct DataPersistence {
+class DataPersistence {
     var wishlistTitles = [WishlistTitle]()
     var viewedTitles = [ViewedTitle]()
 
     let context: NSManagedObjectContext
     
+    // Used for production
     static var shared = DataPersistence()
-    init() {
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //MARK: Init with dependency
+    init(container: NSPersistentContainer) {
+        self.context = container.viewContext
+        //self.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
     }
     
-    mutating func loadTitles(with savedRequest: NSFetchRequest<WishlistTitle> = WishlistTitle.fetchRequest(),
+    convenience init() {
+        //Use the default container for production environment
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("AppDelegate unavailable")
+        }
+        
+        self.init(container: appDelegate.persistentContainer)
+    }
+    
+    func loadTitles(with savedRequest: NSFetchRequest<WishlistTitle> = WishlistTitle.fetchRequest(),
                              with viewedRequest: NSFetchRequest<ViewedTitle> = ViewedTitle.fetchRequest(),
                              completion: ([WishlistTitle], [ViewedTitle]) -> ()) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         let wishlistList: [WishlistTitle]
         let viewedList: [ViewedTitle]
         do {
@@ -45,7 +56,7 @@ struct DataPersistence {
         completion(wishlistList, viewedList)
     }
     
-    mutating func setupItem(item: Title, isWishlistItem: Bool = true) {
+    func setupItem(item: Title, isWishlistItem: Bool = true) {
         if (isWishlistItem) {
             let wishlistItem = WishlistTitle(context: self.context)
             
@@ -83,7 +94,7 @@ struct DataPersistence {
         }
     }
     
-    mutating func deleteTitles(indexTitle: Int, isWishlistTitle: Bool = true) {
+    func deleteTitles(indexTitle: Int, isWishlistTitle: Bool = true) {
         if (isWishlistTitle) {
             print("Data persistence count: \(wishlistTitles.count)")
             context.delete(wishlistTitles[indexTitle])
@@ -96,7 +107,7 @@ struct DataPersistence {
         saveTitles { _, _ in }
     }
     
-    mutating func findPersistentTitle(id: Int?, isWishlistTitle: Bool = true) -> Int?
+    func findPersistentTitle(id: Int?, isWishlistTitle: Bool = true) -> Int?
     {
         if (isWishlistTitle) {
             return wishlistTitles.firstIndex(where: {$0.id == id!})
@@ -105,7 +116,7 @@ struct DataPersistence {
         }
     }
     
-    mutating func deleteAllData() {
+    func deleteAllData() {
         for data in wishlistTitles {
             context.delete(data)
             saveTitles { _, _ in }
