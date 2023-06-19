@@ -11,7 +11,7 @@ import ViewAnimator
 
 class WishlistTableViewController: UIViewController {
     
-    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    private var dataPersistenceViewModel: DataPersistenceViewModel?
     var wishlistTitles = [WishlistTitle]()
 
     var selectedTitleIndex: Int = 0
@@ -20,6 +20,8 @@ class WishlistTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dataPersistenceViewModel = DataPersistenceViewModel()
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -35,14 +37,14 @@ class WishlistTableViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
 
-        dataPersistenceViewModel.getTitles()
+        dataPersistenceViewModel?.getTitles()
         
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
     }
     
     func setupBinders() {
-        dataPersistenceViewModel.wishlistTitles.bind { wishlistTitles in
+        dataPersistenceViewModel?.wishlistTitles.bind { wishlistTitles in
             guard let titles = wishlistTitles else {
                 return
             }
@@ -110,7 +112,7 @@ extension WishlistTableViewController: UICollectionViewDelegate {
                 voteAverage: wishlistTitles[selectedTitleIndex].voteAverage)
             destinationVC.detailTitle = title
 
-            dataPersistenceViewModel.replacePersistentTitle(title: destinationVC.detailTitle!, isWishlistTitle: false)
+            dataPersistenceViewModel?.replacePersistentTitle(title: destinationVC.detailTitle!, isWishlistTitle: false)
             
             // Is necessary to unhide self tab bar before preparing detail tab bar
             self.tabBarController?.tabBar.isHidden = false

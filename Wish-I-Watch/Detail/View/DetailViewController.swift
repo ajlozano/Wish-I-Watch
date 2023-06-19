@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
 
     var detailUrl = ""
     
-    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    private var dataPersistenceViewModel: DataPersistenceViewModel?
     var wishlistTitles = [WishlistTitle]()
     
     var detailTitle: Title? {
@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dataPersistenceViewModel = DataPersistenceViewModel()
+        
         setupBinders()
         updateWebView()
     }
@@ -45,11 +47,11 @@ class DetailViewController: UIViewController {
             viewAppearedBefore = true
         }
  
-        dataPersistenceViewModel.getTitles()
+        dataPersistenceViewModel?.getTitles()
     }
     
     func setupBinders() {
-        dataPersistenceViewModel.wishlistTitles.bind { wishlistTitles in
+        dataPersistenceViewModel?.wishlistTitles.bind { wishlistTitles in
             guard let titles = wishlistTitles else {
                 return
             }
@@ -67,7 +69,7 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func SaveButtonPressed(_ sender: UIBarButtonItem) {
-        dataPersistenceViewModel.replacePersistentTitle(title: detailTitle!)
+        dataPersistenceViewModel?.replacePersistentTitle(title: detailTitle!)
     }
     
     func updateWebView() {

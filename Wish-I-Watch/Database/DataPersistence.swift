@@ -14,13 +14,10 @@ class DataPersistence {
 
     let context: NSManagedObjectContext
     
-    // Used for production
-    static var shared = DataPersistence()
-    
     //MARK: Init with dependency
     init(container: NSPersistentContainer) {
         self.context = container.viewContext
-        //self.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+        self.context.automaticallyMergesChangesFromParent = true
     }
     
     convenience init() {
@@ -37,8 +34,13 @@ class DataPersistence {
                              completion: ([WishlistTitle], [ViewedTitle]) -> ()) {
         let wishlistList: [WishlistTitle]
         let viewedList: [ViewedTitle]
+        
+        self.wishlistTitles = []
+        self.viewedTitles = []
+        
         do {
             wishlistList = try context.fetch(savedRequest)
+            print("wishlist request: \(wishlistList.count)")
         } catch {
             print("Error fetching savedTitles context, \(error)")
             return
@@ -50,6 +52,7 @@ class DataPersistence {
             print("Error fetching viewedTitles context, \(error)")
             return
         }
+        
         self.wishlistTitles = wishlistList
         self.viewedTitles = viewedList
         
@@ -79,24 +82,25 @@ class DataPersistence {
             
             viewedTitles.append(viewedItem)
             
-            if (viewedTitles.count > 10) {
+            if (viewedTitles.count > Constants.maximumViewedTitlesStored) {
                 deleteTitles(indexTitle: 0, isWishlistTitle: false)
             }
         }
     }
     
     func saveTitles(completion: ([WishlistTitle], [ViewedTitle]) -> ()) {
-        do {
-            try context.save()
-            completion(wishlistTitles, viewedTitles)
-        } catch {
-            print("Error saving context, \(error)")
+        if context.hasChanges {
+            do {
+                try context.save()
+                completion(wishlistTitles, viewedTitles)
+            } catch {
+                print("Error saving context, \(error)")
+            }
         }
     }
     
     func deleteTitles(indexTitle: Int, isWishlistTitle: Bool = true) {
         if (isWishlistTitle) {
-            print("Data persistence count: \(wishlistTitles.count)")
             context.delete(wishlistTitles[indexTitle])
             wishlistTitles.remove(at: indexTitle)
         } else {

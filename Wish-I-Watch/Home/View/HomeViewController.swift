@@ -10,7 +10,7 @@ import ViewAnimator
 
 class HomeViewController: UIViewController {
 
-    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    private var dataPersistenceViewModel: DataPersistenceViewModel?
     var viewedTitles = [ViewedTitle]()
     var selectedTitleIndex: Int = 0
     
@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dataPersistenceViewModel = DataPersistenceViewModel()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -32,7 +33,7 @@ class HomeViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        dataPersistenceViewModel.getTitles()
+        dataPersistenceViewModel?.getTitles()
         
         let animation = AnimationType.from(direction: .top, offset: 300)
         UIView.animate(views: collectionView.visibleCells, animations: [animation])
@@ -40,7 +41,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupBinders() {
-        dataPersistenceViewModel.viewedTitles.bind { viewedTitles in
+        dataPersistenceViewModel?.viewedTitles.bind { viewedTitles in
             guard let titles = viewedTitles else {
                 return
             }

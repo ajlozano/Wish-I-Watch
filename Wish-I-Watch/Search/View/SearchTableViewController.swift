@@ -11,7 +11,7 @@ class SearchTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
 
     private let searchViewModel = SearchViewModel()
-    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    private var dataPersistenceViewModel: DataPersistenceViewModel?
     var titles = [Title]()
     var wishlistTitles = [WishlistTitle]()
     var viewedTitles = [ViewedTitle]()
@@ -24,6 +24,8 @@ class SearchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dataPersistenceViewModel = DataPersistenceViewModel()
         
         tableView.delegate = self
         tableView.register(UINib(nibName: "SearchTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
@@ -39,7 +41,7 @@ class SearchTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
 
-        dataPersistenceViewModel.getTitles()
+        dataPersistenceViewModel?.getTitles()
     }
     
     func setupBinders() {
@@ -55,7 +57,7 @@ class SearchTableViewController: UITableViewController {
             self?.reloadTableViewData()
         }
         
-        dataPersistenceViewModel.viewedTitles.bind { viewedTitles in
+        dataPersistenceViewModel?.viewedTitles.bind { viewedTitles in
             guard let titles = viewedTitles else {
                 return
             }
@@ -65,7 +67,7 @@ class SearchTableViewController: UITableViewController {
             }
         }
         
-        dataPersistenceViewModel.wishlistTitles.bind { savedTitles in
+        dataPersistenceViewModel?.wishlistTitles.bind { savedTitles in
             guard let titles = savedTitles else {
                 print("Error getting savedTitles from persistent data.")
                 return
@@ -143,9 +145,9 @@ extension SearchTableViewController: SearchTitleCellDelegate {
     func didSaveButtonPressed(_ titleId: Int) {
         if (checkSelectedTitle(titleId)) {
             if let wishlistIndex = wishlistTitles.firstIndex(where: { $0.id == titleId}) {
-                dataPersistenceViewModel.deleteTitle(indexTitle: wishlistIndex)
+                dataPersistenceViewModel?.deleteTitle(indexTitle: wishlistIndex)
             } else {
-                dataPersistenceViewModel.saveTitle(title: titles[self.selectedTitleIndex])
+                dataPersistenceViewModel?.saveTitle(title: titles[self.selectedTitleIndex])
             }
             
             //reloadTableViewData()
@@ -179,7 +181,7 @@ extension SearchTableViewController: SearchTitleCellDelegate {
         
         destinationVC.detailTitle = titles[selectedTitleIndex]
         
-        dataPersistenceViewModel.replacePersistentTitle(title: destinationVC.detailTitle!, isWishlistTitle: false)
+        dataPersistenceViewModel?.replacePersistentTitle(title: destinationVC.detailTitle!, isWishlistTitle: false)
     }
 }
 

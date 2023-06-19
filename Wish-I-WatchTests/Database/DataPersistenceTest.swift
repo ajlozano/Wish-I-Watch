@@ -11,7 +11,7 @@ import CoreData
 
 final class DataPersistenceTest: XCTestCase {
 
-    // Given
+    // GIVEN
     var sut: DataPersistence?
     
     var managedObjectModel: NSManagedObjectModel = {
@@ -20,6 +20,7 @@ final class DataPersistenceTest: XCTestCase {
     }()
     
     lazy var mockPersistentContainer: NSPersistentContainer = {
+        
         let container = NSPersistentContainer(name: "TitleDataModel", managedObjectModel: self.managedObjectModel)
         let description = NSPersistentStoreDescription()
         description.type = NSInMemoryStoreType
@@ -40,7 +41,7 @@ final class DataPersistenceTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = DataPersistence(container: mockPersistentContainer)
+        self.sut = DataPersistence(container: self.mockPersistentContainer)
     }
 
     override func tearDown() {
@@ -48,23 +49,145 @@ final class DataPersistenceTest: XCTestCase {
         super.tearDown()
     }
     
-    func testLoadTitles_whenNoDataIsReceived_ReturnFailure() {
-        
+    func testLoadTitlesWhenIsEmptyData() {
+        // WHEN
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            // THEN
+            XCTAssertEqual(wishlistTitles.count, 0)
+            XCTAssertEqual(viewedTitles.count, 0)
+        })
     }
     
-    func testLoadTitles_whenDataIsReceived_ReturnSuccess() {
+    func testSaveAndLoadTitlesWhenResultWithData() {
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 0)
+            XCTAssertEqual(viewedTitles.count, 0)
+        })
+        // WHEN
+        for i in 1...11 {
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)))
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)),
+                isWishlistItem: false)
+        }
         
+        sut?.saveTitles{ _, _ in }
+        
+        // WHEN
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            // THEN
+            XCTAssertEqual(wishlistTitles.count, 11)
+            XCTAssertEqual(viewedTitles.count, 11)
+        })
     }
     
-    func testLoadTitles_whenFetchingContext_ReturnNilValues() {
+    func testFindPersistentTitleWhenIdNotFoundAndReturnFailure() {
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 0)
+            XCTAssertEqual(viewedTitles.count, 0)
+        })
         
+        // WHEN
+        for i in 1...5 {
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)))
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)),
+                isWishlistItem: false)
+        }
+        
+        sut?.saveTitles{ _, _ in }
+        
+        // THEN
+        XCTAssertNil(sut?.findPersistentTitle(id: 6))
+        XCTAssertNil(sut?.findPersistentTitle(id: 6, isWishlistTitle: false))
     }
     
-    func testFindPersistentTitle_whenIdNotFound_ReturnFailure() {
+    func testFindPersistentTitleWhenIdFoundAndReturnSuccess() {
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 0)
+            XCTAssertEqual(viewedTitles.count, 0)
+        })
         
+        // WHEN
+        for i in 1...3 {
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)))
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)),
+                isWishlistItem: false)
+        }
+        
+        sut?.saveTitles{ _, _ in }
+        
+        // THEN
+        XCTAssertNotNil(sut?.findPersistentTitle(id: 1))
+        XCTAssertNotNil(sut?.findPersistentTitle(id: 2, isWishlistTitle: false))
     }
     
-    func testFindPersistentTitle_whenIdFound_ReturnSuccess() {
-        
+    func testDeleteTitles() {
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 0)
+            XCTAssertEqual(viewedTitles.count, 0)
+        })
+
+        // WHEN
+        for i in 1...3 {
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)))
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)),
+                isWishlistItem: false)
+        }
+
+        //sut?.saveTitles{ _, _ in }
+
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 3)
+            XCTAssertEqual(viewedTitles.count, 3)
+            XCTAssertNotNil(sut?.findPersistentTitle(id: 2))
+            XCTAssertNotNil(sut?.findPersistentTitle(id: 3, isWishlistTitle: false))
+        })
+
+        sut?.deleteTitles(indexTitle: sut?.findPersistentTitle(id: 2) ?? 0)
+        sut?.deleteTitles(indexTitle: sut?.findPersistentTitle(id: 3, isWishlistTitle: false) ?? 0, isWishlistTitle: false)
+
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            // THEN
+            XCTAssertEqual(wishlistTitles.count, 2)
+            XCTAssertEqual(viewedTitles.count, 2)
+            XCTAssertNil(sut?.findPersistentTitle(id: 2))
+            XCTAssertNil(sut?.findPersistentTitle(id: 3, isWishlistTitle: false))
+        })
     }
+    
+    func testDeleteAllData() {
+        sleep(10)
+        
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 0)
+            XCTAssertEqual(viewedTitles.count, 0)
+        })
+
+        // WHEN
+        for i in 1...3 {
+            sut?.setupItem(
+                item: Title(id: i, name: "\(i)", overview: "\(i)", date: "\(i)", posterPath: "\(i)", voteAverage: Double(i)))
+        }
+
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            XCTAssertEqual(wishlistTitles.count, 3)
+        })
+
+        sut?.saveTitles{ _, _ in }
+
+        sut?.deleteAllData()
+
+        sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
+            // THEN
+            XCTAssertEqual(wishlistTitles.count, 0)
+        })
+    }
+
 }

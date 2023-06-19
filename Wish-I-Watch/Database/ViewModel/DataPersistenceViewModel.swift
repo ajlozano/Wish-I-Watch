@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import CoreData
 
 final class DataPersistenceViewModel {
     var wishlistTitles: ObservableObject<[WishlistTitle]?> = ObservableObject(nil)
     var viewedTitles: ObservableObject<[ViewedTitle]?> = ObservableObject(nil)
     
+    var dataPersistence: DataPersistence?
+    
+    init() {
+        dataPersistence = DataPersistence()
+    }
+    
     func getTitles() {
-        DataPersistence.shared.loadTitles { wishlistTitles, viewedTitles in
+        dataPersistence!.loadTitles { wishlistTitles, viewedTitles in
             if let wishlist = self.wishlistTitles.value {
                 if (wishlistTitles.elementsEqual(wishlist) == false) {
                     self.wishlistTitles.value = wishlistTitles
@@ -32,12 +39,12 @@ final class DataPersistenceViewModel {
     }
     
     func saveTitle(title: Title, isWishlistTitle: Bool = true) {
-        DataPersistence.shared.setupItem(item: title, isWishlistItem: isWishlistTitle)
+        dataPersistence!.setupItem(item: title, isWishlistItem: isWishlistTitle)
         save()
     }
     
     func deleteTitle(indexTitle: Int, isWishlistTitle: Bool = true) {
-        DataPersistence.shared.deleteTitles(indexTitle: indexTitle, isWishlistTitle: isWishlistTitle)
+        dataPersistence!.deleteTitles(indexTitle: indexTitle, isWishlistTitle: isWishlistTitle)
         save()
     }
    
@@ -57,11 +64,11 @@ final class DataPersistenceViewModel {
     }
     
     func deleteAllWishlistTitles() {
-        DataPersistence.shared.deleteAllData()
+        dataPersistence!.deleteAllData()
     }
     
     private func save() {
-        DataPersistence.shared.saveTitles { wishlistTitles, viewedTitles in
+        dataPersistence!.saveTitles { wishlistTitles, viewedTitles in
             self.wishlistTitles.value = wishlistTitles
             self.viewedTitles.value = viewedTitles
         }

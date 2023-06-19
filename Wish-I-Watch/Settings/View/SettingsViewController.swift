@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: Properties
     private let settingsViewModel = SettingsViewModel()
-    private let dataPersistenceViewModel = DataPersistenceViewModel()
+    private var dataPersistenceViewModel: DataPersistenceViewModel?
     var contactsModel: [Contact] = [Contact]()
     var settingsModel: [Setting] = [Setting]()
     let deleteButton = UIButton()
@@ -24,12 +24,14 @@ class SettingsViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataPersistenceViewModel = DataPersistenceViewModel()
         setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         
+        dataPersistenceViewModel?.getTitles()
         deleteButton.backgroundColor = .systemRed
     }
     
@@ -144,7 +146,7 @@ extension SettingsViewController {
             sender.backgroundColor = .systemGreen
             //sender.isEnabled = false
  
-            self.dataPersistenceViewModel.deleteAllWishlistTitles()
+            self.dataPersistenceViewModel?.deleteAllWishlistTitles()
          })
         // Create CANCEL button with action handler
         let cancel = UIAlertAction(title: "CANCEL", style: .cancel, handler: { (action) -> Void in
