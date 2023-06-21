@@ -141,7 +141,7 @@ final class DataPersistenceTest: XCTestCase {
                 isWishlistItem: false)
         }
 
-        //sut?.saveTitles{ _, _ in }
+        sut?.saveTitles{ _, _ in }
 
         sut?.loadTitles(completion: { wishlistTitles, viewedTitles in
             XCTAssertEqual(wishlistTitles.count, 3)
@@ -189,5 +189,4 @@ final class DataPersistenceTest: XCTestCase {
             XCTAssertEqual(wishlistTitles.count, 0)
         })
     }
-
 }
