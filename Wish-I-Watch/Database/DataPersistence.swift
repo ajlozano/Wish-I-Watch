@@ -17,7 +17,7 @@ class DataPersistence {
     //MARK: Init with dependency
     init(container: NSPersistentContainer) {
         self.context = container.viewContext
-        self.context.automaticallyMergesChangesFromParent = true
+        //self.context.automaticallyMergesChangesFromParent = true
     }
     
     convenience init() {
@@ -40,7 +40,6 @@ class DataPersistence {
         
         do {
             wishlistList = try context.fetch(savedRequest)
-            print("wishlist request: \(wishlistList.count)")
         } catch {
             print("Error fetching savedTitles context, \(error)")
             return
@@ -89,13 +88,11 @@ class DataPersistence {
     }
     
     func saveTitles(completion: ([WishlistTitle], [ViewedTitle]) -> ()) {
-        if context.hasChanges {
-            do {
-                try context.save()
-                completion(wishlistTitles, viewedTitles)
-            } catch {
-                print("Error saving context, \(error)")
-            }
+        do {
+            try context.save()
+            completion(wishlistTitles, viewedTitles)
+        } catch {
+            print("Error saving context, \(error)")
         }
     }
     

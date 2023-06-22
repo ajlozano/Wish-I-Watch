@@ -28,7 +28,7 @@ final class Wish_I_WatchUITests: XCTestCase {
         searchField.tap()
         searchField.typeText("Avatar")
         
-                let searchButton = app/*@START_MENU_TOKEN@*/.buttons["Search"]/*[[".keyboards",".buttons[\"buscar\"]",".buttons[\"Search\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        let searchButton = app/*@START_MENU_TOKEN@*/.buttons["Search"]/*[[".keyboards",".buttons[\"buscar\"]",".buttons[\"Search\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
         XCTAssertTrue(searchField.exists)
         searchButton.tap()
         
@@ -47,7 +47,32 @@ final class Wish_I_WatchUITests: XCTestCase {
         XCTAssertTrue(navigationBarSaveTitleButton.exists)
         navigationBarSaveTitleButton.tap()
         
-        app.tabBars["Tab Bar"].buttons["Wishlist"].tap()
+        let homeButton = app.tabBars["Tab Bar"].buttons["Home"]
+        XCTAssertTrue(homeButton.exists)
+        homeButton.tap()
+        
+        let wishlistButton = app.tabBars["Tab Bar"].buttons["Wishlist"]
+        XCTAssertTrue(wishlistButton.exists)
+        wishlistButton.tap()
+        
+        
+        let settingsButton = app.tabBars["Tab Bar"].buttons["Settings"]
+        XCTAssertTrue(settingsButton.exists)
+        settingsButton.tap()
+        
+        let trashButton = app.tables/*@START_MENU_TOKEN@*/.buttons["trash"]/*[[".cells.buttons[\"trash\"]",".buttons[\"trash\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(trashButton.exists)
+        trashButton.tap()
+        
+        let okAlertButton = app.alerts["Confirm"].scrollViews.otherElements.buttons["OK"]
+        XCTAssertTrue(okAlertButton.exists)
+        okAlertButton.tap()
+        
+        trashButton.tap()
+        
+        let cancelAlertButton = app.alerts["Confirm"].scrollViews.otherElements.buttons["CANCEL"]
+        XCTAssertTrue(cancelAlertButton.exists)
+        cancelAlertButton.tap()
                         
     }
 
