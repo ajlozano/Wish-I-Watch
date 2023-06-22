@@ -171,7 +171,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="zM2-1w-Ugk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemYellowColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -198,7 +198,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently Viewed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCx-AO-G83" userLabel="HeaderLabel">
                                 <rect key="frame" x="25" y="108" width="380" height="24"/>
                                 <color key="backgroundColor" red="0.24250315659999999" green="0.19357269939999999" blue="0.0018131987450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <color key="textColor" systemColor="systemYellowColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -517,7 +517,7 @@ I'm a self-driven iOS developer 📱, hobbist game creator 🎮, music and guita
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Zb-8G-CkB">
                                 <rect key="frame" x="35" y="153" width="360" height="680"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fDG-2q-tbc">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -537,12 +537,12 @@ I'm a self-driven iOS developer 📱, hobbist game creator 🎮, music and guita
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-8q-lZU">
                                                     <rect key="frame" x="0.0" y="270" width="200" height="30"/>
-                                                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="vjY-sf-TY3"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="12"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemYellowColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -566,21 +566,21 @@ I'm a self-driven iOS developer 📱, hobbist game creator 🎮, music and guita
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist Titles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mt-yn-FlM" userLabel="HeaderLabel">
                                 <rect key="frame" x="25" y="108" width="380" height="24"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yF1-ev-YW9" userLabel="Line">
                                 <rect key="frame" x="25" y="137" width="380" height="1"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="YVz-qv-XFS"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bxy-wR-aGZ"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0mt-yn-FlM" firstAttribute="leading" secondItem="Bxy-wR-aGZ" secondAttribute="leading" constant="25" id="FKY-nF-r2N"/>
                             <constraint firstItem="0mt-yn-FlM" firstAttribute="top" secondItem="Bxy-wR-aGZ" secondAttribute="top" constant="5" id="Mud-CT-4Zc"/>
@@ -609,7 +609,7 @@ I'm a self-driven iOS developer 📱, hobbist game creator 🎮, music and guita
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ju-ex-G1v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2344.2748091603053" y="695.77464788732402"/>
+            <point key="canvasLocation" x="-2345.5813953488373" y="695.27896995708159"/>
         </scene>
         <!--HomeNavController-->
         <scene sceneID="Ufb-6c-Nuc">
@@ -660,8 +660,8 @@ I'm a self-driven iOS developer 📱, hobbist game creator 🎮, music and guita
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Bhf-LN-UJB"/>
-        <segue reference="Uwf-r0-jgg"/>
+        <segue reference="STZ-ce-kBV"/>
+        <segue reference="1Zj-ws-rQm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>

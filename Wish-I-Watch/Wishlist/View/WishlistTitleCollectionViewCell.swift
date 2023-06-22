@@ -17,7 +17,7 @@ class WishlistTitleCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         titleImage.layer.cornerRadius = 10
-        titleImage.layer.borderColor = UIColor.black.cgColor
+        titleImage.layer.borderColor = UIColor.systemYellow.cgColor
         titleImage.layer.borderWidth = 1
     }
     
