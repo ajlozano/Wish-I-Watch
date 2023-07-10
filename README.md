@@ -17,6 +17,7 @@
 - ViewAnimator
 - Collection View
 - Table View
+- XCTesting and UITesting
 
 ### 🚀 Platform
 - iOS
